@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/Style.css">
+
+
+
+    <title>Web Wares</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <header>
+
+            <div class="navBar">
+                <div class="nav">
+
+                    <div class="navItem" v-cloak>
+
+                        <a @click="openLoginModal" v-if="!isConnected">
+                            <P>Connexion</P>
+                        </a>
+                        <a href="">
+                            <p>Mon Compte</p>
+                        </a>
+                        <a href="./products.html">
+                            <p>Boutique</p>
+                        </a>
+                        <a href="">
+                            <p>Panier</p>
+                        </a>
+                        <a v-if="isConnected" @click="logOut()">
+                            <p>Déconnexion</p>
+                        </a>
+                        <span>
+                            <p v-if="isConnected">{{ userName }}</p>
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="responsive_menu hiden" id="header">
+                <div class="img_resp">
+                    <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                    <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                    <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+                </div>
+                <div class="inf_resp">
+                    <a href="./products.html">
+                        <p>Produits</p>
+                    </a>
+                    <p>Panier</p>
+                    <p>Utilisateur</p>
+                    <p>Services</p>
+                    <p>Contact</p>
+                </div>
+            </div>
+            <div class="Title">
+                <div></div>
+                <div class="info">
+                    <a href="">
+                        <div class="logo">
+                            <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                                <i class="far fa-circle fa-stack-2x"></i>
+                                <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="info_resto">
+                            <span class="name">Web</span>
+                            <span class="resto">Wares</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="burger" id="menu_burger">
+                    <i class="fa-solid fa-bars" id="burger"></i>
+                    <i id="croix" class="hiden">&times;</i>
+                </div>
+            </div>
+
+            <div class="Welcome">
+                <h1>Welcome</h1>
+                <h3>Try Great to Web Wares</h3>
+                <button @click="openLoginModal" v-if="!isConnected">Inscription / Connexion</button>
+            </div>
+        </header>
+
+
+  
+            
+        <form v-if="loginModal" v-cloak class="modal">
+            <div class="modal-content">
+                <h3>Connexion</h3>
+                <span @click="closeLoginModal()">X</span>
+                <label for="name">Nom utilisateur</label>
+                <input type="text" v-model="userName">
+                <label for="password">Mot de passe</label>
+                <input type="password" v-model="password">
+
+                <button type="submit" @click.prevent="login()" class="signIn">Me connecter</button>
+                <button class="signUp"><a href="./HTML/signUp.html">Pas de compte? je m'inscris</a></button>
+            </div>
+        </form>
+
+      
+        <section class="about">
+            <div class="about_img">
+                <img src="./Images/fruit.png" alt="Plateau de fruit" class="non_resp" />
+                <img src="./Images/about-us-img.png" alt="Plateau de fruit" class="fruit_resp" />
+            </div>
+            <div class="about_txt">
+                <div class="top">
+                    <h2>About Us</h2>
+                    <h3>Introduce To Web Wares</h3>
+                </div>
+
+                <div class="bottom">
+                    <span>***</span>
+                    <p>
+                        <i>L</i>orem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Pariatur cumque, dolor earum numquam tenetur perferendis, maiores in
+                        molestiae quibusdam distinctio officiis, ab voluptatibus. Veniam
+                        beatae neque vero enim, facere alias. Quo quos alias totam natus
+                        eius molestiae neque debitis vero eveniet similique corrupti modi
+                        dignissimos, exercitationem, impedit commodi beatae facilis.
+                    </p>
+                    <span>***</span>
+                    <button>Read More</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="Dishes">
+            <div>
+                <div class="price1">
+                    <h1>Name</h1>
+                    <h2>Price</h2>
+                    <button>ORDER NOW</button>
+                </div>
+                <img src="./Images/gallery-img-1.jpeg" alt="Repas" />
+            </div>
+            <div>
+                <div class="price2">
+                    <h1>Name</h1>
+                    <h2>Price</h2>
+                    <button>ORDER NOW</button>
+                </div>
+                <img src="./Images/gallery-img-2.jpeg" alt="Repas" />
+            </div>
+            <div>
+                <div class="price3">
+                    <h1>Name</h1>
+                    <h2>Price</h2>
+                    <button>ORDER NOW</button>
+                </div>
+                <img src="./Images/gallery-img-3.jpeg" alt="Repas" />
+            </div>
+            <div>
+                <div class="price4">
+                    <h1>Name</h1>
+                    <h2>Price</h2>
+                    <button>ORDER NOW</button>
+                </div>
+                <img src="./Images/gallery-img-4.jpeg" alt="Repas" />
+            </div>
+            <div>
+                <div class="price5">
+                    <h1>Name</h1>
+                    <h2>Price</h2>
+                    <button>ORDER NOW</button>
+                </div>
+                <img src="./Images/gallery-img-5.jpeg" alt="Repas" />
+            </div>
+            <div>
+                <div class="price6">
+                    <h1>Name</h1>
+                    <h2>Price</h2>
+                    <button>ORDER NOW</button>
+                </div>
+                <img src="./Images/gallery-img-6.jpeg" alt="Repas" />
+            </div>
+        </section>
+
+        <footer>
+            <div class="info">
+                <div>
+                    <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                        <i class="far fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                    </span>
+                </div>
+                <div class="info_resto">
+                    <span class="name">Web</span>
+                    <span class="resto">Wares</span>
+                </div>
+            </div>
+
+            <div class="Contact">
+                <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
+                <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./JS/script.js"></script>
+    <script src="./JS/main.js"></script>
+</body>
+
+</html>

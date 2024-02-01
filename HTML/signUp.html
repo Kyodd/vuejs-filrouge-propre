@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <title>Inscription</title>
+</head>
+
+<body class="signUp">
+
+    <div id="app">
+
+        <header>
+
+            <div class="navBar">
+                <div class="nav">
+
+                    <div class="navItem">
+
+                        <a href="./HTML/signUp.html">
+                            <P>Connexion</P>
+                        </a>
+                        <a href="">
+                            <p>Mon Compte</p>
+                        </a>
+                        <a href="./products.html">
+                            <p>Boutique</p>
+                        </a>
+                        <a href="">
+                            <p>Panier</p>
+                        </a>
+                        <a href="">
+                            <p>Déconnexion</p>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="responsive_menu hiden" id="header">
+                <div class="img_resp">
+                    <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                    <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                    <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+                </div>
+                <div class="inf_resp">
+                    <a href="./products.html">
+                        <p>Produits</p>
+                    </a>
+                    <p>Panier</p>
+                    <p>Utilisateur</p>
+                    <p>Services</p>
+                    <p>Contact</p>
+                </div>
+            </div>
+            <div class="Title">
+                <div></div>
+                <div class="info">
+                    <a href="../index.html">
+                        <div class="logo">
+                            <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                                <i class="far fa-circle fa-stack-2x"></i>
+                                <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="info_resto">
+                            <span class="name">Web</span>
+                            <span class="resto">Wares</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="burger" id="menu_burger">
+                    <i class="fa-solid fa-bars" id="burger"></i>
+                    <i id="croix" class="hiden">&times;</i>
+                </div>
+            </div>
+
+            <div class="Welcome">
+                <h1>Welcome</h1>
+                <h3>Try Great to Web Wares</h3>
+                <button>Inscription / Connexion</button>
+            </div>
+        </header>
+
+        <div class="formContainer">
+            <form>
+
+                <label for="category"><u>M'inscrire en tant que:</u> </label>
+
+                <div class="radioInputs">
+                    <input type="radio" name="category" value="client" v-model="tempTable.category"> <span>Client</span>
+                    <br>
+                    <input type="radio" name="category" value="commerçant" v-model="tempTable.category">
+                    <span>Commerçant</span>
+                </div>
+
+
+
+                <label for="userName"><u>Nom d'utilisateur</u></label>
+                <input type="text" name="userName" placeholder="Nom d'utilisateur" v-model="tempTable.userName"
+                    class="moddedInputs">
+
+                <label for="email"><u>Adresse mail</u></label>
+                <input type="email" name="email" placeholder="Adresse mail" v-model="tempTable.email"
+                    class="moddedInputs">
+
+                <label for="password" class="passwordLabel"><u>Mot de passe</u>
+                    <br><br>
+                    (Doit inclure au moins 8 caractères dont: Une lettre en majuscule, une lettre en minuscule, un
+                    chiffre et un caractère spécial (@, $, !, %, *, ?, &, #))</label>
+                <input type="password" name="password" placeholder="Mot de passe" v-model="tempTable.password"
+                    class="moddedInputs">
+
+                <label for="password"><u>Confirmer le mot de passe</u></label>
+
+                <input type="password" name="confPassword" placeholder="Confirmer le mot de passe"
+                    v-model="tempTable.confPassword" class="moddedInputs">
+
+                <label v-if="tempTable.category === 'commerçant'" v-cloak><u>Numéro de Siret</u></label>
+                <input v-if="tempTable.category === 'commerçant'" type="text" name="siret" placeholder="Numéro de Siret"
+                    v-model="tempTable.siret" v-cloak class="moddedInputs">
+
+
+                <input type="submit" value="Valider" @click.prevent="addUser()" class="sub">
+
+            </form>
+        </div>
+
+
+
+
+
+        <footer>
+            <div class="info">
+                <div>
+                    <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                        <i class="far fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                    </span>
+                </div>
+                <div class="info_resto">
+                    <span class="name">Web</span>
+                    <span class="resto">Wares</span>
+                </div>
+            </div>
+
+            <div class="Contact">
+                <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
+                <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../JS/script.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+
+</html>

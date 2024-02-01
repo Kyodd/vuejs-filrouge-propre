@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestionnaire de produits</title>
+  <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../CSS/Style.css" />
+</head>
+
+<body class="productsPage">
+
+  <main id="app">
+
+    <header>
+
+      <div class="navBar">
+        <div class="nav">
+
+          <div class="navItem">
+
+            <a href="./HTML/signUp.html">
+              <P>Connexion</P>
+            </a>
+            <a href="">
+              <p>Mon Compte</p>
+            </a>
+            <a href="./products.html">
+              <p>Boutique</p>
+            </a>
+            <a href="">
+              <p>Panier</p>
+            </a>
+            <a href="">
+              <p>Déconnexion</p>
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="responsive_menu hiden" id="header">
+        <div class="img_resp">
+          <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
+          <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
+          <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+        </div>
+        <div class="inf_resp">
+          <a href="./products.html">
+            <p>Produits</p>
+          </a>
+          <p>Panier</p>
+          <p>Utilisateur</p>
+          <p>Services</p>
+          <p>Contact</p>
+        </div>
+      </div>
+      <div class="Title">
+        <div></div>
+        <div class="info">
+          <a href="../index.html">
+            <div class="logo">
+              <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                <i class="far fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-hippo fa-stack-1x"></i>
+              </span>
+            </div>
+            <div class="info_resto">
+              <span class="name">Web</span>
+              <span class="resto">Wares</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="burger" id="menu_burger">
+          <i class="fa-solid fa-bars" id="burger"></i>
+          <i id="croix" class="hiden">&times;</i>
+        </div>
+      </div>
+
+      <div class="Welcome">
+        <h1>Welcome</h1>
+        <h3>Try Great to Web Wares</h3>
+        <button>Inscription / Connexion</button>
+      </div>
+    </header>
+
+    <section class="shoppingCart">
+      <div class="cartModal">
+        <div class="cart">
+          <strong>Panier</strong>
+          <table>
+            <thead>
+              <tr>
+                <th>Produit(s)</th>
+                <th>Prix total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="prod in cart" :key="prod.id" v-cloak>
+                <template v-if="prod.active">
+                  <td>{{prod.name +' x '+ prod.quantity }}</td>
+                  <td>{{ totalPrice() }}</td>
+                </template>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="items">
+      <div v-for="prod in product" v-cloak>
+        <div class="description">
+          <h3>{{ prod.name }}</h3>
+          <img :src="prod.imageUrl" alt="{{ prod.name }}" />
+          <span class="price">{{ prod.price }}</span>
+          <p class="details">{{ prod.description }}</p>
+          <div class="btns">
+            <button class="add" @click="addToCart(prod)">
+              Ajouter au panier
+            </button>
+            <button class="seeDetails">Voir plus de détails</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="info">
+        <div>
+          <span class="fa-stack fa-2x" style="flex-shrink: 0">
+            <i class="far fa-circle fa-stack-2x"></i>
+            <i class="fa-solid fa-hippo fa-stack-1x"></i>
+          </span>
+        </div>
+        <div class="info_resto">
+          <span class="name">Web</span>
+          <span class="resto">Wares</span>
+        </div>
+      </div>
+
+      <div class="Contact">
+        <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+        <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
+        <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
+      <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+    </footer>
+
+  </main>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./JS/script.js"></script>
+  <script src="./JS/main.js"></script>
+</body>
+
+</html>
