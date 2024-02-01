@@ -81,7 +81,9 @@ body header .Title .info a .info_resto {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
 }
 body header .Title .info a .info_resto .name {
   font-size: 48px;
@@ -794,4 +796,4 @@ body footer p {
     display: block;
     padding: 22% 40%;
   }
-}
+}/*# sourceMappingURL=Style.css.map */

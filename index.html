@@ -27,14 +27,8 @@
                         <a @click="openLoginModal" v-if="!isConnected">
                             <P>Connexion</P>
                         </a>
-                        <a href="">
-                            <p>Mon Compte</p>
-                        </a>
                         <a href="./products.html">
                             <p>Boutique</p>
-                        </a>
-                        <a href="">
-                            <p>Panier</p>
                         </a>
                         <a v-if="isConnected" @click="logOut()">
                             <p>Déconnexion</p>
@@ -42,6 +36,14 @@
                         <span>
                             <p v-if="isConnected">{{ userName }}</p>
                         </span>
+
+                        <a href="" v-if="isConnected">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+
+                        <a href="" v-if="isConnected">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
 
                     </div>
 
@@ -90,7 +92,7 @@
             <div class="Welcome">
                 <h1>Welcome</h1>
                 <h3>Try Great to Web Wares</h3>
-                <button @click="openLoginModal" v-if="!isConnected">Inscription / Connexion</button>
+                <button @click="openLoginModal" v-if="!isConnected">Commencer dès maintenant</button>
             </div>
         </header>
 
@@ -126,12 +128,7 @@
                 <div class="bottom">
                     <span>***</span>
                     <p>
-                        <i>L</i>orem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Pariatur cumque, dolor earum numquam tenetur perferendis, maiores in
-                        molestiae quibusdam distinctio officiis, ab voluptatibus. Veniam
-                        beatae neque vero enim, facere alias. Quo quos alias totam natus
-                        eius molestiae neque debitis vero eveniet similique corrupti modi
-                        dignissimos, exercitationem, impedit commodi beatae facilis.
+                        <i>B</i>ienvenue sur notre plateforme de commande en ligne. Nous sommes ravis de vous accueillir et de vous offrir une expérience de commande simplifiée. Notre plateforme est conçue pour vous aider à trouver facilement les produits que vous recherchez et à les commander en quelques clics. Nous espérons que vous apprécierez notre service et que vous reviendrez bientôt. Si vous avez des questions ou des commentaires, n’hésitez pas à nous contacter. Nous sommes là pour vous aider à tout moment.
                     </p>
                     <span>***</span>
                     <button>Read More</button>
