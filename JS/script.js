@@ -478,7 +478,6 @@ const app = Vue.createApp({
   },
 
   created() {
-
 //pour users
     let storedSave = localStorage.getItem("users");
     if (storedSave) {

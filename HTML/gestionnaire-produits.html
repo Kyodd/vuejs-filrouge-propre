@@ -19,35 +19,41 @@
 
                     <div class="navItem">
 
-                        <a href="./HTML/signUp.html">
+                        <a href="../index.html">
+                            <P>Acceuil</P>
+                        </a>
+
+                        <a @click="openLoginModal()" v-if="isConnected">
                             <P>Connexion</P>
                         </a>
                         <a href="">
                             <p>Mon Compte</p>
                         </a>
-                        <a href="./products.html">
+                        <a href="../products.html">
                             <p>Boutique</p>
                         </a>
                         <a href="">
                             <p>Panier</p>
                         </a>
-                        <a href="">
+                        <a v-if="!isConnected" @click="logOut()">
                             <p>Déconnexion</p>
                         </a>
+                        <span>
+                            <p v-if="isConnected">{{ userName }}</p>
+                        </span>
 
                     </div>
-
                 </div>
             </div>
 
             <div class="responsive_menu hiden" id="header">
                 <div class="img_resp">
-                    <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
-                    <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
-                    <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+                    <img src="../Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                    <img src="../Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                    <img src="../Images/nav-img-3.jpeg" alt="Repas" id="img3" />
                 </div>
                 <div class="inf_resp">
-                    <a href="./products.html">
+                    <a href="../products.html">
                         <p>Produits</p>
                     </a>
                     <p>Panier</p>
@@ -59,7 +65,7 @@
             <div class="Title">
                 <div></div>
                 <div class="info">
-                    <a href="">
+                    <a href="../index.html">
                         <div class="logo">
                             <span class="fa-stack fa-2x" style="flex-shrink: 0">
                                 <i class="far fa-circle fa-stack-2x"></i>
@@ -82,9 +88,23 @@
             <div class="Welcome">
                 <h1>Welcome</h1>
                 <h3>Try Great to Web Wares</h3>
-                <button>Inscription / Connexion</button>
+                <button @click="openLoginModal()" v-if="!isConnected">Inscription / Connexion</button>
             </div>
         </header>
+
+        <form v-if="loginModal" v-cloak class="modal">
+            <div class="modal-content">
+                <h3>Connexion</h3>
+                <span @click="closeLoginModal()">X</span>
+                <label for="name">Nom utilisateur</label>
+                <input type="text" v-model="userName">
+                <label for="password">Mot de passe</label>
+                <input type="password" v-model="password">
+
+                <button type="submit" @click.prevent="login()" class="signIn">Me connecter</button>
+                <button class="signUp"><a href="../HTML/signUp.html">Pas de compte? je m'inscris</a></button>
+            </div>
+        </form>
 
         <h1>Gestionaire de produits</h1>
 
@@ -117,7 +137,7 @@
             </tbody>
         </table>
 
-        <div id="editModal" class="modal" v-if="editModal" @click.stop="closeModal()">
+        <div id="editModal" class="modal" v-if="editModal" @click.stop="closeModal()" v-cloak>
             <div class="modal-content" @click.stop>
                 <span class="close" @click.stop="closeEditModal()">X</span>
                 <h2>Modifier le produit</h2>
@@ -146,7 +166,7 @@
             </div>
         </div>
 
-        <div id="addModal" class="modal" v-if="addModal" @click.stop="closeModal()">
+        <div id="addModal" class="modal" v-if="addModal" @click.stop="closeModal()" v-cloak>
             <div class="modal-content" @click.stop>
                 <h2>Ajouter un produit</h2> <span @click.stop="closeAddModal()">X</span>
 
