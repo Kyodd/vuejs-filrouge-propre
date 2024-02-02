@@ -198,16 +198,24 @@ let userList = [
     password: "Valentin#62",
     email: "val.fandelom@gmail.com",
     category: "client",
-  }
+  },
+  {
+    id: 1,
+    userName: "Vendeur",
+    password: "Vendeur#1",
+    email: "vendeur1@gmail.com",
+    category: "Commerçant",
+    siret: "12345678912345",
+  },
 ];
 
 let sellersList = [
   {
     id: 1,
-    userName: "Benoit",
-    password: "BenoitDuBl3d?",
-    email: "benoit.valkyrie@gmail.com",
-    category: "seller",
+    userName: "Vendeur",
+    password: "Vendeur#1",
+    email: "vendeur1@gmail.com",
+    category: "Commerçant",
     siret: "12345678912345",
   },
 ];
@@ -305,6 +313,7 @@ const app = Vue.createApp({
 
         if(user){
           this.handleUserFound(user)
+          localStorage.setItem("isConnected", JSON.stringify(true))
         } else {
           alert("Utilisateur inconnu")
         }
@@ -328,15 +337,12 @@ const app = Vue.createApp({
     handleSuccessLogin(){
       this.isConnected = true
       this.loginModal = false
-      this.connectedUser.push(user)
-      this.localSave()
       alert("Vous êtes connecté")
     },
 
     logOut(){
       this.isConnected = false
-      console.log(this.isConnected)
-      localStorage.removeItem("connectedUser")
+      localStorage.removeItem("isConnected")
     },
 
     openLoginModal(){
@@ -353,7 +359,6 @@ const app = Vue.createApp({
       localStorage.setItem("sellers", JSON.stringify(this.sellers));
       localStorage.setItem("cart", JSON.stringify(this.cart));
       localStorage.setItem("product", JSON.stringify(this.product));
-      localStorage.setItem("connectedUser", JSON.stringify(this.connectedUser));
     },
 
 //pour produits
@@ -470,13 +475,6 @@ const app = Vue.createApp({
     },
   },
 
-  connectedUser: {
-    deep: true,
-    handler(newValue) {
-      this.localSave();
-    },
-  },
-
   created() {
 //pour users
     let storedSave = localStorage.getItem("users");
@@ -496,11 +494,8 @@ const app = Vue.createApp({
     if (storedSave) {
       this.product = JSON.parse(storedSave);
     }
-    storedSave = localStorage.getItem("connectedUser");
-    if(storedSave){
-      this.connectedUser = JSON.parse(storedSave)
-      this.isConnected = true
-    }
+    let isConnected = JSON.parse(localStorage.getItem("isConnected"));
+    this.isConnected = isConnected || false;
   },
 });
 

@@ -766,6 +766,16 @@ body h5 a {
   z-index: 2;
 }
 
+.profilePage {
+  color: #ffffff;
+}
+.profilePage .profile {
+  margin-top: 10px;
+}
+.profilePage .profile h2 {
+  text-align: center;
+}
+
 .hiden {
   display: none !important;
 }
