@@ -186,24 +186,24 @@ let products = [
 let userList = [
   {
     id: 1,
-    userName: "Didier",
-    password: "Admin#1",
+    userName: "admin",
+    password: "admin",
     email: "admin@gmail.com",
     category: "admin",
   },
 
   {
     id: 2,
-    userName: "valentin",
-    password: "Valentin#62",
-    email: "val.fandelom@gmail.com",
+    userName: "user",
+    password: "user",
+    email: "user@gmail.com",
     category: "client",
   },
   {
     id: 3,
-    userName: "Vendeur",
-    password: "Vendeur#1",
-    email: "vendeur1@gmail.com",
+    userName: "seller",
+    password: "seller",
+    email: "seller@gmail.com",
     category: "Commerçant",
     siret: "12345678912345",
   },
@@ -238,6 +238,8 @@ const app = Vue.createApp({
       cartisVisible: false,
       counter: 0,
       cart: [],
+      totalPriceNoVATValue: 0,
+      totalPriceValue: 0,
 //pour le CRUD
       editModal: false,
       addModal: false,
@@ -403,6 +405,26 @@ const app = Vue.createApp({
       this.localSave();
     },
 
+    totalProdNoVAT(prod){
+      let total = ((prod.price * prod.quantity)*0.8)
+      return total.toFixed(2)
+    },
+
+    totalProductPrice(prod){
+      let total = (prod.price * prod.quantity)
+      return total.toFixed(2)
+    },
+
+    totalPriceNoVAT() {
+      return this.cart.reduce((acc, product) => {
+        if (product.active) {
+          return acc + parseFloat((product.price * product.quantity)*0.8);
+        } else {
+          return acc;
+        }
+      }, 0).toFixed(2);
+    },
+
     totalPrice() {
       return this.cart.reduce((acc, product) => {
         if (product.active) {
@@ -412,6 +434,31 @@ const app = Vue.createApp({
         }
       }, 0).toFixed(2);
     },
+
+    add(prod){
+      prod.quantity++
+      this.localSave()
+    },
+
+    remove(prod){
+      if(prod.quantity > 1){
+        prod.quantity--
+      }
+      this.localSave()
+    },
+
+    deleteItem(productId){
+      let index = this.cart.findIndex((product) => product.id === productId)
+        if(index !== -1 && confirm("Etes-vous sur de vouloir supprimer cet article de votre panier ?")){
+          this.cart.splice(index, 1)
+          this.localSave()
+        }
+
+  }
+},
+
+
+
 
 //Pour le CRUD produits
 
@@ -469,7 +516,6 @@ const app = Vue.createApp({
       }
     },
 
-  },
 
   computed: {},
 
