@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../CSS/Style.css">
+
+
+
+    <title>Nous Contacter</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header>
+
+            <div class="navBar">
+                <div class="nav">
+
+                    <div class="navItem">
+
+                        <a href="../index.html">
+                            <P>Acceuil</P>
+                        </a>
+
+                        <a @click="openLoginModal" v-if="isConnected">
+                            <P>Connexion</P>
+                        </a>
+                        <a href="">
+                            <p>Mon Compte</p>
+                        </a>
+                        <a href="../products.html">
+                            <p>Boutique</p>
+                        </a>
+                        <a href="">
+                            <p>Panier</p>
+                        </a>
+                        <a v-if="!isConnected" @click="logOut()">
+                            <p>Déconnexion</p>
+                        </a>
+                        <span>
+                            <p v-if="isConnected" v-cloak>{{ userName }}</p>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="responsive_menu hiden" id="header">
+                <div class="img_resp">
+                    <img src="../Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                    <img src="../Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                    <img src="../Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+                </div>
+                <div class="inf_resp">
+                    <a href="../products.html">
+                        <p>Produits</p>
+                    </a>
+                    <p>Panier</p>
+                    <p>Utilisateur</p>
+                    <p>Services</p>
+                    <p>Contact</p>
+                </div>
+            </div>
+            <div class="Title">
+                <div></div>
+                <div class="info">
+                    <a href="../index.html">
+                        <div class="logo">
+                            <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                                <i class="far fa-circle fa-stack-2x"></i>
+                                <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="info_resto">
+                            <span class="name">Web</span>
+                            <span class="resto">Wares</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="burger" id="menu_burger">
+                    <i class="fa-solid fa-bars" id="burger"></i>
+                    <i id="croix" class="hiden">&times;</i>
+                </div>
+            </div>
+
+            <div class="Welcome">
+                <h1>Welcome</h1>
+                <h3>Try Great to Web Wares</h3>
+                <button @click="openLoginModal()" v-if="!isConnected">Inscription / Connexion</button>
+            </div>
+        </header>
+
+        <form v-if="loginModal" v-cloak class="modal">
+            <div class="modal-content">
+                <h3>Connexion</h3>
+                <span @click="closeLoginModal()">X</span>
+                <label for="name">Nom utilisateur</label>
+                <input type="text" v-model="userName">
+                <label for="password">Mot de passe</label>
+                <input type="password" v-model="password">
+
+                <button type="submit" @click.prevent="login()" class="signIn">Me connecter</button>
+                <button class="signUp"><a href="../HTML/signUp.html">Pas de compte? je m'inscris</a></button>
+            </div>
+        </form>
+
+
+        <!-- !!!
+        Mettez votre code ICI
+            SVP -->
+        <div class="contact-form">
+            <h2>Contactez-nous :</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="pseudo">Pseudo:</label>
+                    <input type="text" id="pseudo" name="pseudo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Numéro de téléphone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="12" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+
+
+        <footer>
+            <div class="info">
+                <div>
+                    <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                        <i class="far fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                    </span>
+                </div>
+                <div class="info_resto">
+                    <span class="name">Web</span>
+                    <span class="resto">Wares</span>
+                </div>
+            </div>
+
+            <div class="Contact">
+                <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
+                <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+            <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
+            <h5><a href="../HTML/TermOfUse.html">Politique de Confidantialité</a></h5>
+            <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../JS/script.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+
+</html>
