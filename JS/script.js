@@ -200,7 +200,7 @@ let userList = [
     category: "client",
   },
   {
-    id: 1,
+    id: 3,
     userName: "Vendeur",
     password: "Vendeur#1",
     email: "vendeur1@gmail.com",
@@ -228,6 +228,8 @@ const app = Vue.createApp({
       users: userList,
       sellers: sellersList,
       isConnected: false,
+      sellerConnected: false,
+      adminConnected: false,
       loginModal: false,
       connectedUser: [],
 //pour produits
@@ -273,8 +275,8 @@ const app = Vue.createApp({
                 siret &&
                 siretReg.test(siret)
               ) {
-                this.sellers.push({
-                  id: this.sellers.length + 1,
+                this.users.push({
+                  id: this.users.length + 1,
                   userName: userName,
                   password: password,
                   email: email,
@@ -311,11 +313,10 @@ const app = Vue.createApp({
           user = this.sellers.find((seller) => seller.userName === this.userName)
         }
 
-        if(user){
-          this.handleUserFound(user)
-          localStorage.setItem("isConnected", JSON.stringify(true))
+        if (user) {
+          this.handleUserFound(user);
         } else {
-          alert("Utilisateur inconnu")
+          alert("Utilisateur inconnu");
         }
       } else {
         alert("Veuillez remplir tous les champs")
@@ -328,21 +329,50 @@ const app = Vue.createApp({
 
     handleUserFound(user){
       if(user.password === this.password){
-        this.handleSuccessLogin();
+        this.handleSuccessLogin(user.category);
       } else {
         alert("Mot de passe incorrect")
       }
     },
 
-    handleSuccessLogin(){
-      this.isConnected = true
+    handleSuccessLogin(category){
       this.loginModal = false
-      alert("Vous êtes connecté")
+      this.connectedUser = {
+        userName: this.userName,
+        category: category,
+      }
+
+      if(category === "admin"){
+        this.isConnected = true
+        this.adminConnected = true
+        localStorage.setItem("adminConnected", true)
+        localStorage.setItem("isConnected", true)
+        alert("Bienvenue " + this.userName)
+      } else if (category === "commerçant"){
+        this.isConnected = true
+        this.sellerConnected = true
+        localStorage.setItem("sellerConnected", true)
+        localStorage.setItem("isConnected", true)
+        console.log("sellerConnected")
+        alert("Bienvenue " + this.userName)
+      } else if (category === "client"){
+        this.isConnected = true
+        localStorage.setItem("isConnected", true)
+        alert("Bienvenue " + this.userName)
+      }
+      console.log(this.connectedUser.category)
     },
 
     logOut(){
       this.isConnected = false
       localStorage.removeItem("isConnected")
+      if(this.adminConnected){
+        this.adminConnected = false
+        localStorage.removeItem("adminConnected")
+      } else if(this.sellerConnected){
+        this.sellerConnected = false
+        localStorage.removeItem("sellerConnected")
+      }
     },
 
     openLoginModal(){
@@ -494,8 +524,12 @@ const app = Vue.createApp({
     if (storedSave) {
       this.product = JSON.parse(storedSave);
     }
-    let isConnected = JSON.parse(localStorage.getItem("isConnected"));
+    let isConnected = localStorage.getItem("isConnected") === "true";
     this.isConnected = isConnected || false;
+    let adminConnected = localStorage.getItem("adminConnected") === "true";
+    this.adminConnected = adminConnected || false;
+    let sellerConnected = localStorage.getItem("sellerConnected") === "true";
+    this.sellerConnected = sellerConnected || false;
   },
 });
 
