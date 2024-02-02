@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../CSS/Style.css" />
-    <title>Gestionnaire des produits</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <title>Mon compte</title>
 </head>
 
-<body class="crudBody">
-    <main id="app">
+<body class="profilePage">
+    
+    <div id="app">
 
         <header>
 
@@ -23,7 +22,7 @@
                             <P>Acceuil</P>
                         </a>
 
-                        <a @click="openLoginModal()" v-if="isConnected">
+                        <a @click="openLoginModal" v-if="isConnected">
                             <P>Connexion</P>
                         </a>
                         <a href="">
@@ -104,94 +103,15 @@
                 <button type="submit" @click.prevent="login()" class="signIn">Me connecter</button>
                 <button class="signUp"><a href="../HTML/signUp.html">Pas de compte? je m'inscris</a></button>
             </div>
-        </form>
+        </form>      
 
-        <h1>Gestionaire de produits</h1>
+        <section class="profile">
+            <h2>Mon compte</h2>
 
-        <button class="btn btn-success addProd" @click="openAddModal()">Ajouter un produit</button>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom Produit</th>
-                    <th>Prix Produit</th>
-                    <th>Quantité Produit</th>
-                    <th>Catégorie Produit</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr v-for="(prod, index) in product" :key="index" v-cloak>
-                    <td class="prodName">{{ prod.name }}</td>
-                    <td>{{ prod.price }} €</td>
-                    <td>{{ prod.quantity }}</td>
-                    <td>{{ prod.category }}</td>
-                    <td>
-                        <button type="button" class="btn btn-primary actions"
-                            @click="openEditModal(index)">Modifier</button>
-                        <button type="button" class="btn btn-danger actions" @click="deleteProduct(index)"><i
-                                class="fas fa-trash"></i> Supprimer</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div id="editModal" class="modal" v-if="editModal" @click.stop="closeModal()" v-cloak>
-            <div class="modal-content" @click.stop>
-                <span class="close" @click.stop="closeEditModal()">X</span>
-                <h2>Modifier le produit</h2>
-
-                <form>
-                    <label for="editName">Nom Produit: </label><br>
-                    <input type="text" id="editName" v-model="tempTable.name"><br>
-
-                    <label for="editPrice">Prix Produit: </label><br>
-                    <input type="number" id="editPrice" min="0" v-model="tempTable.price"><br>
-
-                    <label for="editQuantity">Quantité Produit: </label><br>
-                    <input type="number" id="editQuantity" min="0" v-model="tempTable.quantity"><br>
-
-                    <label for="editCategory">Catégorie Produit: </label><br>
-                    <select id="editCategory" v-model="tempTable.category">
-                        <option value="Mobilier">Mobilier</option>
-                        <option value="Luminaire">Luminaire</option>
-                        <option value="Déco">Décoration</option>
-                        <option value="Tapis">Tapis</option>
-                    </select><br>
-
-                    <input type="submit" value="Enregistrer" class="btn btn-success confBtn" @click="editProduct()">
-
-                </form>
+            <div class="profileCard" v-for="user in users">
+                Nom: {{ user.name }} <br>
             </div>
-        </div>
-
-        <div id="addModal" class="modal" v-if="addModal" @click.stop="closeModal()" v-cloak>
-            <div class="modal-content" @click.stop>
-                <h2>Ajouter un produit</h2> <span @click.stop="closeAddModal()">X</span>
-
-                <form>
-                    <label for="name">Nom Produit: </label><br>
-                    <input type="text" name="name" id="name" v-model="tempTable.name"><br>
-
-                    <label for="price">Prix Produit: </label><br>
-                    <input type="number" name="price" id="price" min="0" v-model="tempTable.price"><br>
-
-                    <label for="quantity">Quantité Produit: </label><br>
-                    <input type="number" name="quantity" id="quantity" min="0" v-model="tempTable.quantity"><br>
-
-                    <label for="category">Catégorie Produit: </label><br>
-                    <select name="category" id="category" v-model="tempTable.category">
-                        <option value="Mobilier">Mobilier</option>
-                        <option value="Luminaire">Luminaire</option>
-                        <option value="Déco">Décoration</option>
-                        <option value="Tapis">Tapis</option>
-                    </select><br>
-
-                    <input type="submit" value="Ajouter" class="btn btn-success confBtn" @click="addProduct()">
-                </form>
-            </div>
-        </div>
+        </section>
 
         <footer>
             <div class="info">
@@ -216,12 +136,11 @@
 
             <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
         </footer>
+    </div>
 
-    </main>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../JS/script.js"></script>
     <script src="../JS/main.js"></script>
+    <script src="../JS/script.js"></script>
 </body>
-
 </html>

@@ -24,7 +24,7 @@
                       <P>Acceuil</P>
                   </a>
 
-                  <a @click="openLoginModal" v-if="isConnected">
+                  <a @click="openLoginModal" v-if="!isConnected">
                       <P>Connexion</P>
                   </a>
                   <a href="">
@@ -36,11 +36,11 @@
                   <a href="">
                       <p>Panier</p>
                   </a>
-                  <a v-if="!isConnected" @click="logOut()">
+                  <a v-if="isConnected" @click="logOut()">
                       <p>Déconnexion</p>
                   </a>
                   <span>
-                      <p v-if="isConnected">{{ userName }}</p>
+                    <p v-if="isConnected" v-cloak>{{ userName }}</p>
                   </span>
 
               </div>

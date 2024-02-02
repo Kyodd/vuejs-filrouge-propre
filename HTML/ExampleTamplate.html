@@ -45,7 +45,7 @@
                             <p>Déconnexion</p>
                         </a>
                         <span>
-                            <p v-if="isConnected">{{ userName }}</p>
+                            <p v-if="isConnected" v-cloak>{{ userName }}</p>
                         </span>
 
                     </div>

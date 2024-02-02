@@ -943,6 +943,17 @@ body {
 
     }
 
+//page profil
+.profilePage{
+    color: $white;
+    .profile{
+        margin-top: 10px;
+        h2{
+            text-align: center;
+        }
+    }    
+}
+
 .hiden {
     display: none !important;
 }
