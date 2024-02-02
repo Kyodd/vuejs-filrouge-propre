@@ -107,27 +107,44 @@
       </div>
     </form>
 
-    <section class="shoppingCart">
+    <section class="shoppingCart" v-if="isConnected && cart.length > 0" v-cloak>
       <div class="cartModal">
         <div class="cart">
           <strong>Panier</strong>
           <table>
             <thead>
-              <tr>
-                <th>Produit(s)</th>
-                <th>Prix total</th>
-              </tr>
+              <th>Produit</th>
+              <th>Prix hors taxes</th>
+              <th>Total (TVA 20%)</th>
             </thead>
+
             <tbody>
               <tr v-for="prod in cart" :key="prod.id" v-cloak>
-                <template v-if="prod.active">
-                  <td>{{prod.name +' x '+ prod.quantity }}</td>
-                  <td>{{ totalPrice() }}</td>
-                </template>
+                  <td>{{ prod.name + ' x ' + prod.quantity }}</td>
+                  <td>{{ totalProdNoVAT(prod) }}</td>
+                  <td>{{ totalProductPrice(prod) }}</td>
+                  <td>
+                    <button @click="add(prod)">Ajouter 1</button>
+                    <button @click="remove(prod)">Retirer 1</button>
+                    <button @click="deleteItem(prod.id)">Enlever du panier</button>
+                  </td>
+              </tr>
+              <tr>
+                <th>Prix Total: </th>
+                <th>{{ totalPriceNoVAT() }}</th>
+                <th>{{ totalPrice() }}</th>
+              </tr>
+              <tr>
+                <th>
+                  <a href="">
+                    <button>Passer la commande</button>
+                  </a>
+                </th>
               </tr>
             </tbody>
           </table>
         </div>
+
       </div>
     </section>
 
@@ -139,7 +156,7 @@
           <span class="price">{{ prod.price }}</span>
           <p class="details">{{ prod.description }}</p>
           <div class="btns">
-            <button class="add" @click="addToCart(prod)">
+            <button class="add" @click="addToCart(prod)" v-if="isConnected">
               Ajouter au panier
             </button>
             <button class="seeDetails">Voir plus de détails</button>

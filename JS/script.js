@@ -186,24 +186,24 @@ let products = [
 let userList = [
   {
     id: 1,
-    userName: "Didier",
-    password: "Admin#1",
+    userName: "admin",
+    password: "admin",
     email: "admin@gmail.com",
     category: "admin",
   },
 
   {
     id: 2,
-    userName: "valentin",
-    password: "Valentin#62",
-    email: "val.fandelom@gmail.com",
+    userName: "user",
+    password: "user",
+    email: "user@gmail.com",
     category: "client",
   },
   {
-    id: 1,
-    userName: "Vendeur",
-    password: "Vendeur#1",
-    email: "vendeur1@gmail.com",
+    id: 3,
+    userName: "seller",
+    password: "seller",
+    email: "seller@gmail.com",
     category: "Commerçant",
     siret: "12345678912345",
   },
@@ -228,6 +228,8 @@ const app = Vue.createApp({
       users: userList,
       sellers: sellersList,
       isConnected: false,
+      sellerConnected: false,
+      adminConnected: false,
       loginModal: false,
       connectedUser: [],
 //pour produits
@@ -236,6 +238,8 @@ const app = Vue.createApp({
       cartisVisible: false,
       counter: 0,
       cart: [],
+      totalPriceNoVATValue: 0,
+      totalPriceValue: 0,
 //pour le CRUD
       editModal: false,
       addModal: false,
@@ -273,8 +277,8 @@ const app = Vue.createApp({
                 siret &&
                 siretReg.test(siret)
               ) {
-                this.sellers.push({
-                  id: this.sellers.length + 1,
+                this.users.push({
+                  id: this.users.length + 1,
                   userName: userName,
                   password: password,
                   email: email,
@@ -311,11 +315,10 @@ const app = Vue.createApp({
           user = this.sellers.find((seller) => seller.userName === this.userName)
         }
 
-        if(user){
-          this.handleUserFound(user)
-          localStorage.setItem("isConnected", JSON.stringify(true))
+        if (user) {
+          this.handleUserFound(user);
         } else {
-          alert("Utilisateur inconnu")
+          alert("Utilisateur inconnu");
         }
       } else {
         alert("Veuillez remplir tous les champs")
@@ -328,21 +331,50 @@ const app = Vue.createApp({
 
     handleUserFound(user){
       if(user.password === this.password){
-        this.handleSuccessLogin();
+        this.handleSuccessLogin(user.category);
       } else {
         alert("Mot de passe incorrect")
       }
     },
 
-    handleSuccessLogin(){
-      this.isConnected = true
+    handleSuccessLogin(category){
       this.loginModal = false
-      alert("Vous êtes connecté")
+      this.connectedUser = {
+        userName: this.userName,
+        category: category,
+      }
+
+      if(category === "admin"){
+        this.isConnected = true
+        this.adminConnected = true
+        localStorage.setItem("adminConnected", true)
+        localStorage.setItem("isConnected", true)
+        alert("Bienvenue " + this.userName)
+      } else if (category === "commerçant"){
+        this.isConnected = true
+        this.sellerConnected = true
+        localStorage.setItem("sellerConnected", true)
+        localStorage.setItem("isConnected", true)
+        console.log("sellerConnected")
+        alert("Bienvenue " + this.userName)
+      } else if (category === "client"){
+        this.isConnected = true
+        localStorage.setItem("isConnected", true)
+        alert("Bienvenue " + this.userName)
+      }
+      console.log(this.connectedUser.category)
     },
 
     logOut(){
       this.isConnected = false
       localStorage.removeItem("isConnected")
+      if(this.adminConnected){
+        this.adminConnected = false
+        localStorage.removeItem("adminConnected")
+      } else if(this.sellerConnected){
+        this.sellerConnected = false
+        localStorage.removeItem("sellerConnected")
+      }
     },
 
     openLoginModal(){
@@ -373,6 +405,26 @@ const app = Vue.createApp({
       this.localSave();
     },
 
+    totalProdNoVAT(prod){
+      let total = ((prod.price * prod.quantity)*0.8)
+      return total.toFixed(2)
+    },
+
+    totalProductPrice(prod){
+      let total = (prod.price * prod.quantity)
+      return total.toFixed(2)
+    },
+
+    totalPriceNoVAT() {
+      return this.cart.reduce((acc, product) => {
+        if (product.active) {
+          return acc + parseFloat((product.price * product.quantity)*0.8);
+        } else {
+          return acc;
+        }
+      }, 0).toFixed(2);
+    },
+
     totalPrice() {
       return this.cart.reduce((acc, product) => {
         if (product.active) {
@@ -382,6 +434,31 @@ const app = Vue.createApp({
         }
       }, 0).toFixed(2);
     },
+
+    add(prod){
+      prod.quantity++
+      this.localSave()
+    },
+
+    remove(prod){
+      if(prod.quantity > 1){
+        prod.quantity--
+      }
+      this.localSave()
+    },
+
+    deleteItem(productId){
+      let index = this.cart.findIndex((product) => product.id === productId)
+        if(index !== -1 && confirm("Etes-vous sur de vouloir supprimer cet article de votre panier ?")){
+          this.cart.splice(index, 1)
+          this.localSave()
+        }
+
+  }
+},
+
+
+
 
 //Pour le CRUD produits
 
@@ -439,7 +516,6 @@ const app = Vue.createApp({
       }
     },
 
-  },
 
   computed: {},
 
@@ -494,8 +570,12 @@ const app = Vue.createApp({
     if (storedSave) {
       this.product = JSON.parse(storedSave);
     }
-    let isConnected = JSON.parse(localStorage.getItem("isConnected"));
+    let isConnected = localStorage.getItem("isConnected") === "true";
     this.isConnected = isConnected || false;
+    let adminConnected = localStorage.getItem("adminConnected") === "true";
+    this.adminConnected = adminConnected || false;
+    let sellerConnected = localStorage.getItem("sellerConnected") === "true";
+    this.sellerConnected = sellerConnected || false;
   },
 });
 
