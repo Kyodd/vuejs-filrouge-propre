@@ -530,6 +530,10 @@ body footer p {
   font-size: 14px;
   color: #ffffff;
 }
+body h5 a {
+  text-decoration: underline;
+  color: #ffffff;
+}
 
 .signUp {
   font-family: sans-serif;
@@ -764,6 +768,18 @@ body footer p {
 
 .hiden {
   display: none !important;
+}
+
+.TermOfUse {
+  color: #ffffff;
+  padding: 10%;
+}
+.TermOfUse h2 {
+  color: #02c4ff;
+  font-size: 5rem;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 1280px) {

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../CSS/Style.css">
+
+
+
+    <title>CGU</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header>
+
+            <div class="navBar">
+                <div class="nav">
+
+                    <div class="navItem">
+
+                        <a href="../index.html">
+                            <P>Acceuil</P>
+                        </a>
+
+                        <a @click="openLoginModal" v-if="isConnected">
+                            <P>Connexion</P>
+                        </a>
+                        <a href="">
+                            <p>Mon Compte</p>
+                        </a>
+                        <a href="../products.html">
+                            <p>Boutique</p>
+                        </a>
+                        <a href="">
+                            <p>Panier</p>
+                        </a>
+                        <a v-if="!isConnected" @click="logOut()">
+                            <p>Déconnexion</p>
+                        </a>
+                        <span>
+                            <p v-if="isConnected">{{ userName }}</p>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="responsive_menu hiden" id="header">
+                <div class="img_resp">
+                    <img src="../Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                    <img src="../Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                    <img src="../Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+                </div>
+                <div class="inf_resp">
+                    <a href="../products.html">
+                        <p>Produits</p>
+                    </a>
+                    <p>Panier</p>
+                    <p>Utilisateur</p>
+                    <p>Services</p>
+                    <p>Contact</p>
+                </div>
+            </div>
+            <div class="Title">
+                <div></div>
+                <div class="info">
+                    <a href="../index.html">
+                        <div class="logo">
+                            <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                                <i class="far fa-circle fa-stack-2x"></i>
+                                <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="info_resto">
+                            <span class="name">Web</span>
+                            <span class="resto">Wares</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="burger" id="menu_burger">
+                    <i class="fa-solid fa-bars" id="burger"></i>
+                    <i id="croix" class="hiden">&times;</i>
+                </div>
+            </div>
+
+            <div class="Welcome">
+                <h1>Welcome</h1>
+                <h3>Try Great to Web Wares</h3>
+                <button @click="openLoginModal()" v-if="!isConnected">Inscription / Connexion</button>
+            </div>
+        </header>
+
+        <form v-if="loginModal" v-cloak class="modal">
+            <div class="modal-content">
+                <h3>Connexion</h3>
+                <span @click="closeLoginModal()">X</span>
+                <label for="name">Nom utilisateur</label>
+                <input type="text" v-model="userName">
+                <label for="password">Mot de passe</label>
+                <input type="password" v-model="password">
+
+                <button type="submit" @click.prevent="login()" class="signIn">Me connecter</button>
+                <button class="signUp"><a href="../HTML/signUp.html">Pas de compte? je m'inscris</a></button>
+            </div>
+        </form>
+
+
+            <!-- !!!
+        Mettez votre code ICI
+            SVP -->
+        
+        <div class="TermOfUse">
+
+            <h2>Mentions Légales :</h2>
+
+            <p>En vigueur au 01/01/2021 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae porro dolorem qui ipsum, doloribus aliquam et quisquam minus earum maiores sed! Qui maiores quo veniam quibusdam ipsam ullam unde et iusto dicta, sunt non accusamus deleniti impedit pariatur illum nobis nemo voluptatum officia vero corporis laboriosam id animi quas. Non, soluta, enim pariatur iusto debitis unde iste consequatur cum cumque nobis nulla aut possimus accusamus, beatae quo quisquam nisi quae molestiae ratione velit neque harum perspiciatis sed ipsa. Veritatis ullam iste pariatur. Ducimus quia magnam est! Perferendis, fugit magnam possimus laborum, hic, cum incidunt est omnis veniam ad labore recusandae voluptatem voluptatum sint mollitia. Deleniti distinctio libero sed assumenda tenetur dolores qui molestias rerum nam consequuntur incidunt dolor pariatur maxime, iste illum, similique excepturi vel voluptas perferendis quos quod enim culpa. Necessitatibus sint suscipit ducimus quas laboriosam modi fugiat, recusandae eaque aspernatur, praesentium voluptatum natus maiores molestias assumenda. Dignissimos perspiciatis accusamus quasi itaque saepe hic, iste corporis tenetur autem repellat architecto praesentium, provident aliquam consequatur placeat aut, tempore eos a optio magnam qui? Necessitatibus laborum modi temporibus tempora vitae accusantium molestiae obcaecati nam, voluptatibus nobis cum eveniet libero fugiat, error optio consequatur ipsum incidunt fugit omnis. Odio ipsum repellat cupiditate? Laboriosam hic, in, cupiditate inventore quisquam aliquid accusamus modi fugiat ad quae magni necessitatibus consequatur quaerat placeat, deleniti ea blanditiis dignissimos impedit deserunt dolorem enim. Voluptatem omnis necessitatibus adipisci optio, ut officia rem harum odit quasi aspernatur reiciendis cupiditate sapiente natus commodi numquam eius architecto ipsa quidem, distinctio, eveniet quis eaque? Hic iure, blanditiis ab vero, odio harum commodi suscipit minus maxime officia numquam consequuntur velit ratione beatae ipsam consequatur, nemo culpa. Blanditiis ex tempore saepe nemo provident vero illum ipsum autem iste aliquid magnam itaque iusto iure, ad harum necessitatibus, expedita suscipit! Eius provident similique ipsam quis enim minima obcaecati, accusantium dolores vel fugiat, impedit tenetur sint aliquid commodi alias porro ratione, facere ipsa odit dignissimos natus. Laudantium deleniti incidunt unde voluptates officia. Nostrum, nobis, pariatur quos fugit sunt earum repudiandae deleniti illo ab quasi tenetur libero! Repudiandae quam quasi neque commodi nihil deserunt sequi perferendis mollitia recusandae ratione, vero provident nostrum illo natus hic. Inventore impedit deserunt, minus veritatis accusamus reiciendis quibusdam, et architecto accusantium aperiam voluptatum quis odit maiores rem ipsa consequuntur deleniti error cumque alias eius labore non eos harum? Odio tempore quo perspiciatis alias repellat? Sint repellat aliquam, rerum ipsum quo quia mollitia perspiciatis quis nemo sit! Veritatis eveniet ab ex. Expedita optio unde possimus eaque, maiores temporibus sapiente culpa voluptate adipisci iusto odit magni ipsa! Ullam at, quibusdam atque beatae libero consequatur debitis voluptatem temporibus, tempore sequi sunt sapiente ad nobis vitae illo expedita exercitationem nam ipsum incidunt eos est distinctio. Non voluptatem magni adipisci nulla placeat facere consectetur quod sapiente, aliquam ducimus ut cumque quasi alias earum id. Aliquid, quae fugiat. Magni tenetur quibusdam totam beatae fugiat mollitia saepe nostrum, ducimus deleniti consequuntur non, doloribus quae ad dignissimos optio nobis sit itaque maiores, atque aut placeat corporis blanditiis laborum. Eaque illo doloremque accusantium.</p>
+
+            <h2>Politique de Confidentialité :</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolores quasi sequi cupiditate? Autem iste nobis nesciunt. Facilis deleniti consequatur esse quo? Maxime tenetur deleniti quod aliquid officiis magnam rerum, quos autem ab eveniet nulla velit maiores unde, dolore nihil eius voluptatibus. Commodi sunt vel necessitatibus quasi, nulla adipisci expedita deleniti ab accusamus magnam ipsam dolores assumenda temporibus impedit, dicta officiis numquam maiores nostrum corrupti dolorum ullam. Maiores a unde sint incidunt adipisci earum exercitationem enim! Laboriosam reprehenderit assumenda culpa! Porro vero mollitia praesentium nostrum rem, impedit voluptates repudiandae tempora quidem sit corporis modi tempore fugit omnis delectus quam fugiat inventore explicabo beatae nisi. Cupiditate eum, amet illum autem iure perspiciatis quibusdam modi soluta asperiores laborum facere reprehenderit, quasi explicabo nesciunt quaerat? Totam recusandae deserunt obcaecati error vel adipisci eveniet dolorum eius veritatis, vero, aspernatur perferendis libero soluta reprehenderit alias quam provident corrupti doloribus neque mollitia minus iste. Facere nulla deleniti nisi eum quidem veritatis? Vero id in, impedit praesentium illum dignissimos vitae consequatur. Impedit, facilis dolor dolore magnam voluptatem non sint corrupti nam fuga nulla eaque officiis, obcaecati esse sunt temporibus, mollitia consectetur maiores aut corporis incidunt labore voluptates autem. Eveniet sit explicabo, accusamus, id cupiditate vero cumque velit magni aspernatur suscipit excepturi error incidunt neque in laboriosam, omnis esse ab commodi exercitationem rem vitae! Delectus beatae ipsa enim. Nulla voluptatem laudantium hic veniam accusantium natus earum, distinctio dolore, laborum, fugit accusamus soluta! Nesciunt eos architecto numquam? Quam vel odio nemo. Laudantium vitae unde ipsam temporibus neque voluptate earum.</p>
+
+            <h2>Conditions d'Utilisation :</h2>
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit in autem id quia explicabo? Quaerat officiis qui adipisci corporis quos magnam inventore, ratione numquam eligendi, pariatur nobis labore maiores deleniti. Harum repellat voluptatem, provident itaque aut omnis? Eveniet eaque est iure? Necessitatibus officia modi sequi facere obcaecati itaque natus reiciendis culpa ut aut! Placeat architecto cupiditate quos fugiat omnis corrupti laborum, magnam nostrum corporis provident voluptates ex, ipsa impedit? Adipisci, doloribus ex ipsa sequi dolorem alias ullam fuga obcaecati eius ab tempora cum esse assumenda praesentium eveniet quae illo, voluptatibus totam aliquid earum fugit mollitia illum aperiam. Rem qui eos necessitatibus vero, iure libero numquam voluptas maxime laudantium explicabo? Modi, harum commodi esse, magni animi cupiditate dolore obcaecati, nisi aut beatae molestiae vero tenetur natus assumenda hic iure. Ab impedit distinctio laboriosam velit nihil similique commodi esse. Unde praesentium vitae doloremque, blanditiis assumenda neque facere quasi enim ex placeat iusto commodi obcaecati veritatis voluptates eius recusandae sint voluptate. Incidunt eos accusantium quo optio iste quis, cupiditate dolores error quam a odio ullam totam ipsum unde, veritatis inventore architecto. Recusandae eaque voluptatum, tempora nesciunt dolorem libero sit explicabo debitis deserunt ipsam alias, qui ab reiciendis minima facilis, veniam maxime. Pariatur hic autem vel nisi quia perspiciatis minima similique aliquid! Suscipit recusandae tenetur possimus dolorum laboriosam iste distinctio dolores harum culpa, earum ab quia, ducimus ullam corrupti aliquam omnis praesentium sunt deserunt tempore maiores est nihil. Dolorum, corrupti praesentium. Eos repellendus fugit eum sed architecto pariatur veniam. Eligendi asperiores similique dolorum officiis suscipit assumenda sit. Eos, sequi? Numquam molestiae iste obcaecati consequatur minima deserunt temporibus delectus ea qui. Doloremque laudantium delectus dolores architecto pariatur quaerat assumenda, fugit quo corporis. Dolores perspiciatis eveniet ea eos atque, ipsum cumque vero ratione fugiat beatae. Recusandae dolorem perferendis ab architecto doloribus, vero doloremque pariatur, deserunt cumque consectetur inventore numquam! In nostrum eaque tempora, dignissimos vel, assumenda ipsa perspiciatis quidem ut error a. Natus, exercitationem atque doloribus officiis quae, animi totam ipsa iure reiciendis quis facilis numquam laborum sit fugiat assumenda voluptate maiores nostrum delectus neque dignissimos tempore unde. Placeat veritatis odio exercitationem. Doloribus inventore facilis hic, provident optio maiores similique perspiciatis, necessitatibus eveniet nesciunt voluptatibus fuga sequi repellendus tempora ab odio ut pariatur reiciendis impedit ipsam deleniti nihil! Doloremque eligendi tempora dicta tempore beatae assumenda repellat, nostrum praesentium at pariatur perferendis aspernatur perspiciatis veritatis dolorum iusto, dignissimos excepturi id vitae iste? Illum minus quidem quibusdam numquam.</p>
+        </div>
+
+
+
+        <footer>
+            <div class="info">
+                <div>
+                    <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                        <i class="far fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                    </span>
+                </div>
+                <div class="info_resto">
+                    <span class="name">Web</span>
+                    <span class="resto">Wares</span>
+                </div>
+            </div>
+
+            <div class="Contact">
+                <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
+                <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+            <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
+            <h5><a href="../HTML/TermOfUse.html">Politique de Confidantialité<a></h5>
+            <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../JS/script.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+
+</html>
