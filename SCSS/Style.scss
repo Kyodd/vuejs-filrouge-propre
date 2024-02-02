@@ -21,6 +21,27 @@ body {
         display: none !important;
     }
 
+    &::-webkit-scrollbar {
+        width: 12px;
+      }
+    
+      // Style de la piste (track) de la barre de défilement
+      &::-webkit-scrollbar-track {
+        background-color: $Background;
+      }
+    
+      // Style du "thumb" (la poignée) de la barre de défilement
+      &::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 6px;
+        border: 3px solid #f1f1f1;
+      }
+    
+      // Style du "thumb" lorsqu'il est survolé
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: $Background;
+      }
+
     header {
         background-image: url("../Images/bg.png");
         background-position: center;
@@ -72,6 +93,34 @@ body {
                         cursor: pointer;
                         color: $orange;
                         scale: 1.2;
+                    }
+
+                    .dropDown {
+
+                        ul {
+
+                            li {
+
+                                padding-left: 20px;
+
+                            }
+
+                            li:hover {
+                                background-color: $orange;
+                                color: $Background;
+                                cursor: pointer;
+                                transition: all .35s;
+                                
+                            }
+
+                            .disconnect:hover {
+
+                                background-color: red;
+
+                            }
+
+                        }
+
                     }
                 }
             }

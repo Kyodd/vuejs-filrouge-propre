@@ -12,6 +12,20 @@ body {
 body [v-cloak] {
   display: none !important;
 }
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #f1f1f1;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #262626;
+}
 body header {
   background-image: url("../Images/bg.png");
   background-position: center;
@@ -62,6 +76,18 @@ body header .navBar .nav .navItem a:hover {
   cursor: pointer;
   color: #02c4ff;
   scale: 1.2;
+}
+body header .navBar .nav .navItem .dropDown ul li {
+  padding-left: 20px;
+}
+body header .navBar .nav .navItem .dropDown ul li:hover {
+  background-color: #02c4ff;
+  color: #262626;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+body header .navBar .nav .navItem .dropDown ul .disconnect:hover {
+  background-color: red;
 }
 body header .Title {
   font-size: 2rem;

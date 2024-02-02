@@ -223,7 +223,7 @@ let sellersList = [
 const app = Vue.createApp({
   data() {
     return {
-//pour users
+      //pour users
       tempTable: {},
       users: userList,
       sellers: sellersList,
@@ -232,7 +232,7 @@ const app = Vue.createApp({
       adminConnected: false,
       loginModal: false,
       connectedUser: [],
-//pour produits
+      //pour produits
       product: products,
       active: false,
       cartisVisible: false,
@@ -240,16 +240,32 @@ const app = Vue.createApp({
       cart: [],
       totalPriceNoVATValue: 0,
       totalPriceValue: 0,
-//pour le CRUD
+      //pour le CRUD
       editModal: false,
       addModal: false,
       editIndex: -1,
+
+      menuVisible: false,
+
     };
   },
 
   methods: {
 
-//pour user inscription
+    toggleMenu() {
+      this.menuVisible = !this.menuVisible;
+      console.log('Menu visible : ' + this.menuVisible);
+    },
+
+    logout() {
+      console.log('Déconnexion effectuée');
+    },
+
+    viewProfile() {
+      console.log('Afficher les détails du profil');
+    },
+
+    //pour user inscription
     addUser() {
       let { userName, password, email, category, confPassword, siret } =
         this.tempTable;
@@ -306,12 +322,12 @@ const app = Vue.createApp({
       }
     },
 
-//pour user connexion
+    //pour user connexion
     login() {
-      if(this.validateInput()){
+      if (this.validateInput()) {
         let user = this.users.find((user) => user.userName === this.userName);
 
-        if(!user){
+        if (!user) {
           user = this.sellers.find((seller) => seller.userName === this.userName)
         }
 
@@ -325,39 +341,39 @@ const app = Vue.createApp({
       }
     },
 
-    validateInput(){
+    validateInput() {
       return this.userName && this.password
     },
 
-    handleUserFound(user){
-      if(user.password === this.password){
+    handleUserFound(user) {
+      if (user.password === this.password) {
         this.handleSuccessLogin(user.category);
       } else {
         alert("Mot de passe incorrect")
       }
     },
 
-    handleSuccessLogin(category){
+    handleSuccessLogin(category) {
       this.loginModal = false
       this.connectedUser = {
         userName: this.userName,
         category: category,
       }
 
-      if(category === "admin"){
+      if (category === "admin") {
         this.isConnected = true
         this.adminConnected = true
         localStorage.setItem("adminConnected", true)
         localStorage.setItem("isConnected", true)
         alert("Bienvenue " + this.userName)
-      } else if (category === "commerçant"){
+      } else if (category === "commerçant") {
         this.isConnected = true
         this.sellerConnected = true
         localStorage.setItem("sellerConnected", true)
         localStorage.setItem("isConnected", true)
         console.log("sellerConnected")
         alert("Bienvenue " + this.userName)
-      } else if (category === "client"){
+      } else if (category === "client") {
         this.isConnected = true
         localStorage.setItem("isConnected", true)
         alert("Bienvenue " + this.userName)
@@ -365,35 +381,35 @@ const app = Vue.createApp({
       console.log(this.connectedUser.category)
     },
 
-    logOut(){
+    logOut() {
       this.isConnected = false
       localStorage.removeItem("isConnected")
-      if(this.adminConnected){
+      if (this.adminConnected) {
         this.adminConnected = false
         localStorage.removeItem("adminConnected")
-      } else if(this.sellerConnected){
+      } else if (this.sellerConnected) {
         this.sellerConnected = false
         localStorage.removeItem("sellerConnected")
       }
     },
 
-    openLoginModal(){
+    openLoginModal() {
       this.loginModal = true
     },
 
-    closeLoginModal(){
+    closeLoginModal() {
       this.loginModal = false
     },
 
     localSave() {
-//pour users
+      //pour users
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("sellers", JSON.stringify(this.sellers));
       localStorage.setItem("cart", JSON.stringify(this.cart));
       localStorage.setItem("product", JSON.stringify(this.product));
     },
 
-//pour produits
+    //pour produits
 
     addToCart(product) {
       let existingProduct = this.cart.find((item) => item.id === product.id);
@@ -405,12 +421,12 @@ const app = Vue.createApp({
       this.localSave();
     },
 
-    totalProdNoVAT(prod){
-      let total = ((prod.price * prod.quantity)*0.8)
+    totalProdNoVAT(prod) {
+      let total = ((prod.price * prod.quantity) * 0.8)
       return total.toFixed(2)
     },
 
-    totalProductPrice(prod){
+    totalProductPrice(prod) {
       let total = (prod.price * prod.quantity)
       return total.toFixed(2)
     },
@@ -418,7 +434,7 @@ const app = Vue.createApp({
     totalPriceNoVAT() {
       return this.cart.reduce((acc, product) => {
         if (product.active) {
-          return acc + parseFloat((product.price * product.quantity)*0.8);
+          return acc + parseFloat((product.price * product.quantity) * 0.8);
         } else {
           return acc;
         }
@@ -435,93 +451,93 @@ const app = Vue.createApp({
       }, 0).toFixed(2);
     },
 
-    add(prod){
+    add(prod) {
       prod.quantity++
       this.localSave()
     },
 
-    remove(prod){
-      if(prod.quantity > 1){
+    remove(prod) {
+      if (prod.quantity > 1) {
         prod.quantity--
       }
       this.localSave()
     },
 
-    deleteItem(productId){
+    deleteItem(productId) {
       let index = this.cart.findIndex((product) => product.id === productId)
-        if(index !== -1 && confirm("Etes-vous sur de vouloir supprimer cet article de votre panier ?")){
-          this.cart.splice(index, 1)
-          this.localSave()
-        }
+      if (index !== -1 && confirm("Etes-vous sur de vouloir supprimer cet article de votre panier ?")) {
+        this.cart.splice(index, 1)
+        this.localSave()
+      }
 
-  }
-},
-
-
+    }
+  },
 
 
-//Pour le CRUD produits
 
-    openEditModal(index){
-      this.editModal = true
-      this.editIndex = index
-      this.tempTable = {...this.product[index]}
-    },
 
-    openAddModal(){
-      this.addModal = true
-    },
+  //Pour le CRUD produits
 
-    closeModal(){
-      this.editModal = false
-      this.addModal = false
-    },
+  openEditModal(index) {
+    this.editModal = true
+    this.editIndex = index
+    this.tempTable = { ...this.product[index] }
+  },
 
-    closeAddModal(){
-      this.addModal = false
+  openAddModal() {
+    this.addModal = true
+  },
+
+  closeModal() {
+    this.editModal = false
+    this.addModal = false
+  },
+
+  closeAddModal() {
+    this.addModal = false
+    this.tempTable = {}
+  },
+
+  addProduct() {
+    if (this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
+      this.product.push(this.tempTable)
       this.tempTable = {}
-    },
+      this.closeAddModal()
+    } else {
+      alert("Veuillez remplir tous les champs")
+      console.log('hello?')
+    }
+  },
 
-    addProduct(){
-      if(this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category){
-        this.product.push(this.tempTable)
-        this.tempTable = {}
-        this.closeAddModal()
-      } else {
-        alert("Veuillez remplir tous les champs")
-        console.log('hello?')
-      }
-    },
+  closeEditModal() {
+    this.editModal = false
+    this.editIndex = -1
+    this.tempTable = {}
+  },
 
-    closeEditModal(){
-      this.editModal = false
-      this.editIndex = -1
+  editProduct() {
+    this.addModal = false
+    if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
+      this.product[this.editIndex] = this.tempTable
       this.tempTable = {}
-    },
+      this.closeEditModal()
+    } else {
+      alert("Veuillez remplir tous les champs")
+    }
+  },
 
-    editProduct(){
-      this.addModal = false
-      if(this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category){
-        this.product[this.editIndex] = this.tempTable
-        this.tempTable = {}
-        this.closeEditModal()
-      } else {
-        alert("Veuillez remplir tous les champs")
-      }
-    },
-
-    deleteProduct(index){
-      if(confirm("Etes-vous sur de vouloir supprimer ce produit ?")){
-        this.product.splice(index, 1)
-      }
-    },
+  deleteProduct(index) {
+    if (confirm("Etes-vous sur de vouloir supprimer ce produit ?")) {
+      this.product.splice(index, 1)
+    }
+  },
 
 
   computed: {},
 
   watch: {
 
-//pour users
+    //pour users
     users: {
       deep: true,
       handler() {
@@ -542,7 +558,7 @@ const app = Vue.createApp({
         this.localSave();
       },
     },
-//pour produits
+    //pour produits
     cart: {
       deep: true,
       handler() {
@@ -552,7 +568,7 @@ const app = Vue.createApp({
   },
 
   created() {
-//pour users
+    //pour users
     let storedSave = localStorage.getItem("users");
     if (storedSave) {
       this.users = JSON.parse(storedSave);

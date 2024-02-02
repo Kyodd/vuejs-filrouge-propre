@@ -30,20 +30,28 @@
                         <a href="./products.html">
                             <p>Boutique</p>
                         </a>
-                        <a v-if="isConnected" @click="logOut()">
-                            <p>Déconnexion</p>
-                        </a>
                         <span>
                             <p v-if="isConnected" v-cloak>{{ userName }}</p>
                         </span>
 
                         <a href="" v-if="isConnected">
-                            <i class="fa-solid fa-user"></i>
-                        </a>
-
-                        <a href="" v-if="isConnected">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
+
+                        <div @click="toggleMenu">
+
+                            <i class="fas fa-user" v-if="isConnected"></i>
+
+                        </div>
+
+                        <div class="dropDown" v-if="menuVisible && isConnected">
+
+                            <ul>
+                                <li @click="viewProfile">Detail du Profil</li>
+                                <li class="disconnect" v-if="isConnected" @click="logOut()">Déconnexion</li>
+                            </ul>
+
+                        </div>
 
                     </div>
 
@@ -99,8 +107,8 @@
         </header>
 
 
-  
-            
+
+
         <form v-if="loginModal" v-cloak class="modal">
             <div class="modal-content">
                 <h3>Connexion</h3>
@@ -115,7 +123,7 @@
             </div>
         </form>
 
-      
+
         <section class="about">
             <div class="about_img">
                 <img src="./Images/fruit.png" alt="Plateau de fruit" class="non_resp" />
@@ -130,7 +138,12 @@
                 <div class="bottom">
                     <span>***</span>
                     <p>
-                        <i>B</i>ienvenue sur notre plateforme de commande en ligne. Nous sommes ravis de vous accueillir et de vous offrir une expérience de commande simplifiée. Notre plateforme est conçue pour vous aider à trouver facilement les produits que vous recherchez et à les commander en quelques clics. Nous espérons que vous apprécierez notre service et que vous reviendrez bientôt. Si vous avez des questions ou des commentaires, n’hésitez pas à nous contacter. Nous sommes là pour vous aider à tout moment.
+                        <i>B</i>ienvenue sur notre plateforme de commande en ligne. Nous sommes ravis de vous accueillir
+                        et de vous offrir une expérience de commande simplifiée. Notre plateforme est conçue pour vous
+                        aider à trouver facilement les produits que vous recherchez et à les commander en quelques
+                        clics. Nous espérons que vous apprécierez notre service et que vous reviendrez bientôt. Si vous
+                        avez des questions ou des commentaires, n’hésitez pas à nous contacter. Nous sommes là pour vous
+                        aider à tout moment.
                     </p>
                     <span>***</span>
                     <button>Read More</button>
@@ -218,8 +231,8 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./JS/script.js"></script>
-    <script src="./JS/main.js"></script>
+    <script src="../JS/script.js"></script>
+    <script src="../JS/main.js"></script>
 </body>
 
 </html>
