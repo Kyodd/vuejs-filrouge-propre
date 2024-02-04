@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../CSS/Style.css">
-    <title>Mon compte</title>
+    <title>Résumé de votre commande</title>
 </head>
+<body class="orderPage">
 
-<body class="profilePage">
-    
     <div id="app">
-
         <header>
 
             <div class="navBar">
@@ -106,27 +105,35 @@
             </div>
         </header>
 
-        <form v-if="loginModal" v-cloak class="modal">
-            <div class="modal-content">
-                <h3>Connexion</h3>
-                <span @click="closeLoginModal()">X</span>
-                <label for="name">Nom utilisateur</label>
-                <input type="text" v-model="userName">
-                <label for="password">Mot de passe</label>
-                <input type="password" v-model="password">
+            <h1>Votre panier</h1>
 
-                <button type="submit" @click.prevent="login()" class="signIn">Me connecter</button>
-                <button class="signUp"><a href="../HTML/signUp.html">Pas de compte? je m'inscris</a></button>
+            <div class="cart">
+                <div class="cartItem" v-for="item in cart">
+                    <img :src="item.imageUrl" alt="product" />
+                    <div class="cartItemInfo">
+                        <h3>{{ item.name +' ' + item.quantity  + ' pièces' }}</h3>
+                        <p>Prix hors taxes: {{ totalProdNoVAT(item) }} €</p>
+                        <p>Prix TTC: {{ totalProductPrice(item) }} €</p>
+                    </div>
+                    <div class="cartItemActions">
+                        <button @click="deleteItem(item.id)">Supprimer</button>
+                    </div>
+                </div>
+
+                <div class="keepShopping">
+                    <a href="../products.html">
+                        <button>Continuer mes achats</button>
+                    </a>
+                </div>
+
+                <div class="orderPrice">
+                    <h2>Prix total de votre commande:</h2>
+                    <p>Prix hors taxes: {{ totalPriceNoVAT(item) }} €</p>
+                    <p>Prix TTC: {{ totalPrice(item) }} €</p>
+                    <button @click="order()" class="orderBtn">Commander</button>
+                </div>
+
             </div>
-        </form>      
-
-        <section class="profile">
-            <h2>Mon compte</h2>
-
-            <div class="profileCard" v-for="user in users">
-                Nom: {{ user.name }} <br>
-            </div>
-        </section>
 
         <footer>
             <div class="info">
@@ -150,12 +157,17 @@
             </div>
 
             <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+            <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
+            <h5><a href="../HTML/TermOfUse.html">Politique de Confidantialité</a></h5>
+            <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
         </footer>
     </div>
 
 
+
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../JS/main.js"></script>
     <script src="../JS/script.js"></script>
+    <script src="../JS/main.js"></script>
 </body>
 </html>

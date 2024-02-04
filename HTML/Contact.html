@@ -23,49 +23,64 @@
             <div class="navBar">
                 <div class="nav">
 
-                    <div class="navItem">
+                    <div class="navItem" v-cloak>
 
-                        <a href="../index.html">
-                            <P>Acceuil</P>
-                        </a>
-
-                        <a @click="openLoginModal" v-if="isConnected">
+                        <a @click="openLoginModal" v-if="!isConnected">
                             <P>Connexion</P>
-                        </a>
-                        <a href="">
-                            <p>Mon Compte</p>
                         </a>
                         <a href="../products.html">
                             <p>Boutique</p>
-                        </a>
-                        <a href="">
-                            <p>Panier</p>
-                        </a>
-                        <a v-if="!isConnected" @click="logOut()">
-                            <p>Déconnexion</p>
                         </a>
                         <span>
                             <p v-if="isConnected" v-cloak>{{ userName }}</p>
                         </span>
 
+                        <span>
+                            <a href="../HTML/orderHistory.html">
+                                <p v-if="isConnected">Mes commandes</p>
+                            </a>
+                        </span>
+
+                        <a href="../HTML/cartPage.html" v-if="isConnected">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+
+                        <div @click="toggleMenu">
+
+                            <i class="fas fa-user" v-if="isConnected"></i>
+
+                        </div>
+
+                        <div class="dropDown" v-if="menuVisible && isConnected">
+
+                            <ul>
+                                <li @click="viewProfile">Detail du Profil</li>
+                                <li class="disconnect" v-if="isConnected" @click="logOut()">Déconnexion</li>
+                            </ul>
+
+                        </div>
+
                     </div>
+
                 </div>
             </div>
 
             <div class="responsive_menu hiden" id="header">
                 <div class="img_resp">
-                    <img src="../Images/nav-img-1.jpeg" alt="Service" id="img1" />
-                    <img src="../Images/nav-img-2.jpeg" alt="Open" id="img2" />
-                    <img src="../Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+                    <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                    <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                    <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
                 </div>
                 <div class="inf_resp">
-                    <a href="../products.html">
+                    <a href="./products.html">
                         <p>Produits</p>
                     </a>
                     <p>Panier</p>
                     <p>Utilisateur</p>
                     <p>Services</p>
-                    <p>Contact</p>
+                    <a href="../HTML/Contact.html">
+                        <p>Contact</p>
+                    </a>
                 </div>
             </div>
             <div class="Title">
@@ -94,7 +109,7 @@
             <div class="Welcome">
                 <h1>Welcome</h1>
                 <h3>Try Great to Web Wares</h3>
-                <button @click="openLoginModal()" v-if="!isConnected">Inscription / Connexion</button>
+                <button @click="openLoginModal" v-if="!isConnected">Commencer dès maintenant</button>
             </div>
         </header>
 

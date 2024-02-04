@@ -807,6 +807,8 @@ body {
     .shoppingCart{
         color: $white;
         text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
     .items{
@@ -823,7 +825,7 @@ body {
             text-align: center;
             width: 400px;
             height: 400px;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
             div{
                 transition: all 0.2s ease-in-out;
                 img{
@@ -1032,6 +1034,156 @@ body {
     }
 
 }
+
+
+//page panier
+.orderPage{
+    color: white;
+    img{
+        width: 100px;
+    }
+    h1{
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 25px;   
+    }
+
+    .cart{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        .cartItem{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 22%;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                cursor: pointer;
+                scale: 1.1;
+            }
+
+            img{
+                width: 100px;
+                margin-right: 30px;
+            }
+
+            .cartItemActions{
+                button{
+                    background-color: crimson;
+                    transition: all 0.2s ease-in-out;
+                    margin-left: 5px;
+
+                    &:hover{
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    button{
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            cursor: pointer;
+            scale: 1.2;
+        }
+    }
+
+    .keepShopping{
+        margin: 30px;
+        button{
+            padding: 10px 20px;
+            background-color: $orange;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;        
+        }
+    }
+
+    .orderPrice{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 3px solid white;
+        border-radius: 15px;
+        padding: 30px;
+
+        button{
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+// page historique des commandes
+
+.orderHistory{
+    color: $white;
+
+    h1{
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 25px;   
+    }
+
+    div{
+        .order{
+            border: 3px solid white;
+            border-radius: 15px;
+            width: 35%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+
+            .orderInfo{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                margin: 0 auto;
+                border-radius: 15px;
+
+                .orderN{
+                    font-weight: bold;
+                    font-size: 1.4rem;
+                }
+            }
+
+            .orderDetails{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+                gap: 30px;
+                flex-direction: row;
+                align-items: center;
+                padding: 10px;
+                margin: 0 auto;
+                border-radius: 15px;
+
+                .prodName{
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+            
+            }
+        }
+    }
+}
+    
+
 
 // Partie Contact :
 

@@ -34,7 +34,13 @@
                             <p v-if="isConnected" v-cloak>{{ userName }}</p>
                         </span>
 
-                        <a href="" v-if="isConnected">
+                        <span>
+                            <a href="../HTML/orderHistory.html">
+                                <p v-if="isConnected">Mes commandes</p>
+                            </a>
+                        </span>
+
+                        <a href="../HTML/cartPage.html" v-if="isConnected">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
 

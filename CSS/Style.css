@@ -637,6 +637,8 @@ body h5 a {
 .productsPage .shoppingCart {
   color: #ffffff;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .productsPage .items {
   display: flex;
@@ -652,7 +654,7 @@ body h5 a {
   text-align: center;
   width: 400px;
   height: 400px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .productsPage .items div div {
   transition: all 0.2s ease-in-out;
@@ -818,6 +820,128 @@ body h5 a {
   margin-bottom: 50px;
 }
 
+.orderPage {
+  color: white;
+}
+.orderPage img {
+  width: 100px;
+}
+.orderPage h1 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.orderPage .cart {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.orderPage .cart .cartItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 22%;
+  transition: all 0.2s ease-in-out;
+}
+.orderPage .cart .cartItem:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+.orderPage .cart .cartItem img {
+  width: 100px;
+  margin-right: 30px;
+}
+.orderPage .cart .cartItem .cartItemActions button {
+  background-color: crimson;
+  transition: all 0.2s ease-in-out;
+  margin-left: 5px;
+}
+.orderPage .cart .cartItem .cartItemActions button:hover {
+  color: #ffffff;
+}
+.orderPage button {
+  transition: all 0.2s ease-in-out;
+}
+.orderPage button:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+.orderPage .keepShopping {
+  margin: 30px;
+}
+.orderPage .keepShopping button {
+  padding: 10px 20px;
+  background-color: #02c4ff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+.orderPage .orderPrice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 3px solid white;
+  border-radius: 15px;
+  padding: 30px;
+}
+.orderPage .orderPrice button {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.orderHistory {
+  color: #ffffff;
+}
+.orderHistory h1 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.orderHistory div .order {
+  border: 3px solid white;
+  border-radius: 15px;
+  width: 35%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.orderHistory div .order .orderInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+.orderHistory div .order .orderInfo .orderN {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.orderHistory div .order .orderDetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+.orderHistory div .order .orderDetails .prodName {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .contact-form {
   background-color: #262626;
   padding: 20px;
@@ -900,4 +1024,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}/*# sourceMappingURL=Style.css.map */
+}

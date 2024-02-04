@@ -4,7 +4,7 @@ let products = [
     id: 1,
     name: "Table en bois",
     description: "Table en bois massif avec finition élégante.",
-    imageUrl: "../Assets/img/deco-2.jpg",
+    imageUrl: "../Assets/img/mobilier-1.jpg",
     price: 199.99,
     category: 'Mobilier',
     quantity: 1,
@@ -13,7 +13,7 @@ let products = [
     id: 2,
     name: "etagere",
     description: "petite etagere style industriel.",
-    imageUrl: "/Assets/img/deco-2.jpg",
+    imageUrl: "../Assets/img/mobilier-2.jpg",
     price: 89.99,
     category: 'Mobilier',
     quantity: 1,
@@ -22,7 +22,7 @@ let products = [
     id: 3,
     name: "canapé cuir marron",
     description: "Canape en cuir marron trois places.",
-    imageUrl: "/assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/mobilier-3.jpg",
     price: 1299.99,
     category: 'Mobilier',
     quantity: 1,
@@ -31,7 +31,7 @@ let products = [
     id: 4,
     name: "canapé en tissu vert",
     description: "Canapeen tissu vert 3 places.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/mobilier-4.jpg",
     price: 999.99,
     category: 'Mobilier',
     quantity: 1,
@@ -40,7 +40,7 @@ let products = [
     id: 5,
     name: "ensemble table et chaise ",
     description: "ensemble table et chaise styles scandinave.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/mobilier-5.jpg",
     price: 499.49,
     category: 'Mobilier',
     quantity: 1,
@@ -49,7 +49,7 @@ let products = [
     id: 6,
     name: "suspension noire industriel",
     description: "Lampe avec un design moderne et éclairage ajustable.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/luminaire-1.jpg",
     price: 79.79,
     category: 'Luminaire',
     quantity: 1,
@@ -58,25 +58,25 @@ let products = [
     id: 7,
     name: "suspension noire ",
     description: "Lampe avec un design moderne et éclairage ajustable.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/luminaire-4.jpg",
     price: 89.99,
     category: 'Luminaire',
     quantity: 1,
   },
   {
     id: 8,
-    name: "suspencion blanche",
-    description: "Lampe avec un design modern.",
-    imageUrl: "assets/img/deco-1.jpg",
+    name: "suspension blanche",
+    description: "Lampe avec un design moderne.",
+    imageUrl: "../Assets/img/luminaire-2.jpg",
     price: 51.99,
     category: 'Luminaire',
     quantity: 1,
   },
   {
     id: 9,
-    name: "suspencion style bois",
+    name: "suspension style bois",
     description: "Lampe avec un design moderne.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/luminaire-3.jpg",
     price: 121.49,
     category: 'Luminaire',
     quantity: 1,
@@ -85,7 +85,7 @@ let products = [
     id: 10,
     name: "Applique murale",
     description: "Lampe avec un design moderne.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/luminaire-5.jpg",
     price: 39.99,
     category: 'Luminaire',
     quantity: 1,
@@ -94,7 +94,7 @@ let products = [
     id: 11,
     name: "vase style bois",
     description: "deux magnifique vase style bois",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/deco-1.jpg",
     price: 19.99,
     category: 'Décoration',
     quantity: 1,
@@ -103,7 +103,7 @@ let products = [
     id: 12,
     name: "vase design",
     description: "Magnifique vase vert pomme .",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/deco-2.jpg",
     price: 49.99,
     category: 'Décoration',
     quantity: 1,
@@ -112,7 +112,7 @@ let products = [
     id: 13,
     name: "3 poterie decorative",
     description: "poterie decorative en terre cuite.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/deco-3.jpg",
     price: 119.49,
     category: 'Décoration',
     quantity: 1,
@@ -121,7 +121,7 @@ let products = [
     id: 14,
     name: "vase en terre",
     description: "vase en terre cuir style grec.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/deco-4.jpg",
     price: 149.49,
     category: 'Décoration',
     quantity: 1,
@@ -130,7 +130,7 @@ let products = [
     id: 15,
     name: "vase bleu",
     description: "vase en verre souffle bleu.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/deco-5.jpg",
     price: 189.99,
     category: 'Décoration',
     quantity: 1,
@@ -139,7 +139,7 @@ let products = [
     id: 16,
     name: "peau de bete",
     description: "tapis en fausse peau de bete.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/tapis-1.jpg",
     price: 130.0,
     category: 'Tapis',
     quantity: 1,
@@ -148,7 +148,7 @@ let products = [
     id: 17,
     name: "Tapis style marocain",
     description: "tapis style marocain motif lineaire.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/tapis-2.jpg",
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
@@ -157,7 +157,7 @@ let products = [
     id: 18,
     name: "tapis orientale",
     description: "tapis style orientale .",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/tapis-3.jpg",
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
@@ -166,7 +166,7 @@ let products = [
     id: 19,
     name: "tapis elephant",
     description: "Joli petit tapis style crochet en forme de tete d'elephant.",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/tapis-4.jpg",
     price: 99.99,
     category: 'Tapis',
     quantity: 1,
@@ -175,7 +175,7 @@ let products = [
     id: 20,
     name: "tapis Noir",
     description: "tapis moltonne noir .",
-    imageUrl: "assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/tapis-5.jpg",
     price: 59.99,
     category: 'Tapis',
     quantity: 1,
@@ -232,6 +232,7 @@ const app = Vue.createApp({
       adminConnected: false,
       loginModal: false,
       connectedUser: [],
+      orderHistory: [],
       //pour produits
       product: products,
       active: false,
@@ -244,7 +245,7 @@ const app = Vue.createApp({
       editModal: false,
       addModal: false,
       editIndex: -1,
-
+      //userMenu
       menuVisible: false,
 
     };
@@ -252,190 +253,191 @@ const app = Vue.createApp({
 
   methods: {
 
-    toggleMenu() {
-      this.menuVisible = !this.menuVisible;
-      console.log('Menu visible : ' + this.menuVisible);
-    },
-
-    logout() {
-      console.log('Déconnexion effectuée');
-    },
-
-    viewProfile() {
-      console.log('Afficher les détails du profil');
-    },
-
+    
     //pour user inscription
-    addUser() {
+          addUser() {
       let { userName, password, email, category, confPassword, siret } =
         this.tempTable;
-      const emailReg =
+        const emailReg =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i;
-      const passwordReg =
+        const passwordReg =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
-      const siretReg = /^\d{14}$/;
-
-      if (userName && email && password && category) {
-        if (emailReg.test(email)) {
-          if (passwordReg.test(password)) {
-            if (password === confPassword) {
-              if (category === "client") {
-                this.users.push({
-                  id: this.users.length + 1,
-                  userName: userName,
-                  password: password,
-                  email: email,
-                  category: category,
-                });
-                this.tempTable = {};
-              } else if (
-                category === "commerçant" &&
-                siret &&
-                siretReg.test(siret)
-              ) {
-                this.users.push({
-                  id: this.users.length + 1,
-                  userName: userName,
-                  password: password,
-                  email: email,
-                  category: category,
-                  siret: siret,
-                });
-                this.tempTable = {};
-              } else if (
-                category === "commerçant" &&
-                (!siret || !siretReg.test(siret))
-              ) {
-                alert("Numéro de Siret non valide");
+        const siretReg = /^\d{14}$/;
+        
+        if (userName && email && password && category) {
+          if (emailReg.test(email)) {
+            if (passwordReg.test(password)) {
+              if (password === confPassword) {
+                if (category === "client") {
+                  this.users.push({
+                    id: this.users.length + 1,
+                    userName: userName,
+                    password: password,
+                    email: email,
+                    category: category,
+                  });
+                  this.tempTable = {};
+                } else if (
+                  category === "commerçant" &&
+                  siret &&
+                  siretReg.test(siret)
+                  ) {
+                    this.users.push({
+                      id: this.users.length + 1,
+                      userName: userName,
+                      password: password,
+                      email: email,
+                      category: category,
+                      siret: siret,
+                    });
+                    this.tempTable = {};
+                  } else if (
+                    category === "commerçant" &&
+                    (!siret || !siretReg.test(siret))
+                    ) {
+                      alert("Numéro de Siret non valide");
+                    }
+                  } else {
+                    alert("Mot de passe non valide");
+                  }
+                } else {
+                  alert("Votre mot de passe ne remplit pas les critères requis");
+                }
+              } else {
+                alert("Email non valide");
               }
             } else {
-              alert("Mot de passe non valide");
+              alert("Veuillez remplir tous les champs");
             }
-          } else {
-            alert("Votre mot de passe ne remplit pas les critères requis");
-          }
-        } else {
-          alert("Email non valide");
-        }
-      } else {
-        alert("Veuillez remplir tous les champs");
-      }
-    },
-
-    //pour user connexion
-    login() {
-      if (this.validateInput()) {
-        let user = this.users.find((user) => user.userName === this.userName);
-
-        if (!user) {
-          user = this.sellers.find((seller) => seller.userName === this.userName)
-        }
-
-        if (user) {
-          this.handleUserFound(user);
-        } else {
-          alert("Utilisateur inconnu");
-        }
-      } else {
-        alert("Veuillez remplir tous les champs")
-      }
-    },
-
-    validateInput() {
-      return this.userName && this.password
-    },
-
-    handleUserFound(user) {
-      if (user.password === this.password) {
-        this.handleSuccessLogin(user.category);
-      } else {
-        alert("Mot de passe incorrect")
-      }
-    },
-
-    handleSuccessLogin(category) {
-      this.loginModal = false
-      this.connectedUser = {
-        userName: this.userName,
-        category: category,
-      }
-
-      if (category === "admin") {
-        this.isConnected = true
-        this.adminConnected = true
-        localStorage.setItem("adminConnected", true)
-        localStorage.setItem("isConnected", true)
-        alert("Bienvenue " + this.userName)
-      } else if (category === "commerçant") {
-        this.isConnected = true
-        this.sellerConnected = true
-        localStorage.setItem("sellerConnected", true)
-        localStorage.setItem("isConnected", true)
-        console.log("sellerConnected")
-        alert("Bienvenue " + this.userName)
-      } else if (category === "client") {
-        this.isConnected = true
-        localStorage.setItem("isConnected", true)
-        alert("Bienvenue " + this.userName)
-      }
-      console.log(this.connectedUser.category)
-    },
-
-    logOut() {
-      this.isConnected = false
-      localStorage.removeItem("isConnected")
-      if (this.adminConnected) {
-        this.adminConnected = false
-        localStorage.removeItem("adminConnected")
-      } else if (this.sellerConnected) {
-        this.sellerConnected = false
-        localStorage.removeItem("sellerConnected")
-      }
-    },
-
-    openLoginModal() {
-      this.loginModal = true
-    },
-
-    closeLoginModal() {
-      this.loginModal = false
-    },
-
-    localSave() {
-      //pour users
-      localStorage.setItem("users", JSON.stringify(this.users));
-      localStorage.setItem("sellers", JSON.stringify(this.sellers));
-      localStorage.setItem("cart", JSON.stringify(this.cart));
-      localStorage.setItem("product", JSON.stringify(this.product));
-    },
-
-    //pour produits
-
-    addToCart(product) {
-      let existingProduct = this.cart.find((item) => item.id === product.id);
-      if (existingProduct) {
-        existingProduct.quantity++;
-      } else {
-        this.cart.push({ ...product, quantity: 1, active: true });
-      }
-      this.localSave();
-    },
-
-    totalProdNoVAT(prod) {
-      let total = ((prod.price * prod.quantity) * 0.8)
-      return total.toFixed(2)
-    },
-
-    totalProductPrice(prod) {
-      let total = (prod.price * prod.quantity)
-      return total.toFixed(2)
-    },
-
-    totalPriceNoVAT() {
-      return this.cart.reduce((acc, product) => {
-        if (product.active) {
-          return acc + parseFloat((product.price * product.quantity) * 0.8);
-        } else {
+          },
+          
+          //pour user connexion
+          login() {
+            if (this.validateInput()) {
+              let user = this.users.find((user) => user.userName === this.userName);
+              
+              if (!user) {
+                user = this.sellers.find((seller) => seller.userName === this.userName)
+              }
+              
+              if (user) {
+                this.handleUserFound(user);
+              } else {
+                alert("Utilisateur inconnu");
+              }
+            } else {
+              alert("Veuillez remplir tous les champs")
+            }
+          },
+          
+          validateInput() {
+            return this.userName && this.password
+          },
+          
+          handleUserFound(user) {
+            if (user.password === this.password) {
+              this.handleSuccessLogin(user.category);
+            } else {
+              alert("Mot de passe incorrect")
+            }
+          },
+          
+          handleSuccessLogin(category) {
+            this.loginModal = false
+            this.connectedUser = {
+              userName: this.userName,
+              category: category,
+            }
+            
+            if (category === "admin") {
+              this.isConnected = true
+              this.adminConnected = true
+              localStorage.setItem("adminConnected", true)
+              localStorage.setItem("isConnected", true)
+              alert("Bienvenue " + this.userName)
+            } else if (category === "commerçant") {
+              this.isConnected = true
+              this.sellerConnected = true
+              localStorage.setItem("sellerConnected", true)
+              localStorage.setItem("isConnected", true)
+              console.log("sellerConnected")
+              alert("Bienvenue " + this.userName)
+            } else if (category === "client") {
+              this.isConnected = true
+              localStorage.setItem("isConnected", true)
+              alert("Bienvenue " + this.userName)
+            }
+            console.log(this.connectedUser.category)
+          },
+          
+          logOut() {
+            this.isConnected = false
+            localStorage.removeItem("isConnected")
+            if (this.adminConnected) {
+              this.adminConnected = false
+              localStorage.removeItem("adminConnected")
+            } else if (this.sellerConnected) {
+              this.sellerConnected = false
+              localStorage.removeItem("sellerConnected")
+            }
+          },
+          
+          openLoginModal() {
+            this.loginModal = true
+          },
+          
+          closeLoginModal() {
+            this.loginModal = false
+          },
+          
+          localSave() {
+            //pour users
+            localStorage.setItem("users", JSON.stringify(this.users));
+            localStorage.setItem("sellers", JSON.stringify(this.sellers));
+            localStorage.setItem("cart", JSON.stringify(this.cart));
+            localStorage.setItem("product", JSON.stringify(this.product));
+          },
+          
+          //pour userMenu
+          toggleMenu() {
+            this.menuVisible = !this.menuVisible;
+            console.log('Menu visible : ' + this.menuVisible);
+          },
+      
+          logout() {
+            console.log('Déconnexion effectuée');
+          },
+      
+          viewProfile() {
+            console.log('Afficher les détails du profil');
+          },
+          //pour produits
+          
+          addToCart(product) {
+            let existingProduct = this.cart.find((item) => item.id === product.id);
+            if (existingProduct) {
+              existingProduct.quantity++;
+            } else {
+              this.cart.push({ ...product, quantity: 1, active: true });
+            }
+            this.localSave();
+          },
+          
+          totalProdNoVAT(prod) {
+            let total = ((prod.price * prod.quantity) * 0.8)
+            return total.toFixed(2)
+          },
+          
+          totalProductPrice(prod) {
+            let total = (prod.price * prod.quantity)
+            return total.toFixed(2)
+          },
+          
+          totalPriceNoVAT() {
+            return this.cart.reduce((acc, product) => {
+              if (product.active) {
+                return acc + parseFloat((product.price * product.quantity) * 0.8);
+              } else {
           return acc;
         }
       }, 0).toFixed(2);
@@ -470,67 +472,100 @@ const app = Vue.createApp({
         this.localSave()
       }
 
-    }
-  },
+    },
 
 
-
-
-  //Pour le CRUD produits
-
-  openEditModal(index) {
-    this.editModal = true
-    this.editIndex = index
-    this.tempTable = { ...this.product[index] }
-  },
-
-  openAddModal() {
-    this.addModal = true
-  },
-
-  closeModal() {
-    this.editModal = false
-    this.addModal = false
-  },
-
-  closeAddModal() {
-    this.addModal = false
-    this.tempTable = {}
-  },
-
-  addProduct() {
-    if (this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
-      this.product.push(this.tempTable)
+    //Pour le CRUD produits
+  
+    openEditModal(index) {
+      this.editModal = true
+      this.editIndex = index
+      this.tempTable = { ...this.product[index] }
+    },
+  
+    openAddModal() {
+      this.addModal = true
+    },
+  
+    closeModal() {
+      this.editModal = false
+      this.addModal = false
+    },
+  
+    closeAddModal() {
+      this.addModal = false
       this.tempTable = {}
-      this.closeAddModal()
-    } else {
-      alert("Veuillez remplir tous les champs")
-      console.log('hello?')
-    }
-  },
+    },
 
-  closeEditModal() {
-    this.editModal = false
-    this.editIndex = -1
-    this.tempTable = {}
-  },
-
-  editProduct() {
-    this.addModal = false
-    if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
-      this.product[this.editIndex] = this.tempTable
+    addProduct() {
+      if (this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
+        this.product.push(this.tempTable)
+        this.tempTable = {}
+        this.closeAddModal()
+      } else {
+        alert("Veuillez remplir tous les champs")
+        console.log('hello?')
+      }
+    },
+  
+    closeEditModal() {
+      this.editModal = false
+      this.editIndex = -1
       this.tempTable = {}
-      this.closeEditModal()
-    } else {
-      alert("Veuillez remplir tous les champs")
-    }
+    },
+  
+    editProduct() {
+      this.addModal = false
+      if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
+        this.product[this.editIndex] = this.tempTable
+        this.tempTable = {}
+        this.closeEditModal()
+      } else {
+        alert("Veuillez remplir tous les champs")
+      }
+    },
+  
+    deleteProduct(index) {
+      if (confirm("Etes-vous sur de vouloir supprimer ce produit ?")) {
+        this.product.splice(index, 1)
+      }
+    },
+
+    //historique des commandes
+    order() {
+      let order = {
+        id: this.orderHistory.length + 1,
+        date: new Date().toLocaleString(),
+        products: this.cart,
+        name: this.cart.map((product) => {
+          return product.name;
+        }),
+        quantity: this.cart.reduce((acc, product) => {
+          return acc + product.quantity;
+        }
+        , 0),
+        productsPrice: this.cart.map((product) => {
+          return product.price;
+        }),
+        totalPrice: this.cart.reduce((acc, product) => {
+          return acc + product.price * product.quantity;
+        }, 0).toFixed(2),
+        totalPriceNoVAT: this.cart.reduce((acc, product) => {
+          return acc + (product.price * product.quantity) * 0.8;
+        }, 0).toFixed(2),
+      }
+      this.orderHistory.push(order)
+      this.cart = []
+      localStorage.setItem("orderHistory", JSON.stringify(this.orderHistory));
+    },
+
+
   },
 
-  deleteProduct(index) {
-    if (confirm("Etes-vous sur de vouloir supprimer ce produit ?")) {
-      this.product.splice(index, 1)
-    }
-  },
+
+
+
+
 
 
   computed: {},
@@ -565,6 +600,14 @@ const app = Vue.createApp({
         this.localSave();
       },
     },
+
+    //pour historique des commandes
+    orderHistory: {
+      deep: true,
+      handler() {
+        this.localSave();
+      },
+    },
   },
 
   created() {
@@ -592,6 +635,10 @@ const app = Vue.createApp({
     this.adminConnected = adminConnected || false;
     let sellerConnected = localStorage.getItem("sellerConnected") === "true";
     this.sellerConnected = sellerConnected || false;
+    storedSave = localStorage.getItem("orderHistory");
+    if (storedSave) {
+      this.orderHistory = JSON.parse(storedSave);
+    }
   },
 });
 
