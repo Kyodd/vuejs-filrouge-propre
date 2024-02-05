@@ -48,7 +48,9 @@
                         <div class="dropDown" v-if="menuVisible && isConnected">
 
                             <ul>
-                                <li @click="viewProfile">Detail du Profil</li>
+                                <a href="../HTML/Profile.html">
+                                    <li @click="viewProfile">Detail du Profil</li>
+                                  </a>
                                 <li class="disconnect" v-if="isConnected" @click="logOut()">Déconnexion</li>
                             </ul>
 

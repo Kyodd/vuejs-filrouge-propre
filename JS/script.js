@@ -347,6 +347,7 @@ const app = Vue.createApp({
             this.connectedUser = {
               userName: this.userName,
               category: category,
+              email: this.email,
             }
             
             if (category === "admin") {
@@ -369,7 +370,7 @@ const app = Vue.createApp({
             }
             console.log(this.connectedUser.category)
           },
-          
+
           logOut() {
             this.isConnected = false
             localStorage.removeItem("isConnected")
@@ -608,6 +609,13 @@ const app = Vue.createApp({
         this.localSave();
       },
     },
+
+    connectedUser: {
+      deep: true,
+      handler() {
+        this.localSave();
+      },
+    },
   },
 
   created() {
@@ -638,6 +646,10 @@ const app = Vue.createApp({
     storedSave = localStorage.getItem("orderHistory");
     if (storedSave) {
       this.orderHistory = JSON.parse(storedSave);
+    }
+    storedSave = localStorage.getItem("connectedUser");
+    if (storedSave) {
+      this.connectedUser = JSON.parse(storedSave);
     }
   },
 });
