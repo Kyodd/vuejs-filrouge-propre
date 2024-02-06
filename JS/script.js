@@ -368,6 +368,9 @@ const app = Vue.createApp({
               localStorage.setItem("isConnected", true)
               alert("Bienvenue " + this.userName)
             }
+
+            localStorage.setItem("connectedUser", JSON.stringify(this.connectedUser));
+            this.connectedUser.push(this.connectedUser)
             console.log(this.connectedUser.category)
           },
 

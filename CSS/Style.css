@@ -77,8 +77,14 @@ body header .navBar .nav .navItem a:hover {
   color: #02c4ff;
   scale: 1.2;
 }
+body header .navBar .nav .navItem .dropDown ul {
+  list-style: none;
+}
 body header .navBar .nav .navItem .dropDown ul li {
-  padding-left: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 15px;
+  text-align: center;
 }
 body header .navBar .nav .navItem .dropDown ul li:hover {
   background-color: #02c4ff;
@@ -640,6 +646,9 @@ body h5 a {
   display: flex;
   justify-content: center;
 }
+.productsPage button {
+  margin: 5px 10px;
+}
 .productsPage .items {
   display: flex;
   flex-direction: row;
@@ -794,14 +803,164 @@ body h5 a {
   z-index: 2;
 }
 
+.userCRUD {
+  font-family: sans-serif;
+}
+.userCRUD header .about {
+  height: 200px;
+}
+.userCRUD #app {
+  text-align: center;
+  color: #ffffff;
+}
+.userCRUD #app table {
+  margin: auto;
+  font-size: 14px;
+}
+.userCRUD #app table td, .userCRUD #app table th {
+  padding: 8px;
+  border-collapse: collapse;
+}
+.userCRUD #app table th {
+  border-bottom: 2px solid #ffffff;
+}
+.userCRUD #app .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.userCRUD #app .btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+.userCRUD #app .btn-primary:hover {
+  background-color: #0056b3;
+}
+.userCRUD #app .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.userCRUD #app .btn-danger:hover {
+  scale: 1.2;
+}
+.userCRUD #app .btn-success {
+  background-color: #28a745;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 auto;
+}
+.userCRUD #app .btn-success:hover {
+  background-color: #1e7e34;
+}
+.userCRUD #app .modal {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+.userCRUD #app .modal .modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #262626, #02c4ff);
+  padding: 20 px;
+  width: 500px;
+  height: 350px;
+  border-radius: 10px;
+  box-shadow: 0, 0, 10px, rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  max-height: 600px;
+  position: relative;
+}
+.userCRUD #app .modal .modal-content label {
+  font-weight: bold;
+}
+.userCRUD #app .modal .modal-content input {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.userCRUD #app .modal .modal-content h2 {
+  margin: 10px;
+}
+.userCRUD #app .modal .modal-content .confBtn {
+  padding: 10px;
+  margin-top: 10px;
+  height: 50px;
+  font-weight: bold;
+}
+.userCRUD #app .modal .modal-content span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: crimson;
+  z-index: 2;
+}
+
 .profilePage {
   color: #ffffff;
 }
-.profilePage .profile {
-  margin-top: 10px;
-}
-.profilePage .profile h2 {
+.profilePage h2 {
   text-align: center;
+  font-size: 2.5rem;
+  margin: 10px;
+}
+.profilePage .profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.profilePage .profile img {
+  width: 300px;
+  height: 300px;
+}
+.profilePage .profile .userOrders {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.profilePage .profile .userOrders .orderCard {
+  margin: 20px;
+  border: 3px solid white;
+  padding: 10px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 300px;
+}
+.profilePage .profile .userOrders .orderCard .orderDetails {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.profilePage .profile .userOrders .orderCard .orderDetails h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .hiden {
@@ -847,7 +1006,7 @@ body h5 a {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  width: 22%;
+  width: 30%;
   transition: all 0.2s ease-in-out;
 }
 .orderPage .cart .cartItem:hover {
@@ -861,7 +1020,7 @@ body h5 a {
 .orderPage .cart .cartItem .cartItemActions button {
   background-color: crimson;
   transition: all 0.2s ease-in-out;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .orderPage .cart .cartItem .cartItemActions button:hover {
   color: #ffffff;
