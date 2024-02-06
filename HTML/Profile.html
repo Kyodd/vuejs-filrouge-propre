@@ -114,7 +114,7 @@
                 <input type="password" v-model="password">
 
                 <button type="submit" @click.prevent="login()" class="signIn">Me connecter</button>
-                <button class="signUp"><a href="./HTML/signUp.html">Pas de compte? je m'inscris</a></button>
+                <button class="signUp"><a href="../HTML/signUp.html">Pas de compte? je m'inscris</a></button>
             </div>
         </form>    
 
@@ -127,6 +127,8 @@
                 Email: <span>{{ connectedUser.email }}</span>
                 <br>
                 Type de compte: <span>{{ connectedUser.category }}</span>
+                <br>
+                Date de création: <span>{{ connectedUser.creationDate }}</span>
             </div>
 
             <h2>Mes commandes récentes</h2>

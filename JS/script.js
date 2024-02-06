@@ -8,6 +8,7 @@ let products = [
     price: 199.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ let products = [
     price: 89.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ let products = [
     price: 1299.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ let products = [
     price: 999.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 5,
@@ -44,6 +48,7 @@ let products = [
     price: 499.49,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 6,
@@ -53,6 +58,7 @@ let products = [
     price: 79.79,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 7,
@@ -62,6 +68,7 @@ let products = [
     price: 89.99,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 8,
@@ -71,6 +78,7 @@ let products = [
     price: 51.99,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 9,
@@ -80,6 +88,7 @@ let products = [
     price: 121.49,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 10,
@@ -89,6 +98,7 @@ let products = [
     price: 39.99,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 11,
@@ -98,6 +108,7 @@ let products = [
     price: 19.99,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 12,
@@ -107,6 +118,7 @@ let products = [
     price: 49.99,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 13,
@@ -116,6 +128,7 @@ let products = [
     price: 119.49,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 14,
@@ -125,6 +138,7 @@ let products = [
     price: 149.49,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 15,
@@ -134,6 +148,7 @@ let products = [
     price: 189.99,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 16,
@@ -143,6 +158,7 @@ let products = [
     price: 130.0,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 17,
@@ -152,6 +168,7 @@ let products = [
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 18,
@@ -161,6 +178,7 @@ let products = [
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 19,
@@ -170,6 +188,7 @@ let products = [
     price: 99.99,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 20,
@@ -179,6 +198,7 @@ let products = [
     price: 59.99,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
 ];
 
@@ -204,18 +224,7 @@ let userList = [
     userName: "seller",
     password: "seller",
     email: "seller@gmail.com",
-    category: "Commerçant",
-    siret: "12345678912345",
-  },
-];
-
-let sellersList = [
-  {
-    id: 1,
-    userName: "Vendeur",
-    password: "Vendeur#1",
-    email: "vendeur1@gmail.com",
-    category: "Commerçant",
+    category: "commerçant",
     siret: "12345678912345",
   },
 ];
@@ -226,7 +235,6 @@ const app = Vue.createApp({
       //pour users
       tempTable: {},
       users: userList,
-      sellers: sellersList,
       isConnected: false,
       sellerConnected: false,
       adminConnected: false,
@@ -253,195 +261,188 @@ const app = Vue.createApp({
 
   methods: {
 
-    
+
     //pour user inscription
-          addUser() {
+    addUser() {
       let { userName, password, email, category, confPassword, siret } =
         this.tempTable;
-        const emailReg =
+      const emailReg =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i;
-        const passwordReg =
+      const passwordReg =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
-        const siretReg = /^\d{14}$/;
-        
-        if (userName && email && password && category) {
-          if (emailReg.test(email)) {
-            if (passwordReg.test(password)) {
-              if (password === confPassword) {
-                if (category === "client") {
-                  this.users.push({
-                    id: this.users.length + 1,
-                    userName: userName,
-                    password: password,
-                    email: email,
-                    category: category,
-                  });
-                  this.tempTable = {};
-                } else if (
-                  category === "commerçant" &&
-                  siret &&
-                  siretReg.test(siret)
-                  ) {
-                    this.users.push({
-                      id: this.users.length + 1,
-                      userName: userName,
-                      password: password,
-                      email: email,
-                      category: category,
-                      siret: siret,
-                    });
-                    this.tempTable = {};
-                  } else if (
-                    category === "commerçant" &&
-                    (!siret || !siretReg.test(siret))
-                    ) {
-                      alert("Numéro de Siret non valide");
-                    }
-                  } else {
-                    alert("Mot de passe non valide");
-                  }
-                } else {
-                  alert("Votre mot de passe ne remplit pas les critères requis");
-                }
-              } else {
-                alert("Email non valide");
-              }
-            } else {
-              alert("Veuillez remplir tous les champs");
-            }
-          },
-          
-          //pour user connexion
-          login() {
-            if (this.validateInput()) {
-              let user = this.users.find((user) => user.userName === this.userName);
-              
-              if (!user) {
-                user = this.sellers.find((seller) => seller.userName === this.userName)
-              }
-              
-              if (user) {
-                this.handleUserFound(user);
-              } else {
-                alert("Utilisateur inconnu");
-              }
-            } else {
-              alert("Veuillez remplir tous les champs")
-            }
-          },
-          
-          validateInput() {
-            return this.userName && this.password
-          },
-          
-          handleUserFound(user) {
-            if (user.password === this.password) {
-              this.handleSuccessLogin(user.category);
-            } else {
-              alert("Mot de passe incorrect")
-            }
-          },
-          
-          handleSuccessLogin(category) {
-            this.loginModal = false
-            this.connectedUser = {
-              userName: this.userName,
-              category: category,
-              email: this.email,
-            }
-            
-            if (category === "admin") {
-              this.isConnected = true
-              this.adminConnected = true
-              localStorage.setItem("adminConnected", true)
-              localStorage.setItem("isConnected", true)
-              alert("Bienvenue " + this.userName)
-            } else if (category === "commerçant") {
-              this.isConnected = true
-              this.sellerConnected = true
-              localStorage.setItem("sellerConnected", true)
-              localStorage.setItem("isConnected", true)
-              console.log("sellerConnected")
-              alert("Bienvenue " + this.userName)
-            } else if (category === "client") {
-              this.isConnected = true
-              localStorage.setItem("isConnected", true)
-              alert("Bienvenue " + this.userName)
-            }
+      const siretReg = /^\d{14}$/;
 
-            localStorage.setItem("connectedUser", JSON.stringify(this.connectedUser));
-            this.connectedUser.push(this.connectedUser)
-            console.log(this.connectedUser.category)
-          },
-
-          logOut() {
-            this.isConnected = false
-            localStorage.removeItem("isConnected")
-            if (this.adminConnected) {
-              this.adminConnected = false
-              localStorage.removeItem("adminConnected")
-            } else if (this.sellerConnected) {
-              this.sellerConnected = false
-              localStorage.removeItem("sellerConnected")
-            }
-          },
-          
-          openLoginModal() {
-            this.loginModal = true
-          },
-          
-          closeLoginModal() {
-            this.loginModal = false
-          },
-          
-          localSave() {
-            //pour users
-            localStorage.setItem("users", JSON.stringify(this.users));
-            localStorage.setItem("sellers", JSON.stringify(this.sellers));
-            localStorage.setItem("cart", JSON.stringify(this.cart));
-            localStorage.setItem("product", JSON.stringify(this.product));
-          },
-          
-          //pour userMenu
-          toggleMenu() {
-            this.menuVisible = !this.menuVisible;
-            console.log('Menu visible : ' + this.menuVisible);
-          },
-      
-          logout() {
-            console.log('Déconnexion effectuée');
-          },
-      
-          viewProfile() {
-            console.log('Afficher les détails du profil');
-          },
-          //pour produits
-          
-          addToCart(product) {
-            let existingProduct = this.cart.find((item) => item.id === product.id);
-            if (existingProduct) {
-              existingProduct.quantity++;
+      if (userName && email && password && confPassword && category) {
+        if (emailReg.test(email)) {
+          if (passwordReg.test(password)) {
+            if (password === confPassword) {
+              if (category === "client") {
+                this.users.push({
+                  id: this.users.length + 1,
+                  userName: userName,
+                  password: password,
+                  email: email,
+                  category: category,
+                  dateCreated: new Date().toLocaleString(),
+                });
+                this.tempTable = {};
+              } else if (category === "commerçant" && siret && siretReg.test(siret)) {
+                this.users.push({
+                  id: this.users.length + 1,
+                  userName: userName,
+                  password: password,
+                  email: email,
+                  category: category,
+                  siret: siret,
+                  dateCreated: new Date().toLocaleString(),
+                });
+                this.tempTable = {};
+              } else if (category === "commerçant" && (!siret || !siretReg.test(siret))) {
+                alert("Veuillez saisir un numéro de SIRET valide")
+              }
             } else {
-              this.cart.push({ ...product, quantity: 1, active: true });
+              alert("Votre confirmation de mot de passe ne correspond pas à votre mot de passe")
             }
-            this.localSave();
-          },
-          
-          totalProdNoVAT(prod) {
-            let total = ((prod.price * prod.quantity) * 0.8)
-            return total.toFixed(2)
-          },
-          
-          totalProductPrice(prod) {
-            let total = (prod.price * prod.quantity)
-            return total.toFixed(2)
-          },
-          
-          totalPriceNoVAT() {
-            return this.cart.reduce((acc, product) => {
-              if (product.active) {
-                return acc + parseFloat((product.price * product.quantity) * 0.8);
-              } else {
+          } else {
+            alert("Votre mot de passe ne remplit pas less critères requis")
+          }
+        } else {
+          alert("Veuillez saisir une adresse email valide")
+        }
+      } else {
+        alert("Veuillez remplir tous les champs")
+      }
+    },
+
+    //pour user connexion
+    login() {
+      if(this.validateInput()){
+        let user = this.users.find((user) => user.userName === this.userName);
+
+        if(user){
+          this.handleUserFound(user);
+        } else {
+          alert("Nom d'utilisateur incorrect")
+        }
+      } else {
+        alert("Veuillez remplir tous les champs")
+      }
+    },
+
+    validateInput() {
+      return this.userName && this.password
+    },
+
+    handleUserFound(user) {
+      if (user.password === this.password) {
+        this.handleSuccessLogin(user.category);
+      } else {
+        alert("Mot de passe incorrect")
+      }
+    },
+
+    handleSuccessLogin(category) {
+      this.loginModal = false
+
+      let email = this.users.find((user) => user.userName === this.userName).email
+      let creationDate = this.users.find((user) => user.userName === this.userName).dateCreated
+
+
+      this.connectedUser = {
+        userName: this.userName,
+        category: category,
+        email: email,
+        creationDate: creationDate,
+      }
+
+      if (category === "admin") {
+        this.isConnected = true
+        this.adminConnected = true
+        localStorage.setItem("adminConnected", true)
+        localStorage.setItem("isConnected", true)
+        alert("Bienvenue " + this.userName)
+      } else if (category === "commerçant") {
+        this.isConnected = true
+        this.sellerConnected = true
+        localStorage.setItem("sellerConnected", true)
+        localStorage.setItem("isConnected", true)
+        console.log("sellerConnected")
+        alert("Bienvenue " + this.userName)
+      } else if (category === "client") {
+        this.isConnected = true
+        localStorage.setItem("isConnected", true)
+        alert("Bienvenue " + this.userName)
+      }
+      localStorage.setItem("connectedUser", JSON.stringify(this.connectedUser));
+    },
+
+    logOut() {
+      this.isConnected = false
+      localStorage.removeItem("isConnected")
+      if (this.adminConnected) {
+        this.adminConnected = false
+        localStorage.removeItem("adminConnected")
+      } else if (this.sellerConnected) {
+        this.sellerConnected = false
+        localStorage.removeItem("sellerConnected")
+      }
+    },
+
+    openLoginModal() {
+      this.loginModal = true
+    },
+
+    closeLoginModal() {
+      this.loginModal = false
+    },
+
+    localSave() {
+      //pour users
+      localStorage.setItem("users", JSON.stringify(this.users));
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+      localStorage.setItem("product", JSON.stringify(this.product));
+    },
+
+    //pour userMenu
+    toggleMenu() {
+      this.menuVisible = !this.menuVisible;
+      console.log('Menu visible : ' + this.menuVisible);
+    },
+
+    logout() {
+      console.log('Déconnexion effectuée');
+    },
+
+    viewProfile() {
+      console.log('Afficher les détails du profil');
+    },
+    //pour produits
+
+    addToCart(product) {
+      let existingProduct = this.cart.find((item) => item.id === product.id);
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        this.cart.push({ ...product, quantity: 1, active: true });
+      }
+      this.localSave();
+    },
+
+    totalProdNoVAT(prod) {
+      let total = ((prod.price * prod.quantity) * 0.8)
+      return total.toFixed(2)
+    },
+
+    totalProductPrice(prod) {
+      let total = (prod.price * prod.quantity)
+      return total.toFixed(2)
+    },
+
+    totalPriceNoVAT() {
+      return this.cart.reduce((acc, product) => {
+        if (product.active) {
+          return acc + parseFloat((product.price * product.quantity) * 0.8);
+        } else {
           return acc;
         }
       }, 0).toFixed(2);
@@ -480,22 +481,22 @@ const app = Vue.createApp({
 
 
     //Pour le CRUD produits
-  
+
     openEditModal(index) {
       this.editModal = true
       this.editIndex = index
       this.tempTable = { ...this.product[index] }
     },
-  
+
     openAddModal() {
       this.addModal = true
     },
-  
+
     closeModal() {
       this.editModal = false
       this.addModal = false
     },
-  
+
     closeAddModal() {
       this.addModal = false
       this.tempTable = {}
@@ -511,13 +512,13 @@ const app = Vue.createApp({
         console.log('hello?')
       }
     },
-  
+
     closeEditModal() {
       this.editModal = false
       this.editIndex = -1
       this.tempTable = {}
     },
-  
+
     editProduct() {
       this.addModal = false
       if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
@@ -528,7 +529,7 @@ const app = Vue.createApp({
         alert("Veuillez remplir tous les champs")
       }
     },
-  
+
     deleteProduct(index) {
       if (confirm("Etes-vous sur de vouloir supprimer ce produit ?")) {
         this.product.splice(index, 1)
@@ -547,7 +548,7 @@ const app = Vue.createApp({
         quantity: this.cart.reduce((acc, product) => {
           return acc + product.quantity;
         }
-        , 0),
+          , 0),
         productsPrice: this.cart.map((product) => {
           return product.price;
         }),
@@ -578,13 +579,6 @@ const app = Vue.createApp({
 
     //pour users
     users: {
-      deep: true,
-      handler() {
-        this.localSave();
-      },
-    },
-
-    sellers: {
       deep: true,
       handler() {
         this.localSave();
@@ -626,10 +620,6 @@ const app = Vue.createApp({
     let storedSave = localStorage.getItem("users");
     if (storedSave) {
       this.users = JSON.parse(storedSave);
-    }
-    storedSave = localStorage.getItem("sellers");
-    if (storedSave) {
-      this.sellers = JSON.parse(storedSave);
     }
     //pour produits
     storedSave = localStorage.getItem("cart");
