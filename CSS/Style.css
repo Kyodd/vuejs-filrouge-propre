@@ -929,6 +929,19 @@ body h5 a {
 .profilePage .profile h2 {
   text-align: center;
 }
+.profilePage .profile img {
+  width: 300px;
+  height: 300px;
+}
+.profilePage .profile .profileCard {
+  border: 3px solid blue;
+}
+.profilePage .profile .userOrders {
+  border: 3px solid red;
+}
+.profilePage .profile .orderCard {
+  border: 3px solid green;
+}
 
 .hiden {
   display: none !important;
@@ -1188,4 +1201,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}/*# sourceMappingURL=Style.css.map */
+}

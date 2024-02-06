@@ -8,6 +8,7 @@ let products = [
     price: 199.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ let products = [
     price: 89.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ let products = [
     price: 1299.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ let products = [
     price: 999.99,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 5,
@@ -44,6 +48,7 @@ let products = [
     price: 499.49,
     category: 'Mobilier',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 6,
@@ -53,6 +58,7 @@ let products = [
     price: 79.79,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 7,
@@ -62,6 +68,7 @@ let products = [
     price: 89.99,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 8,
@@ -71,6 +78,7 @@ let products = [
     price: 51.99,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 9,
@@ -80,6 +88,7 @@ let products = [
     price: 121.49,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 10,
@@ -89,6 +98,7 @@ let products = [
     price: 39.99,
     category: 'Luminaire',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 11,
@@ -98,6 +108,7 @@ let products = [
     price: 19.99,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 12,
@@ -107,6 +118,7 @@ let products = [
     price: 49.99,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 13,
@@ -116,6 +128,7 @@ let products = [
     price: 119.49,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 14,
@@ -125,6 +138,7 @@ let products = [
     price: 149.49,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 15,
@@ -134,6 +148,7 @@ let products = [
     price: 189.99,
     category: 'Décoration',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 16,
@@ -143,6 +158,7 @@ let products = [
     price: 130.0,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 17,
@@ -152,6 +168,7 @@ let products = [
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 18,
@@ -161,6 +178,7 @@ let products = [
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 19,
@@ -170,6 +188,7 @@ let products = [
     price: 99.99,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
   {
     id: 20,
@@ -179,6 +198,7 @@ let products = [
     price: 59.99,
     category: 'Tapis',
     quantity: 1,
+    moq: 5,
   },
 ];
 
@@ -326,7 +346,7 @@ const app = Vue.createApp({
 
       let email = this.users.find((user) => user.userName === this.userName).email
       let creationDate = this.users.find((user) => user.userName === this.userName).dateCreated
-      
+
 
       this.connectedUser = {
         userName: this.userName,
