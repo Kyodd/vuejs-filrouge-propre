@@ -693,7 +693,8 @@ body h5 a {
   font-weight: bold;
   font-size: 16px;
 }
-.crudBody main table td, .crudBody main table th {
+.crudBody main table td,
+.crudBody main table th {
   padding: 8px;
   border-collapse: collapse;
 }
@@ -830,6 +831,13 @@ body h5 a {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px;
+  width: 50%;
+  margin: 25px auto 25px;
+  transition: all 0.2s ease-in-out;
+}
+.orderPage h1:hover {
+  color: #02c4ff;
+  scale: 1.2;
 }
 .orderPage .cart {
   display: flex;
@@ -865,6 +873,37 @@ body h5 a {
 }
 .orderPage .cart .cartItem .cartItemActions button:hover {
   color: #ffffff;
+}
+.orderPage .cart .cartCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 90%;
+}
+.orderPage .cart .cartCard .orderPrice {
+  display: flex;
+  width: 45%;
+}
+.orderPage .cart .cartCard .orderPrice .logoCart {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.orderPage .cart .cartCard .orderPrice .fa-stack {
+  transition: all 0.2s ease-in-out;
+}
+.orderPage .cart .cartCard .orderPrice .fa-stack:hover {
+  cursor: pointer;
+  scale: 1.2;
+  color: #02c4ff;
 }
 .orderPage button {
   transition: all 0.2s ease-in-out;
@@ -1024,4 +1063,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}
+}/*# sourceMappingURL=Style.css.map */

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/Style.css">
     <title>Résumé de votre commande</title>
 </head>
+
 <body class="orderPage">
 
     <div id="app">
@@ -48,7 +50,7 @@
                             <ul>
                                 <a href="../HTML/Profile.html">
                                     <li @click="viewProfile">Detail du Profil</li>
-                                  </a>
+                                </a>
                                 <li class="disconnect" v-if="isConnected" @click="logOut()">Déconnexion</li>
                             </ul>
 
@@ -107,69 +109,89 @@
             </div>
         </header>
 
-            <h1>Votre panier</h1>
+        <h1>Votre panier :</h1>
 
-            <div class="cart">
-                <div class="cartItem" v-for="item in cart">
-                    <img :src="item.imageUrl" alt="product" />
-                    <div class="cartItemInfo">
-                        <h3>{{ item.name +' ' + item.quantity  + ' pièces' }}</h3>
-                        <p>Prix hors taxes: {{ totalProdNoVAT(item) }} €</p>
-                        <p>Prix TTC: {{ totalProductPrice(item) }} €</p>
-                    </div>
-                    <div class="cartItemActions">
-                        <button @click="deleteItem(item.id)">Supprimer</button>
-                    </div>
+        <div class="cart">
+
+            <div class="cartItem" v-for="item in cart">
+                <img :src="item.imageUrl" alt="product" />
+                <div class="cartItemInfo">
+                    <h3>{{ item.name +' ' + item.quantity + ' pièces' }}</h3>
+                    <p>Prix Hors Taxes: {{ totalProdNoVAT(item) }} €</p>
+                    <p>Prix TTC: {{ totalProductPrice(item) }} €</p>
                 </div>
+                <div class="cartItemActions">
+                    <button @click="deleteItem(item.id)">Supprimer</button>
+                </div>
+            </div>
 
-                <div class="keepShopping">
-                    <a href="../products.html">
-                        <button>Continuer mes achats</button>
-                    </a>
+            <div class="keepShopping">
+                <a href="../products.html">
+                    <button>Continuer mes achats</button>
+                </a>
+            </div>
+
+
+            <div class="cartCard">
+
+                <div class="cartImage">
+
+                    <!-- Image Du panier -->
+
                 </div>
 
                 <div class="orderPrice">
-                    <h2>Prix total de votre commande:</h2>
-                    <p>Prix hors taxes: {{ totalPriceNoVAT(item) }} €</p>
-                    <p>Prix TTC: {{ totalPrice(item) }} €</p>
-                    <button @click="order()" class="orderBtn">Commander</button>
+
+                    <div class="logoCart">
+                        <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                            <i class="far fa-circle fa-stack-2x"></i>
+                            <i class="fa-solid fa-cart-shopping fa-stack-1x"></i>
+                        </span>
+
+                        <h2>Prix total de votre commande:</h2>
+                        <p>Prix Hors Taxes: {{ totalPriceNoVAT(item) }} €</p>
+                        <p>Prix TTC: {{ totalPrice(item) }} €</p>
+                        <button @click="order()" class="orderBtn">Commander</button>
+                    </div>
+
                 </div>
 
             </div>
 
-        <footer>
-            <div class="info">
-                <div>
-                    <span class="fa-stack fa-2x" style="flex-shrink: 0">
-                        <i class="far fa-circle fa-stack-2x"></i>
-                        <i class="fa-solid fa-hippo fa-stack-1x"></i>
-                    </span>
+            <footer>
+                <div class="info">
+                    <div>
+                        <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                            <i class="far fa-circle fa-stack-2x"></i>
+                            <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="info_resto">
+                        <span class="name">Web</span>
+                        <span class="resto">Wares</span>
+                    </div>
                 </div>
-                <div class="info_resto">
-                    <span class="name">Web</span>
-                    <span class="resto">Wares</span>
+
+                <div class="Contact">
+                    <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
+                    <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
                 </div>
-            </div>
 
-            <div class="Contact">
-                <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
-                <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
-                <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-
-            <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
-            <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
-            <h5><a href="../HTML/TermOfUse.html">Politique de Confidantialité</a></h5>
-            <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
-        </footer>
-    </div>
+                <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+                <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
+                <h5><a href="../HTML/TermOfUse.html">Politique de Confidantialité</a></h5>
+                <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
+            </footer>
+        </div>
 
 
 
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../JS/script.js"></script>
-    <script src="../JS/main.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="../JS/script.js"></script>
+        <script src="../JS/main.js"></script>
 </body>
+
 </html>
