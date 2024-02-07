@@ -49,7 +49,8 @@ body header .navBar .nav {
   width: 100%;
   height: 100%;
   text-decoration: none;
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   background-color: #262626;
 }
 body header .navBar .nav .navItem {
@@ -113,7 +114,8 @@ body header .Title .info a .info_resto {
   align-items: center;
   flex-direction: column;
   color: rgba(0, 0, 0, 0.7);
-  text-decoration: solid;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
 }
 body header .Title .info a .info_resto .name {
   font-size: 48px;
@@ -880,10 +882,18 @@ body h5 a {
   margin-top: 25px;
   margin-bottom: 25px;
   width: 50%;
+  margin: 0px auto 0px;
+  transition: all 0.2s ease-in-out;
+}
+.orderPage .ourCart {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 50%;
   margin: 25px auto 25px;
   transition: all 0.2s ease-in-out;
 }
-.orderPage h1:hover {
+.orderPage .ourCart:hover {
   color: #02c4ff;
   scale: 1.2;
 }

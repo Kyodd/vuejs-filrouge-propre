@@ -1,238 +1,226 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boutique</title>
-    <script
-      src="https://kit.fontawesome.com/18a8b83caf.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./CSS/Style.css" />
-  </head>
 
-  <body class="productsPage">
-    <main id="app">
-      <header>
-        <div class="navBar">
-          <div class="nav">
-            <div class="navItem" v-cloak>
-              <a @click="openLoginModal" v-if="!isConnected">
-                <p>Connexion</p>
-              </a>
-              <a href="./products.html">
-                <p>Boutique</p>
-              </a>
-              <span>
-                <p v-if="isConnected" v-cloak>{{ userName }}</p>
-              </span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boutique</title>
+  <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./CSS/Style.css" />
+</head>
 
-              <span>
-                <a href="../HTML/orderHistory.html">
-                  <p v-if="isConnected">Mes commandes</p>
+<body class="productsPage">
+  <main id="app">
+    <header>
+      <div class="navBar">
+        <div class="nav">
+
+          <div class="navItem" v-cloak>
+
+            <a href="../index.html">
+              <P>Acceuil</P>
+            </a>
+            <a @click="openLoginModal" v-if="!isConnected">
+              <p>Connexion</p>
+            </a>
+            <a href="./products.html">
+              <p>Boutique</p>
+            </a>
+            <span>
+              <a href="../HTML/orderHistory.html">
+                <p v-if="isConnected">Mes commandes</p>
+              </a>
+            </span>
+
+            <a href="../HTML/cartPage.html" v-if="isConnected">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+            <div @click="toggleMenu">
+              <i class="fas fa-user" v-if="isConnected"></i>
+            </div>
+
+            <div class="dropDown" v-if="menuVisible && isConnected">
+              <ul>
+                <a href="../HTML/Profile.html">
+                  <li @click="viewProfile">Detail du Profil</li>
                 </a>
-              </span>
-
-              <a href="../HTML/cartPage.html" v-if="isConnected">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </a>
-
-              <div @click="toggleMenu">
-                <i class="fas fa-user" v-if="isConnected"></i>
-              </div>
-
-              <div class="dropDown" v-if="menuVisible && isConnected">
-                <ul>
-                  <a href="../HTML/Profile.html">
-                    <li @click="viewProfile">Detail du Profil</li>
-                  </a>
-                  <li class="disconnect" v-if="isConnected" @click="logOut()">
-                    Déconnexion
-                  </li>
-                </ul>
-              </div>
+                <li class="disconnect" v-if="isConnected" @click="logOut()">
+                  Déconnexion
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-
-        <div class="responsive_menu hiden" id="header">
-          <div class="img_resp">
-            <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
-            <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
-            <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
-          </div>
-          <div class="inf_resp">
-            <a href="./products.html">
-              <p>Produits</p>
-            </a>
-            <p>Panier</p>
-            <p>Utilisateur</p>
-            <p>Services</p>
-            <a href="../HTML/Contact.html">
-              <p>Contact</p>
-            </a>
-          </div>
-        </div>
-        <div class="Title">
-          <div></div>
-          <div class="info">
-            <a href="../index.html">
-              <div class="logo">
-                <span class="fa-stack fa-2x" style="flex-shrink: 0">
-                  <i class="far fa-circle fa-stack-2x"></i>
-                  <i class="fa-solid fa-hippo fa-stack-1x"></i>
-                </span>
-              </div>
-              <div class="info_resto">
-                <span class="name">Web</span>
-                <span class="resto">Wares</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="burger" id="menu_burger">
-            <i class="fa-solid fa-bars" id="burger"></i>
-            <i id="croix" class="hiden">&times;</i>
-          </div>
-        </div>
-
-        <div class="Welcome">
-          <h1>Welcome</h1>
-          <h3>Try Great to Web Wares</h3>
-          <button @click="openLoginModal" v-if="!isConnected">
-            Commencer dès maintenant
-          </button>
-        </div>
-      </header>
-
-      
-      <form v-if="loginModal" v-cloak class="modal">
-        <div class="modal-content">
-          <h3>Connexion</h3>
-          <span @click="closeLoginModal()">X</span>
-          <label for="name">Nom utilisateur</label>
-          <input type="text" v-model="userName" />
-          <label for="password">Mot de passe</label>
-          <input type="password" v-model="password" />
-          
-          <button type="submit" @click.prevent="login()" class="signIn">
-            Me connecter
-          </button>
-          <button class="signUp">
-            <a href="./HTML/signUp.html">Pas de compte? je m'inscris</a>
-          </button>
-        </div>
-      </form>
-
-      <div class="disclaimer">
-        <h1>Boutique</h1>
-        <span>A noter: la quantité minimale de commande est de <u>5 unités</u>.</span>
       </div>
 
-      
-      <section
-      class="shoppingCart"
-      v-if="isConnected && cart.length > 0"
-      v-cloak
-      >
+      <div class="responsive_menu hiden" id="header">
+        <div class="img_resp">
+          <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
+          <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
+          <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+        </div>
+        <div class="inf_resp">
+          <a href="./products.html">
+            <p>Produits</p>
+          </a>
+          <p>Panier</p>
+          <p>Utilisateur</p>
+          <p>Services</p>
+          <a href="../HTML/Contact.html">
+            <p>Contact</p>
+          </a>
+        </div>
+      </div>
+      <div class="Title">
+        <div></div>
+        <div class="info">
+          <a href="../index.html">
+            <div class="logo">
+              <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                <i class="far fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-hippo fa-stack-1x"></i>
+              </span>
+            </div>
+            <div class="info_resto">
+              <span class="name">Web</span>
+              <span class="resto">Wares</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="burger" id="menu_burger">
+          <i class="fa-solid fa-bars" id="burger"></i>
+          <i id="croix" class="hiden">&times;</i>
+        </div>
+      </div>
+
+      <div class="Welcome">
+        <h1>Welcome</h1>
+        <h3>Try Great to Web Wares</h3>
+        <button @click="openLoginModal" v-if="!isConnected">
+          Commencer dès maintenant
+        </button>
+      </div>
+    </header>
+
+
+    <form v-if="loginModal" v-cloak class="modal">
+      <div class="modal-content">
+        <h3>Connexion</h3>
+        <span @click="closeLoginModal()">X</span>
+        <label for="name">Nom utilisateur</label>
+        <input type="text" v-model="userName" />
+        <label for="password">Mot de passe</label>
+        <input type="password" v-model="password" />
+
+        <button type="submit" @click.prevent="login()" class="signIn">
+          Me connecter
+        </button>
+        <button class="signUp">
+          <a href="./HTML/signUp.html">Pas de compte? je m'inscris</a>
+        </button>
+      </div>
+    </form>
+
+    <div class="disclaimer">
+      <h1>Boutique</h1>
+      <span>A noter: la quantité minimale de commande est de <u>5 unités</u>.</span>
+    </div>
+
+
+    <section class="shoppingCart" v-if="isConnected && cart.length > 0" v-cloak>
       <div class="cartModal">
         <div class="cart">
           <strong>Panier</strong>
           <table>
-              <thead>
-                <th>Produit</th>
-                <th>Prix hors taxes</th>
-                <th>Total (TVA 20%)</th>
-              </thead>
+            <thead>
+              <th>Produit</th>
+              <th>Prix hors taxes</th>
+              <th>Total (TVA 20%)</th>
+            </thead>
 
-              <tbody>
-                <tr v-for="prod in cart" :key="prod.id" v-cloak>
-                  <td>{{ prod.name + ' x ' + prod.quantity }}</td>
-                  <td>{{ totalProdNoVAT(prod) }}</td>
-                  <td>{{ totalProductPrice(prod) }}</td>
-                  <td>
-                    <button @click="add(prod)">Ajouter 5</button>
-                    <button @click="remove(prod)">Retirer 5</button>
-                    <button @click="deleteItem(prod.id)">
-                      Enlever du panier
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Prix Total:</th>
-                  <th>{{ totalPriceNoVAT() }}</th>
-                  <th>{{ totalPrice() }}</th>
-                </tr>
-                <tr>
-                  <th>
-                    <a href="../HTML/cartPage.html">
-                      <button>Passer la commande</button>
-                    </a>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
+            <tbody>
+              <tr v-for="prod in cart" :key="prod.id" v-cloak>
+                <td>{{ prod.name + ' x ' + prod.quantity }}</td>
+                <td>{{ totalProdNoVAT(prod) }}</td>
+                <td>{{ totalProductPrice(prod) }}</td>
+                <td>
+                  <button @click="add(prod)">Ajouter 5</button>
+                  <button @click="remove(prod)">Retirer 5</button>
+                  <button @click="deleteItem(prod.id)">
+                    Enlever du panier
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th>Prix Total:</th>
+                <th>{{ totalPriceNoVAT() }}</th>
+                <th>{{ totalPrice() }}</th>
+              </tr>
+              <tr>
+                <th>
+                  <a href="../HTML/cartPage.html">
+                    <button>Passer la commande</button>
+                  </a>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="items">
+      <div v-for="prod in product" v-cloak>
+        <div class="description">
+          <h3>{{ prod.name }}</h3>
+          <img :src="prod.imageUrl" alt="{{ prod.name }}" />
+          <span class="price">Prix unitaire: {{ prod.price }} €</span>
+          <p class="details">{{ prod.description }}</p>
+          <div class="btns">
+            <button class="add" @click="addToCart(prod)" v-if="isConnected">
+              Ajouter au panier
+            </button>
+            <button class="seeDetails" @click="openDetailsModal(product)">Voir plus de détails</button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="items">
-        <div v-for="prod in product" v-cloak>
-          <div class="description">
-            <h3>{{ prod.name }}</h3>
-            <img :src="prod.imageUrl" alt="{{ prod.name }}" />
-            <span class="price">Prix unitaire: {{ prod.price }} €</span>
-            <p class="details">{{ prod.description }}</p>
-            <div class="btns">
-              <button class="add" @click="addToCart(prod)" v-if="isConnected">
-                Ajouter au panier
-              </button>
-              <button class="seeDetails" @click="openDetailsModal(product)">Voir plus de détails</button>
-            </div>
-          </div>
+    <footer>
+      <div class="info">
+        <div>
+          <span class="fa-stack fa-2x" style="flex-shrink: 0">
+            <i class="far fa-circle fa-stack-2x"></i>
+            <i class="fa-solid fa-hippo fa-stack-1x"></i>
+          </span>
         </div>
-      </section>
-
-      <footer>
-        <div class="info">
-          <div>
-            <span class="fa-stack fa-2x" style="flex-shrink: 0">
-              <i class="far fa-circle fa-stack-2x"></i>
-              <i class="fa-solid fa-hippo fa-stack-1x"></i>
-            </span>
-          </div>
-          <div class="info_resto">
-            <span class="name">Web</span>
-            <span class="resto">Wares</span>
-          </div>
+        <div class="info_resto">
+          <span class="name">Web</span>
+          <span class="resto">Wares</span>
         </div>
+      </div>
 
-        <div class="Contact">
-          <a href="https://Facebook.com/"
-            ><i class="fa-brands fa-square-facebook"></i
-          ></a>
-          <a href="https://Instagram.com/"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="https://Google.com/"
-            ><i class="fa-brands fa-square-google-plus"></i
-          ></a>
-          <a href="https://Youtube.com/"
-            ><i class="fa-brands fa-youtube"></i
-          ></a>
-        </div>
+      <div class="Contact">
+        <a href="https://Facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+        <a href="https://Instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://Google.com/"><i class="fa-brands fa-square-google-plus"></i></a>
+        <a href="https://Youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+      </div>
 
-        <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
-        <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
-        <h5>
-          <a href="../HTML/TermOfUse.html">Politique de Confidantialité</a>
-        </h5>
-        <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
-      </footer>
-    </main>
+      <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
+      <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
+      <h5>
+        <a href="../HTML/TermOfUse.html">Politique de Confidantialité</a>
+      </h5>
+      <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
+    </footer>
+  </main>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./JS/script.js"></script>
-    <script src="./JS/main.js"></script>
-  </body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./JS/script.js"></script>
+  <script src="./JS/main.js"></script>
+</body>
+
 </html>

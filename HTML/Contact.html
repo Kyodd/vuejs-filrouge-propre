@@ -25,16 +25,15 @@
 
                     <div class="navItem" v-cloak>
 
+                        <a href="../index.html">
+                            <P>Acceuil</P>
+                        </a>
                         <a @click="openLoginModal" v-if="!isConnected">
                             <P>Connexion</P>
                         </a>
                         <a href="../products.html">
                             <p>Boutique</p>
                         </a>
-                        <span>
-                            <p v-if="isConnected" v-cloak>{{ userName }}</p>
-                        </span>
-
                         <span>
                             <a href="../HTML/orderHistory.html">
                                 <p v-if="isConnected">Mes commandes</p>
@@ -56,7 +55,7 @@
                             <ul>
                                 <a href="../HTML/Profile.html">
                                     <li @click="viewProfile">Detail du Profil</li>
-                                  </a>
+                                </a>
                                 <li class="disconnect" v-if="isConnected" @click="logOut()">Déconnexion</li>
                             </ul>
 

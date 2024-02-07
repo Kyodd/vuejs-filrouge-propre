@@ -28,7 +28,6 @@
                         <a href="../index.html">
                             <P>Acceuil</P>
                         </a>
-
                         <a @click="openLoginModal" v-if="isConnected">
                             <P>Connexion</P>
                         </a>
@@ -44,10 +43,6 @@
                         <a v-if="!isConnected" @click="logOut()">
                             <p>Déconnexion</p>
                         </a>
-                        <span>
-                            <p v-if="isConnected" v-cloak>{{ userName }}</p>
-                        </span>
-
                     </div>
                 </div>
             </div>
@@ -113,7 +108,7 @@
         </form>
 
 
-            <!-- !!!
+        <!-- !!!
         Mettez votre code ICI
             SVP -->
 

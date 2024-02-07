@@ -15,17 +15,18 @@
     <header>
       <div class="navBar">
         <div class="nav">
+
           <div class="navItem" v-cloak>
+
+            <a href="../index.html">
+              <P>Acceuil</P>
+            </a>
             <a @click="openLoginModal" v-if="!isConnected">
               <p>Connexion</p>
             </a>
             <a href="./products.html">
               <p>Boutique</p>
             </a>
-            <span>
-              <p v-if="isConnected" v-cloak>{{ userName }}</p>
-            </span>
-
             <span>
               <a href="../HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
@@ -124,7 +125,7 @@
 
 
     <div class="bordel">
-      
+
       <section class="about">
         <div class="about_img">
           <img src="./ressources/imgSlider/chaise.png" alt="Plateau de fruit" class="non_resp" />

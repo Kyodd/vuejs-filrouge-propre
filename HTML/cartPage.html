@@ -19,16 +19,15 @@
 
                     <div class="navItem" v-cloak>
 
+                        <a href="../index.html">
+                            <P>Acceuil</P>
+                        </a>
                         <a @click="openLoginModal" v-if="!isConnected">
                             <P>Connexion</P>
                         </a>
                         <a href="../products.html">
                             <p>Boutique</p>
                         </a>
-                        <span>
-                            <p v-if="isConnected" v-cloak>{{ userName }}</p>
-                        </span>
-
                         <span>
                             <a href="../HTML/orderHistory.html">
                                 <p v-if="isConnected">Mes commandes</p>
@@ -109,7 +108,7 @@
             </div>
         </header>
 
-        <h1>Votre panier :</h1>
+        <h1 class="ourCart">Votre panier :</h1>
 
         <div class="cart">
 
