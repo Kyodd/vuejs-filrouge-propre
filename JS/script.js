@@ -22,16 +22,6 @@ let products = [
   },
   {
     id: 3,
-    name: "canapé cuir marron",
-    description: "Canape en cuir marron trois places.",
-    imageUrl: "./Assets/img/mobilier-3.jpg",
-    price: 1299.99,
-    category: 'Mobilier',
-    quantity: 1,
-    moq: 5,
-  },
-  {
-    id: 4,
     name: "canapé en tissu vert",
     description: "Canapeen tissu vert 3 places.",
     imageUrl: "./Assets/img/mobilier-4.jpg",
@@ -41,11 +31,21 @@ let products = [
     moq: 5,
   },
   {
-    id: 5,
+    id: 4,
     name: "ensemble table et chaise ",
     description: "ensemble table et chaise styles scandinave.",
     imageUrl: "./Assets/img/mobilier-5.jpg",
     price: 499.49,
+    category: 'Mobilier',
+    quantity: 1,
+    moq: 5,
+  },
+  {
+    id: 5,
+    name: "canapé cuir marron",
+    description: "Canape en cuir marron trois places.",
+    imageUrl: "./Assets/img/mobilier-3.jpg",
+    price: 1299.99,
     category: 'Mobilier',
     quantity: 1,
     moq: 5,
@@ -257,6 +257,8 @@ const app = Vue.createApp({
       menuVisible: false,
       //Détails produit
       detailsModalOpen: false,
+      //filtre
+      selectedCategory: 'all',
 
     };
   },
@@ -425,6 +427,16 @@ const app = Vue.createApp({
       this.product = products.filter((product) => {
         return product.name.toLowerCase().includes(search) || product.category.toLowerCase().includes(search)
       })
+    },
+
+    filterByCategory() {
+      if (this.selectedCategory === 'all') {
+        this.product = products
+      } else {
+        this.product = products.filter((product) => {
+          return product.category === this.selectedCategory
+        })
+      }
     },
 
     addToCart(product) {

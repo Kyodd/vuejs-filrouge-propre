@@ -129,8 +129,32 @@
     </div>
 
     <div class="searchBar">
-      <input type="text" v-model="search" placeholder="Rechercher un produit" />
-      <button @click="searchProduct()">Rechercher</button>
+      <h2>Rechercher un produit</h2>
+      <input type="text" v-model="search" placeholder="Rechercher un produit" @input="searchProduct()"/>
+    </div>
+
+    <span class="inputsTitle"><u>Catégories:</u></span>      
+    <div class="radioInputs">
+      <div class="inputLabel">
+        <span>Mobilier</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Mobilier" value="Mobilier" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Décoration</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Décoration" value="Décoration" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Luminaire</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Luminaire" value="Luminaire" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Tapis</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Tapis" value="Tapis" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Tout afficher</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="all" value="all" @change="filterByCategory">
+      </div>
     </div>
 
     <section class="modaldetails">
