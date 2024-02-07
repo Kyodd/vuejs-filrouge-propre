@@ -18,22 +18,22 @@
 
           <div class="navItem" v-cloak>
 
-            <a href="../index.html">
+            <a href="./index.html">
               <P>Acceuil</P>
             </a>
             <a @click="openLoginModal" v-if="!isConnected">
               <p>Connexion</p>
             </a>
-            <a href="../products.html">
+            <a href="./products.html">
               <p>Boutique</p>
             </a>
             <span>
-              <a href="../HTML/orderHistory.html">
+              <a href="./HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
               </a>
             </span>
 
-            <a href="../HTML/cartPage.html" v-if="isConnected">
+            <a href="./HTML/cartPage.html" v-if="isConnected">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
@@ -43,7 +43,7 @@
 
             <div class="dropDown" v-if="menuVisible && isConnected">
               <ul>
-                <a href="../HTML/Profile.html">
+                <a href="./HTML/Profile.html">
                   <li @click="viewProfile">Detail du Profil</li>
                 </a>
                 <li class="disconnect" v-if="isConnected" @click="logOut()">
@@ -57,18 +57,18 @@
 
       <div class="responsive_menu hiden" id="header">
         <div class="img_resp">
-          <img src="../Images/nav-img-1.jpeg" alt="Service" id="img1" />
-          <img src="../Images/nav-img-2.jpeg" alt="Open" id="img2" />
-          <img src="../Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+          <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
+          <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
+          <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
         </div>
         <div class="inf_resp">
-          <a href="../products.html">
+          <a href="./products.html">
             <p>Produits</p>
           </a>
           <p>Panier</p>
           <p>Utilisateur</p>
           <p>Services</p>
-          <a href="../HTML/Contact.html">
+          <a href="./HTML/Contact.html">
             <p>Contact</p>
           </a>
         </div>
@@ -128,8 +128,8 @@
 
       <section class="about">
         <div class="about_img">
-          <img src="../ressources/imgSlider/chaise.png" alt="Plateau de fruit" class="non_resp" />
-          <img src="../ressources/imgSlider/chaise.png" alt="Plateau de fruit" class="fruit_resp" />
+          <img src="./ressources/imgSlider/chaise.png" alt="Plateau de fruit" class="non_resp" />
+          <img src="./ressources/imgSlider/chaise.png" alt="Plateau de fruit" class="fruit_resp" />
         </div>
         <div class="about_txt">
           <div class="top">
@@ -157,22 +157,22 @@
 
       <section class="Dishes">
         <div>
-          <img src="../ressources/imgSlider/2.png" alt="Repas" />
+          <img src="./ressources/imgSlider/2.png" alt="Repas" />
         </div>
         <div>
-          <img src="../ressources/imgSlider/1.png" alt="Repas" />
+          <img src="./ressources/imgSlider/1.png" alt="Repas" />
         </div>
         <div>
-          <img src="../ressources/imgSlider/3.png" alt="Repas" />
+          <img src="./ressources/imgSlider/3.png" alt="Repas" />
         </div>
         <div>
-          <img src="../ressources/imgSlider/Sans titre-4.png" alt="Repas" />
+          <img src="./ressources/imgSlider/Sans titre-4.png" alt="Repas" />
         </div>
         <div>
-          <img src="../ressources/imgSlider/Sans titre-6.png" alt="Repas" />
+          <img src="./ressources/imgSlider/Sans titre-6.png" alt="Repas" />
         </div>
         <div>
-          <img src="../ressources/imgSlider/Sans titre-5.png" alt="Repas" />
+          <img src="./ressources/imgSlider/Sans titre-5.png" alt="Repas" />
         </div>
       </section>
 
@@ -200,17 +200,17 @@
       </div>
 
       <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
-      <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
+      <h5><a href="./HTML/TermOfUse.html">Mentions Légales</a></h5>
       <h5>
-        <a href="../HTML/TermOfUse.html">Politique de Confidantialité</a>
+        <a href="./HTML/TermOfUse.html">Politique de Confidantialité</a>
       </h5>
-      <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
+      <h5><a href="./HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
     </footer>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="../JS/script.js"></script>
-  <script src="../JS/main.js"></script>
+  <script src="./JS/script.js"></script>
+  <script src="./JS/main.js"></script>
 </body>
 
 </html>
