@@ -128,6 +128,11 @@
       <span>A noter: la quantité minimale de commande est de <u>5 unités</u>.</span>
     </div>
 
+    <div class="searchBar">
+      <input type="text" v-model="search" placeholder="Rechercher un produit" />
+      <button @click="searchProduct()">Rechercher</button>
+    </div>
+
     <section class="modaldetails">
       <div class="detailsModal" v-if="detailsModalOpen" @click.stop="closeDetailsModal()">
         <div class="modal-content" @click.stop>
@@ -156,8 +161,8 @@
               <tbody>
                 <tr v-for="prod in cart" :key="prod.id" v-cloak>
                   <td>{{ prod.name + ' x ' + prod.quantity }}</td>
-                  <td>{{ totalProdNoVAT(prod) }}</td>
-                  <td>{{ totalProductPrice(prod) }}</td>
+                  <td>{{ totalProdNoVAT(prod) }} €</td>
+                  <td>{{ totalProductPrice(prod) }} €</td>
                   <td>
                     <button @click="add(prod)">Ajouter 5</button>
                     <button @click="remove(prod)">Retirer 5</button>
@@ -168,8 +173,8 @@
                 </tr>
                 <tr>
                   <th>Prix Total:</th>
-                  <th>{{ totalPriceNoVAT() }}</th>
-                  <th>{{ totalPrice() }}</th>
+                  <th>{{ totalPriceNoVAT() }} €</th>
+                  <th>{{ totalPrice() }} €</th>
                 </tr>
                 <tr>
                   <th>
