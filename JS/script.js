@@ -416,14 +416,14 @@ const app = Vue.createApp({
     viewProfile() {
       console.log('Afficher les détails du profil');
     },
-    //pour produits
+    //pour page produits
 
     addToCart(product) {
       let existingProduct = this.cart.find((item) => item.id === product.id);
       if (existingProduct) {
-        existingProduct.quantity++;
+        existingProduct.quantity += 5;
       } else {
-        this.cart.push({ ...product, quantity: 1, active: true });
+        this.cart.push({ ...product, quantity: 5, active: true });
       }
       this.localSave();
     },
@@ -459,13 +459,13 @@ const app = Vue.createApp({
     },
 
     add(prod) {
-      prod.quantity++
+      prod.quantity += 5
       this.localSave()
     },
 
     remove(prod) {
-      if (prod.quantity > 1) {
-        prod.quantity--
+      if (prod.quantity > 5) {
+        prod.quantity -= 5
       }
       this.localSave()
     },
@@ -479,7 +479,9 @@ const app = Vue.createApp({
 
     },
 
+    //Détails produit
 
+    
     //Pour le CRUD produits
 
     openEditModal(index) {
