@@ -255,6 +255,8 @@ const app = Vue.createApp({
       editIndex: -1,
       //userMenu
       menuVisible: false,
+      //Détails produit
+      detailsModalOpen: false,
 
     };
   },
@@ -480,6 +482,19 @@ const app = Vue.createApp({
     },
 
     //Détails produit
+        openDetailsModal(index) {
+          if(index >= 0 && index < this.product.length){
+            this.detailsModalOpen = true;
+            this.detailsIndex = index;
+            this.tempTable = { ...this.product[index] }
+          } else {
+            alert("Erreur lors de l'ouverture du modal de détails")
+          }
+        },
+    
+        closeDetailsModal() {
+          this.detailsModalOpen = false
+        },
 
     
     //Pour le CRUD produits

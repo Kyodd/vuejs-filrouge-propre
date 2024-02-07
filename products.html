@@ -128,6 +128,19 @@
       <span>A noter: la quantité minimale de commande est de <u>5 unités</u>.</span>
     </div>
 
+    <section class="modaldetails">
+      <div class="detailsModal" v-if="detailsModalOpen" @click.stop="closeDetailsModal()">
+        <div class="modal-content" @click.stop>
+          <span class="close" @click.stop="closeDetailsModal()">X</span>
+          <h3>{{ tempTable.name }}</h3>
+          <img :src="tempTable.imageUrl" alt="tempTable.name"/>
+          <span class="price">Prix unitaire: {{ tempTable.price }} €</span>
+          <p class="details">{{ tempTable.description }}</p>
+          <button class="add" @click="addToCart(tempTable)">Ajouter au panier</button>
+        </div>
+      </div>
+    </section>
+
 
     <section class="shoppingCart" v-if="isConnected && cart.length > 0" v-cloak>
       <div class="cartModal">
@@ -140,53 +153,51 @@
               <th>Total (TVA 20%)</th>
             </thead>
 
-            <tbody>
-              <tr v-for="prod in cart" :key="prod.id" v-cloak>
-                <td>{{ prod.name + ' x ' + prod.quantity }}</td>
-                <td>{{ totalProdNoVAT(prod) }}</td>
-                <td>{{ totalProductPrice(prod) }}</td>
-                <td>
-                  <button @click="add(prod)">Ajouter 5</button>
-                  <button @click="remove(prod)">Retirer 5</button>
-                  <button @click="deleteItem(prod.id)">
-                    Enlever du panier
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th>Prix Total:</th>
-                <th>{{ totalPriceNoVAT() }}</th>
-                <th>{{ totalPrice() }}</th>
-              </tr>
-              <tr>
-                <th>
-                  <a href="../HTML/cartPage.html">
-                    <button>Passer la commande</button>
-                  </a>
-                </th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="items">
-      <div v-for="prod in product" v-cloak>
-        <div class="description">
-          <h3>{{ prod.name }}</h3>
-          <img :src="prod.imageUrl" alt="{{ prod.name }}" />
-          <span class="price">Prix unitaire: {{ prod.price }} €</span>
-          <p class="details">{{ prod.description }}</p>
-          <div class="btns">
-            <button class="add" @click="addToCart(prod)" v-if="isConnected">
-              Ajouter au panier
-            </button>
-            <button class="seeDetails" @click="openDetailsModal(product)">Voir plus de détails</button>
+              <tbody>
+                <tr v-for="prod in cart" :key="prod.id" v-cloak>
+                  <td>{{ prod.name + ' x ' + prod.quantity }}</td>
+                  <td>{{ totalProdNoVAT(prod) }}</td>
+                  <td>{{ totalProductPrice(prod) }}</td>
+                  <td>
+                    <button @click="add(prod)">Ajouter 5</button>
+                    <button @click="remove(prod)">Retirer 5</button>
+                    <button @click="deleteItem(prod.id)">
+                      Enlever du panier
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Prix Total:</th>
+                  <th>{{ totalPriceNoVAT() }}</th>
+                  <th>{{ totalPrice() }}</th>
+                </tr>
+                <tr>
+                  <th>
+                    <a href="../HTML/cartPage.html">
+                      <button>Passer la commande</button>
+                    </a>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="items">
+        <div v-for="(prod, index) in product" :key="prod.id" v-cloak>
+          <div class="description">
+            <h3>{{ prod.name }}</h3>
+            <img :src="prod.imageUrl" alt="prod.name"/>
+            <span class="price">Prix unitaire: {{ prod.price }} €</span>
+            <p class="details">{{ prod.description }}</p>
+            <div class="btns">
+              <button class="add" @click="addToCart(prod)" v-if="isConnected">Ajouter au panier</button>
+              <button class="seeDetails" @click="openDetailsModal(index)">Voir plus de détails</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
     <footer>
       <div class="info">
