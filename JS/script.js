@@ -424,8 +424,10 @@ const app = Vue.createApp({
       let existingProduct = this.cart.find((item) => item.id === product.id);
       if (existingProduct) {
         existingProduct.quantity += 5;
+        this.closeDetailsModal()
       } else {
         this.cart.push({ ...product, quantity: 5, active: true });
+        this.closeDetailsModal()
       }
       this.localSave();
     },

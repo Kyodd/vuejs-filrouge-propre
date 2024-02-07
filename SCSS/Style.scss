@@ -706,6 +706,7 @@ body {
         text-align: center;
         display: flex;
         justify-content: center;
+        margin-bottom: 30px;
     }
 
     button {
@@ -761,22 +762,26 @@ body {
         z-index: 1;
         justify-content: center;
         align-items: center;
+        color: $white;
     
         .modal-content {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(145deg, $Background, $Blue);
-          padding: 20 px;
-          width: 500px;
-          height: 350px;
+          padding: 20px;
+          gap: 10px;
+          width: 700px;
+          height: 700px;
           border-radius: 10px;
           box-shadow: 0, 0, 10px, rgba(0, 0, 0, 0.2);
-          max-width: 600px;
-          max-height: 600px;
+          background-color: $Background;
+          max-width: 800px;
+          max-height: 800px;
           position: relative;
-          span {
+          font-weight: bold;
+          font-size: 1.2rem;
+          .close {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -785,9 +790,29 @@ body {
             font-weight: bold;
             color: crimson;
             z-index: 2;
+            border: 2px solid crimson;
+            padding: 2px;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                background-color: crimson;
+                color: $white;
+            }
+          }
+
+          button{
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                cursor: pointer;
+                scale: 1.2;
+                color: white;
+            }
           }
           img {
-            width: 300px;
+            height: 450px;
+            border-radius: 15px;
           }
         }
       }
