@@ -164,8 +164,7 @@
           v-model="tempTable.confPassword" class="moddedInputs" />
 
         <label v-if="tempTable.category === 'commerçant'" v-cloak><u>Numéro de Siret</u></label>
-        <input v-if="tempTable.category === 'commerçant'" type="text" name="siret" placeholder="Numéro de Siret"
-          v-model="tempTable.siret" v-cloak class="moddedInputs" />
+        <input v-if="tempTable.category === 'commerçant'" type="text" name="siret" placeholder="Numéro de Siret" v-model="tempTable.siret" v-cloak class="moddedInputs" />
 
         <input type="submit" value="Valider" @click.prevent="addUser()" class="sub" />
       </form>
