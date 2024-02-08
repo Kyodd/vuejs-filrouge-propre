@@ -128,7 +128,36 @@
       <span>A noter: la quantité minimale de commande est de <u>5 unités</u>.</span>
     </div>
 
-    <section class="modaldetails">
+    <div class="searchBar">
+      <h2>Rechercher un produit</h2>
+      <input type="text" v-model="search" placeholder="Rechercher un produit" @input="searchProduct()"/>
+    </div>
+
+    <span class="inputsTitle"><u>Catégories:</u></span>      
+    <div class="radioInputs">
+      <div class="inputLabel">
+        <span>Mobilier</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Mobilier" value="Mobilier" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Décoration</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Décoration" value="Décoration" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Luminaire</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Luminaire" value="Luminaire" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Tapis</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="Tapis" value="Tapis" @change="filterByCategory">
+      </div>
+      <div class="inputLabel">
+        <span>Tout afficher</span>
+        <input type="radio" v-model="selectedCategory" name="category" id="all" value="all" @change="filterByCategory">
+      </div>
+    </div>
+
+    <section class="modaldetails" v-cloak>
       <div class="detailsModal" v-if="detailsModalOpen" @click.stop="closeDetailsModal()">
         <div class="modal-content" @click.stop>
           <span class="close" @click.stop="closeDetailsModal()">X</span>
@@ -156,8 +185,8 @@
               <tbody>
                 <tr v-for="prod in cart" :key="prod.id" v-cloak>
                   <td>{{ prod.name + ' x ' + prod.quantity }}</td>
-                  <td>{{ totalProdNoVAT(prod) }}</td>
-                  <td>{{ totalProductPrice(prod) }}</td>
+                  <td>{{ totalProdNoVAT(prod) }} €</td>
+                  <td>{{ totalProductPrice(prod) }} €</td>
                   <td>
                     <button @click="add(prod)">Ajouter 5</button>
                     <button @click="remove(prod)">Retirer 5</button>
@@ -168,8 +197,8 @@
                 </tr>
                 <tr>
                   <th>Prix Total:</th>
-                  <th>{{ totalPriceNoVAT() }}</th>
-                  <th>{{ totalPrice() }}</th>
+                  <th>{{ totalPriceNoVAT() }} €</th>
+                  <th>{{ totalPrice() }} €</th>
                 </tr>
                 <tr>
                   <th>

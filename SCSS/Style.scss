@@ -16,6 +16,7 @@ $SliderD: #1f1d1d;
 //landing page
 body {
     background-color: $Background;
+    font-family: sans-serif;
 
     [v-cloak] {
         display: none !important;
@@ -74,7 +75,7 @@ body {
                     justify-content: space-around;
                     align-items: center;
                     flex-direction: row;
-                    width: 40%;
+                    width: 60%;
                     height: 100%;
                     text-decoration: none;
                     color: $white;
@@ -685,6 +686,14 @@ body {
         display: none !important;
     }
 
+    button{
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            color: white;
+        }
+    }
+
     header {
         .about {
             height: 200px;
@@ -698,6 +707,83 @@ body {
         span{
             font-weight: bold;
             font-size: 1.5rem;
+        }
+    }
+
+    .searchBar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $white;
+        margin-bottom: 30px;
+        h2{
+            margin: 10px 0;
+        }
+        input{
+            width: 40%;
+            height: 50px;
+            border-radius: 5px;
+            border: none;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            color: white;
+        }
+    }
+
+    .radioInputs{
+        .inputLabel{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            width: 150px;
+            border: 3px solid $Blue;
+            border-radius: 15px;
+            padding: 5px;
+            margin-left: 10%;
+            transition: all 0.2s ease-in-out;
+            text-align: center;
+
+            &:hover{
+                cursor: pointer;
+                scale: 1.1;
+                background-color: $Blue;
+            }
+            input{
+                margin: 10px;
+            }
+        }
+    }
+
+    .inputsTitle{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+        color: $white;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .radioInputs{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+        color: $white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        input{
+            margin: 0 10px;
         }
     }
 
@@ -718,6 +804,8 @@ body {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 6%;
         color: $white;
 
         div {
@@ -734,6 +822,7 @@ body {
 
                 img {
                     height: 300px;
+                    margin-bottom: 10px;
                 }
 
                 .prodDetail {
@@ -1004,6 +1093,10 @@ body {
 
             }
 
+        }
+
+        .userTable{
+            margin-bottom: 70px;
         }
 
         .btn {

@@ -19,100 +19,107 @@
     <div id="app">
 
         <header>
-
             <div class="navBar">
-                <div class="nav">
-
-                    <div class="navItem" v-cloak>
-
-                        <a href="../index.html">
-                            <P>Acceuil</P>
-                        </a>
-                        <a @click="openLoginModal" v-if="!isConnected">
-                            <P>Connexion</P>
-                        </a>
-                        <a href="../products.html">
-                            <p>Boutique</p>
-                        </a>
-                        <span>
-                            <a href="../HTML/orderHistory.html">
-                                <p v-if="isConnected">Mes commandes</p>
-                            </a>
-                        </span>
-
-                        <a href="../HTML/cartPage.html" v-if="isConnected">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-
-                        <div @click="toggleMenu">
-
-                            <i class="fas fa-user" v-if="isConnected"></i>
-
-                        </div>
-
-                        <div class="dropDown" v-if="menuVisible && isConnected">
-
-                            <ul>
-                                <a href="../HTML/Profile.html">
-                                    <li @click="viewProfile">Detail du Profil</li>
-                                </a>
-                                <li class="disconnect" v-if="isConnected" @click="logOut()">Déconnexion</li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-
+              <div class="nav">
+      
+                <div class="navItem" v-cloak>
+      
+                  <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+                    Gestionaire des produits
+                  </a>
+      
+                  <a href="../HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
+                    Gestionaire des utilisateurs
+                  </a>
+      
+      
+                  <a href="./index.html">
+                    <P>Acceuil</P>
+                  </a>
+                  <a @click="openLoginModal" v-if="!isConnected">
+                    <p>Connexion</p>
+                  </a>
+                  <a href="./products.html">
+                    <p>Boutique</p>
+                  </a>
+                  <span>
+                    <a href="./HTML/orderHistory.html">
+                      <p v-if="isConnected">Mes commandes</p>
+                    </a>
+                  </span>
+      
+                  <a href="./HTML/cartPage.html" v-if="isConnected">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </a>
+      
+                  
+                  <div @click="toggleMenu">
+                    <i class="fas fa-user" v-if="isConnected"></i>
+                  </div>
+      
+                  <div class="dropDown" v-if="menuVisible && isConnected">
+                    <ul>
+                      <a href="./HTML/Profile.html">
+                        <li @click="viewProfile">Detail du Profil</li>
+                      </a>
+                      <li class="disconnect" v-if="isConnected" @click="logOut()">
+                        Déconnexion
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+              </div>
             </div>
-
+      
             <div class="responsive_menu hiden" id="header">
-                <div class="img_resp">
-                    <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
-                    <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
-                    <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
-                </div>
-                <div class="inf_resp">
-                    <a href="./products.html">
-                        <p>Produits</p>
-                    </a>
-                    <p>Panier</p>
-                    <p>Utilisateur</p>
-                    <p>Services</p>
-                    <a href="../HTML/Contact.html">
-                        <p>Contact</p>
-                    </a>
-                </div>
+              <div class="img_resp">
+                <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+              </div>
+              <div class="inf_resp">
+                <a href="./products.html">
+                  <p>Produits</p>
+                </a>
+                <p>Panier</p>
+                <p>Utilisateur</p>
+                <p>Services</p>
+                <a href="./HTML/Contact.html">
+                  <p>Contact</p>
+                </a>
+              </div>
             </div>
             <div class="Title">
-                <div></div>
-                <div class="info">
-                    <a href="../index.html">
-                        <div class="logo">
-                            <span class="fa-stack fa-2x" style="flex-shrink: 0">
-                                <i class="far fa-circle fa-stack-2x"></i>
-                                <i class="fa-solid fa-hippo fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="info_resto">
-                            <span class="name">Web</span>
-                            <span class="resto">Wares</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="burger" id="menu_burger">
-                    <i class="fa-solid fa-bars" id="burger"></i>
-                    <i id="croix" class="hiden">&times;</i>
-                </div>
+              <div></div>
+              <div class="info">
+                <a href="">
+                  <div class="logo">
+                    <span class="fa-stack fa-2x" style="flex-shrink: 0">
+                      <i class="far fa-circle fa-stack-2x"></i>
+                      <i class="fa-solid fa-hippo fa-stack-1x"></i>
+                    </span>
+                  </div>
+                  <div class="info_resto">
+                    <span class="name">Web</span>
+                    <span class="resto">Wares</span>
+                  </div>
+                </a>
+              </div>
+      
+              <div class="burger" id="menu_burger">
+                <i class="fa-solid fa-bars" id="burger"></i>
+                <i id="croix" class="hiden">&times;</i>
+              </div>
             </div>
-
+      
             <div class="Welcome">
-                <h1>Welcome</h1>
-                <h3>Try Great to Web Wares</h3>
-                <button @click="openLoginModal" v-if="!isConnected">Commencer dès maintenant</button>
+              <h1>Welcome</h1>
+              <h3>Try Great to Web Wares</h3>
+              <button @click="openLoginModal" v-if="!isConnected">
+                Commencer dès maintenant
+              </button>
             </div>
-        </header>
+          </header>
 
         <form v-if="loginModal" v-cloak class="modal">
             <div class="modal-content">
