@@ -59,7 +59,7 @@ body header .navBar .nav .navItem {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  width: 60%;
+  width: 80%;
   height: 100%;
   text-decoration: none;
   color: #ffffff;
@@ -701,6 +701,9 @@ body h5 a {
   position: relative;
   font-weight: bold;
   font-size: 1.2rem;
+}
+.productsPage .detailsModal .modal-content p {
+  text-align: center;
 }
 .productsPage .detailsModal .modal-content .close {
   position: absolute;

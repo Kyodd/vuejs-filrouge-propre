@@ -26,22 +26,22 @@
             </a>
 
 
-            <a href="./index.html">
+            <a href="../index.html">
               <P>Acceuil</P>
             </a>
             <a @click="openLoginModal" v-if="!isConnected">
               <p>Connexion</p>
             </a>
-            <a href="./products.html">
+            <a href="../products.html">
               <p>Boutique</p>
             </a>
             <span>
-              <a href="./HTML/orderHistory.html">
+              <a href="../HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
               </a>
             </span>
 
-            <a href="./HTML/cartPage.html" v-if="isConnected">
+            <a href="../HTML/cartPage.html" v-if="isConnected">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
@@ -164,8 +164,7 @@
           v-model="tempTable.confPassword" class="moddedInputs" />
 
         <label v-if="tempTable.category === 'commerçant'" v-cloak><u>Numéro de Siret</u></label>
-        <input v-if="tempTable.category === 'commerçant'" type="text" name="siret" placeholder="Numéro de Siret"
-          v-model="tempTable.siret" v-cloak class="moddedInputs" />
+        <input v-if="tempTable.category === 'commerçant'" type="text" name="siret" placeholder="Numéro de Siret" v-model="tempTable.siret" v-cloak class="moddedInputs" />
 
         <input type="submit" value="Valider" @click.prevent="addUser()" class="sub" />
       </form>

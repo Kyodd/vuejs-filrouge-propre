@@ -584,6 +584,16 @@ const app = Vue.createApp({
       }
     },
 
+    addCategory() {
+      if (this.sellerConnected || this.adminConnected) {
+        let newCategory = prompt("Veuillez saisir une nouvelle catégorie");
+        if (newCategory) {
+          this.categories.push(newCategory);
+        }
+      }
+    
+    },
+
     //Crud users
 
     changeUserRole(index) {

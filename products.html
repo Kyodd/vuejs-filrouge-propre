@@ -164,7 +164,8 @@
           <h3>{{ tempTable.name }}</h3>
           <img :src="tempTable.imageUrl" alt="tempTable.name"/>
           <span class="price">Prix unitaire: {{ tempTable.price }} €</span>
-          <p class="details">{{ tempTable.description }}</p>
+          <p class="details"><u>Description:</u><br>
+            {{ tempTable.description }}</p>
           <button class="add" @click="addToCart(tempTable)">Ajouter au panier</button>
         </div>
       </div>
@@ -219,7 +220,6 @@
             <h3>{{ prod.name }}</h3>
             <img :src="prod.imageUrl" alt="prod.name"/>
             <span class="price">Prix unitaire: {{ prod.price }} €</span>
-            <p class="details">{{ prod.description }}</p>
             <div class="btns">
               <button class="add" @click="addToCart(prod)" v-if="isConnected">Ajouter au panier</button>
               <button class="seeDetails" @click="openDetailsModal(index)">Voir plus de détails</button>
