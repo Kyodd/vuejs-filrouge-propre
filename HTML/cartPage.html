@@ -27,22 +27,22 @@
                   </a>
       
       
-                  <a href="./index.html">
+                  <a href="../index.html">
                     <P>Acceuil</P>
                   </a>
                   <a @click="openLoginModal" v-if="!isConnected">
                     <p>Connexion</p>
                   </a>
-                  <a href="./products.html">
+                  <a href="../products.html">
                     <p>Boutique</p>
                   </a>
                   <span>
-                    <a href="./HTML/orderHistory.html">
+                    <a href="../HTML/orderHistory.html">
                       <p v-if="isConnected">Mes commandes</p>
                     </a>
                   </span>
       
-                  <a href="./HTML/cartPage.html" v-if="isConnected">
+                  <a href="../HTML/cartPage.html" v-if="isConnected">
                     <i class="fa-solid fa-cart-shopping"></i>
                   </a>
       
@@ -53,7 +53,7 @@
       
                   <div class="dropDown" v-if="menuVisible && isConnected">
                     <ul>
-                      <a href="./HTML/Profile.html">
+                      <a href="../HTML/Profile.html">
                         <li @click="viewProfile">Detail du Profil</li>
                       </a>
                       <li class="disconnect" v-if="isConnected" @click="logOut()">
@@ -67,18 +67,18 @@
       
             <div class="responsive_menu hiden" id="header">
               <div class="img_resp">
-                <img src="./Images/nav-img-1.jpeg" alt="Service" id="img1" />
-                <img src="./Images/nav-img-2.jpeg" alt="Open" id="img2" />
-                <img src="./Images/nav-img-3.jpeg" alt="Repas" id="img3" />
+                <img src="../Images/nav-img-1.jpeg" alt="Service" id="img1" />
+                <img src="../Images/nav-img-2.jpeg" alt="Open" id="img2" />
+                <img src="../Images/nav-img-3.jpeg" alt="Repas" id="img3" />
               </div>
               <div class="inf_resp">
-                <a href="./products.html">
+                <a href="../products.html">
                   <p>Produits</p>
                 </a>
                 <p>Panier</p>
                 <p>Utilisateur</p>
                 <p>Services</p>
-                <a href="./HTML/Contact.html">
+                <a href="../HTML/Contact.html">
                   <p>Contact</p>
                 </a>
               </div>
@@ -86,7 +86,7 @@
             <div class="Title">
               <div></div>
               <div class="info">
-                <a href="">
+                <a href="../index.html">
                   <div class="logo">
                     <span class="fa-stack fa-2x" style="flex-shrink: 0">
                       <i class="far fa-circle fa-stack-2x"></i>
@@ -104,6 +104,7 @@
                 <i class="fa-solid fa-bars" id="burger"></i>
                 <i id="croix" class="hiden">&times;</i>
               </div>
+
             </div>
       
             <div class="Welcome">
@@ -137,7 +138,6 @@
                 </a>
             </div>
 
-
             <div class="cartCard">
 
                 <div class="cartImage">
@@ -166,16 +166,19 @@
 
             <footer>
                 <div class="info">
+
                     <div>
                         <span class="fa-stack fa-2x" style="flex-shrink: 0">
                             <i class="far fa-circle fa-stack-2x"></i>
                             <i class="fa-solid fa-hippo fa-stack-1x"></i>
                         </span>
                     </div>
+
                     <div class="info_resto">
                         <span class="name">Web</span>
                         <span class="resto">Wares</span>
                     </div>
+
                 </div>
 
                 <div class="Contact">
@@ -189,11 +192,10 @@
                 <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
                 <h5><a href="../HTML/TermOfUse.html">Politique de Confidantialité</a></h5>
                 <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
+
             </footer>
+
         </div>
-
-
-
 
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script src="../JS/script.js"></script>
