@@ -1226,8 +1226,19 @@ body {
     color: $white;
     .profile{
         margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         h2{
             text-align: center;
+            margin: 20px auto 20px;
+        }
+
+        h3 {
+
+            margin: 20px auto 20px;
+
         }
 
         img{
@@ -1236,15 +1247,18 @@ body {
         }
 
         .profileCard{
-            border: 3px solid blue;
+            // border: 3px solid blue;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
         }
 
-        .userOrders{
-            border: 3px solid red;
-        }
+        .userOrders {
 
-        .orderCard{
-            border: 3px solid green;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+
         }
     }
 }
