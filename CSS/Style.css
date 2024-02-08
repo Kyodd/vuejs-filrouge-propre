@@ -900,22 +900,31 @@ body h5 a {
 }
 .profilePage .profile {
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .profilePage .profile h2 {
   text-align: center;
+  margin: 20px auto 20px;
+}
+.profilePage .profile h3 {
+  margin: 20px auto 20px;
 }
 .profilePage .profile img {
   width: 300px;
   height: 300px;
 }
 .profilePage .profile .profileCard {
-  border: 3px solid blue;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 .profilePage .profile .userOrders {
-  border: 3px solid red;
-}
-.profilePage .profile .orderCard {
-  border: 3px solid green;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .hiden {
@@ -1188,4 +1197,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}
+}/*# sourceMappingURL=Style.css.map */
