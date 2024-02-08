@@ -17,7 +17,7 @@
 
           <div class="navItem" v-cloak>
 
-            <a href="../index.html">
+            <a href="./index.html">
               <P>Acceuil</P>
             </a>
             <a @click="openLoginModal" v-if="!isConnected">
@@ -27,12 +27,12 @@
               <p>Boutique</p>
             </a>
             <span>
-              <a href="../HTML/orderHistory.html">
+              <a href="./HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
               </a>
             </span>
 
-            <a href="../HTML/cartPage.html" v-if="isConnected">
+            <a href="./HTML/cartPage.html" v-if="isConnected">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
@@ -42,7 +42,7 @@
 
             <div class="dropDown" v-if="menuVisible && isConnected">
               <ul>
-                <a href="../HTML/Profile.html">
+                <a href="./HTML/Profile.html">
                   <li @click="viewProfile">Detail du Profil</li>
                 </a>
                 <li class="disconnect" v-if="isConnected" @click="logOut()">
@@ -67,7 +67,7 @@
           <p>Panier</p>
           <p>Utilisateur</p>
           <p>Services</p>
-          <a href="../HTML/Contact.html">
+          <a href="./HTML/Contact.html">
             <p>Contact</p>
           </a>
         </div>
@@ -75,7 +75,7 @@
       <div class="Title">
         <div></div>
         <div class="info">
-          <a href="../index.html">
+          <a href="./index.html">
             <div class="logo">
               <span class="fa-stack fa-2x" style="flex-shrink: 0">
                 <i class="far fa-circle fa-stack-2x"></i>
@@ -203,7 +203,7 @@
                 </tr>
                 <tr>
                   <th>
-                    <a href="../HTML/cartPage.html">
+                    <a href="./HTML/cartPage.html">
                       <button>Passer la commande</button>
                     </a>
                   </th>
@@ -250,11 +250,11 @@
       </div>
 
       <p>© Copyright. WebWares "Didier MOBILART". All Rights Reserved.</p>
-      <h5><a href="../HTML/TermOfUse.html">Mentions Légales</a></h5>
+      <h5><a href="./HTML/TermOfUse.html">Mentions Légales</a></h5>
       <h5>
-        <a href="../HTML/TermOfUse.html">Politique de Confidantialité</a>
+        <a href="./HTML/TermOfUse.html">Politique de Confidantialité</a>
       </h5>
-      <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
+      <h5><a href="./HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
     </footer>
   </main>
 
