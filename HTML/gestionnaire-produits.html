@@ -113,7 +113,7 @@
                 Commencer dès maintenant
               </button>
             </div>
-          </header>
+        </header>
 
         <form v-if="loginModal" v-cloak class="modal">
             <div class="modal-content">
@@ -132,10 +132,9 @@
         <h1>Gestionaire de produits</h1>
 
         <button class="btn btn-success addProd" @click="openAddModal()">Ajouter un produit</button>
-        <button class="btn btn-success addCategory" @click="openAddCategoryModal">Ajouter une catégorie</button>
-
         
-
+        
+        
         <table>
             <thead>
                 <tr>
@@ -146,7 +145,7 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-
+            
             <tbody>
                 <tr v-for="(prod, index) in product" :key="index" v-cloak>
                     <td class="prodName">{{ prod.name }}</td>
@@ -155,10 +154,30 @@
                     <td>{{ prod.category }}</td>
                     <td>
                         <button type="button" class="btn btn-primary actions"
-                            @click="openEditModal(index)">Modifier</button>
+                        @click="openEditModal(index)">Modifier</button>
                         <button type="button" class="btn btn-danger actions" @click="deleteProduct(index)"><i
                                 class="fas fa-trash"></i> Supprimer</button>
-                    </td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="newCat">
+                    <button @click="addCategory(newCategoryName)">Ajouter Catégorie</button>
+                    <input type="text" v-model="newCategoryName" placeholder="Nouvelle catégorie">
+                </div>
+                <table>
+                    <thead>
+                        <th>Catégorie</th>
+                        <th>Actions</th>
+                    </thead>
+                    
+                    <tbody>
+                        <tr v-for="(category, index) in categories" :key="index">
+                            <td>{{ category }}</td>
+                            <td>
+                                <button class="btn btn-danger actions" @click="deleteCategory(index)">Suprimer</button>
+                            </td>
                 </tr>
             </tbody>
         </table>
@@ -208,11 +227,9 @@
 
                     <label for="category">Catégorie Produit: </label><br>
                     <select name="category" id="category" v-model="tempTable.category">
-                        <option value="Mobilier">Mobilier</option>
-                        <option value="Luminaire">Luminaire</option>
-                        <option value="Déco">Décoration</option>
-                        <option value="Tapis">Tapis</option>
-                    </select><br>
+                        <option v-for="category in categories" :value="category">{{ category }}</option>
+                    </select>
+                    <br>
 
                     <input type="submit" value="Ajouter" class="btn btn-success confBtn" @click="addProduct()">
                 </form>

@@ -578,6 +578,10 @@ body h5 a {
   text-align: center;
   color: white;
 }
+.productsPage .radioInputs {
+  display: flex;
+  flex-wrap: wrap;
+}
 .productsPage .radioInputs .inputLabel {
   display: flex;
   flex-direction: column;
@@ -746,11 +750,6 @@ body h5 a {
   text-align: center;
   color: #ffffff;
 }
-.crudBody main .addProd {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
 .crudBody main table {
   margin: auto;
   font-size: 14px;
@@ -766,6 +765,25 @@ body h5 a {
 }
 .crudBody main table th {
   border-bottom: 2px solid #ffffff;
+}
+.crudBody main .newCat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.crudBody main .newCat button {
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+.crudBody main .newCat button:hover {
+  color: #ffffff;
+  scale: 1.2;
+}
+.crudBody main .newCat input {
+  width: 40%;
+  border-radius: 5px;
+  text-align: center;
+  color: #ffffff;
 }
 .crudBody main .btn {
   display: inline-block;
@@ -824,9 +842,9 @@ body h5 a {
   align-items: center;
   justify-content: center;
   background: linear-gradient(145deg, #262626, #02c4ff);
-  padding: 20 px;
-  width: 500px;
-  height: 350px;
+  padding: 20px;
+  width: 550px;
+  height: 550px;
   border-radius: 10px;
   box-shadow: 0, 0, 10px, rgba(0, 0, 0, 0.2);
   max-width: 600px;
@@ -840,6 +858,7 @@ body h5 a {
   border: none;
   border-radius: 5px;
   padding: 5px;
+  margin: 0 auto;
 }
 .crudBody main .modal .modal-content h2 {
   margin: 10px;
@@ -1283,4 +1302,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}/*# sourceMappingURL=Style.css.map */
+}

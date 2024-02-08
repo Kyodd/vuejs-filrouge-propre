@@ -732,6 +732,8 @@ body {
     }
 
     .radioInputs{
+        display: flex;
+        flex-wrap: wrap;
         .inputLabel{
             display: flex;
             flex-direction: column;
@@ -926,12 +928,6 @@ body {
         text-align: center;
         color: $white;
 
-        .addProd {
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-
         table {
             margin: auto;
             font-size: 14px;
@@ -952,6 +948,26 @@ body {
 
             }
 
+        }
+
+        .newCat{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            button{
+                transition: all 0.2s ease-in-out;
+                margin-bottom: 10px;
+                &:hover{
+                    color: $white;
+                    scale: 1.2;
+                }
+            }
+            input{
+                width: 40%;
+                border-radius: 5px;
+                text-align: center;
+                color: $white;
+            }
         }
 
 
@@ -1022,9 +1038,9 @@ body {
                 align-items: center;
                 justify-content: center;
                 background: linear-gradient(145deg, $Background, $Blue);
-                padding: 20 px;
-                width: 500px;
-                height: 350px;
+                padding: 20px;
+                width: 550px;
+                height: 550px;
                 border-radius: 10px;
                 box-shadow: 0, 0, 10px, rgba(0, 0, 0, 0.2);
                 max-width: 600px;
@@ -1039,6 +1055,7 @@ body {
                     border: none;
                     border-radius: 5px;
                     padding: 5px;
+                    margin: 0 auto;
                 }
 
                 h2 {
@@ -1216,7 +1233,7 @@ body {
             }
     
     
-        }
+}
     
 
 

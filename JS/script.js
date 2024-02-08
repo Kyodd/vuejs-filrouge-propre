@@ -250,6 +250,7 @@ const app = Vue.createApp({
       cartisVisible: false,
       counter: 0,
       cart: [],
+      categories: ['Mobilier', 'Luminaire', 'Décoration', 'Tapis'],
       totalPriceNoVATValue: 0,
       totalPriceValue: 0,
       //pour le CRUD
@@ -584,14 +585,22 @@ const app = Vue.createApp({
       }
     },
 
-    addCategory() {
+    addCategory(newCategory) {
+      if (!this.categories.includes(newCategory)) {
+        this.categories.push(newCategory);
+        localStorage.setItem("categories", JSON.stringify(this.categories));
+    } else {
+        alert("Veuillez saisir une nouvelle catégorie valide");
+      }
+    },
+
+    deleteCategory(index) {
       if (this.sellerConnected || this.adminConnected) {
-        let newCategory = prompt("Veuillez saisir une nouvelle catégorie");
-        if (newCategory) {
-          this.categories.push(newCategory);
+        if (confirm("Etes-vous sur de vouloir supprimer cette catégorie ?")) {
+          this.categories.splice(index, 1);
+          localStorage.setItem("categories", JSON.stringify(this.categories));
         }
       }
-    
     },
 
     //Crud users
@@ -704,6 +713,13 @@ const app = Vue.createApp({
         this.localSave();
       },
     },
+
+    categories: {
+      deep: true,
+      handler() {
+        this.localSave();
+      },
+    },
   },
 
   created() {
@@ -734,6 +750,10 @@ const app = Vue.createApp({
     storedSave = localStorage.getItem("connectedUser");
     if (storedSave) {
       this.connectedUser = JSON.parse(storedSave);
+    }
+    storedSave = localStorage.getItem("categories");
+    if (storedSave) {
+      this.categories = JSON.parse(storedSave);
     }
   },
 });
