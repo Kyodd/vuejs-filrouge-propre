@@ -16,6 +16,7 @@ $SliderD: #1f1d1d;
 //landing page
 body {
     background-color: $Background;
+    font-family: sans-serif;
 
     [v-cloak] {
         display: none !important;
@@ -74,7 +75,7 @@ body {
                     justify-content: space-around;
                     align-items: center;
                     flex-direction: row;
-                    width: 40%;
+                    width: 60%;
                     height: 100%;
                     text-decoration: none;
                     color: $white;
@@ -1092,6 +1093,10 @@ body {
 
             }
 
+        }
+
+        .userTable{
+            margin-bottom: 70px;
         }
 
         .btn {

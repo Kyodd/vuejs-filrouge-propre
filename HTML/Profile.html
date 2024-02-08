@@ -19,32 +19,42 @@
 
           <div class="navItem" v-cloak>
 
-            <a href="../index.html">
+            <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+              Gestionaire des produits
+            </a>
+
+            <a href="../HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
+              Gestionaire des utilisateurs
+            </a>
+
+
+            <a href="./index.html">
               <P>Acceuil</P>
             </a>
             <a @click="openLoginModal" v-if="!isConnected">
               <p>Connexion</p>
             </a>
-            <a href="../products.html">
+            <a href="./products.html">
               <p>Boutique</p>
             </a>
             <span>
-              <a href="../HTML/orderHistory.html">
+              <a href="./HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
               </a>
             </span>
 
-            <a href="../HTML/cartPage.html" v-if="isConnected">
+            <a href="./HTML/cartPage.html" v-if="isConnected">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
+            
             <div @click="toggleMenu">
               <i class="fas fa-user" v-if="isConnected"></i>
             </div>
 
             <div class="dropDown" v-if="menuVisible && isConnected">
               <ul>
-                <a href="../HTML/Profile.html">
+                <a href="./HTML/Profile.html">
                   <li @click="viewProfile">Detail du Profil</li>
                 </a>
                 <li class="disconnect" v-if="isConnected" @click="logOut()">
@@ -69,7 +79,7 @@
           <p>Panier</p>
           <p>Utilisateur</p>
           <p>Services</p>
-          <a href="../HTML/Contact.html">
+          <a href="./HTML/Contact.html">
             <p>Contact</p>
           </a>
         </div>

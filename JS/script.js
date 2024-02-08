@@ -210,6 +210,7 @@ let userList = [
     password: "admin",
     email: "admin@gmail.com",
     category: "admin",
+    dateCreated: '29/01/2024'
   },
 
   {
@@ -218,6 +219,7 @@ let userList = [
     password: "user",
     email: "user@gmail.com",
     category: "client",
+    dateCreated: '29/01/2024'
   },
   {
     id: 3,
@@ -226,6 +228,7 @@ let userList = [
     email: "seller@gmail.com",
     category: "commerçant",
     siret: "12345678912345",
+    dateCreated: '29/01/2024'
   },
 ];
 
@@ -253,6 +256,7 @@ const app = Vue.createApp({
       editModal: false,
       addModal: false,
       editIndex: -1,
+      bannedUsers: [],
       //userMenu
       menuVisible: false,
       //Détails produit
@@ -289,6 +293,7 @@ const app = Vue.createApp({
                   category: category,
                   dateCreated: new Date().toLocaleString(),
                 });
+                alert("Inscription réussie, vous pouvez maintenant vous connecter")
                 this.tempTable = {};
               } else if (category === "commerçant" && siret && siretReg.test(siret)) {
                 this.users.push({
@@ -300,6 +305,7 @@ const app = Vue.createApp({
                   siret: siret,
                   dateCreated: new Date().toLocaleString(),
                 });
+                alert("Inscription réussie, vous pouvez maintenant vous connecter")
                 this.tempTable = {};
               } else if (category === "commerçant" && (!siret || !siretReg.test(siret))) {
                 alert("Veuillez saisir un numéro de SIRET valide")
@@ -390,6 +396,7 @@ const app = Vue.createApp({
         this.sellerConnected = false
         localStorage.removeItem("sellerConnected")
       }
+      window.location.href = "../index.html";
     },
 
     openLoginModal() {
@@ -521,56 +528,91 @@ const app = Vue.createApp({
     //Pour le CRUD produits
 
     openEditModal(index) {
-      this.editModal = true
-      this.editIndex = index
-      this.tempTable = { ...this.product[index] }
+      if (this.sellerConnected || this.adminConnected) {
+        this.editModal = true;
+        this.editIndex = index;
+        this.tempTable = { ...this.product[index] };
+      }
     },
-
     openAddModal() {
-      this.addModal = true
+      if (this.sellerConnected || this.adminConnected) {
+        this.addModal = true;
+      }
     },
-
     closeModal() {
-      this.editModal = false
-      this.addModal = false
+      this.editModal = false;
+      this.addModal = false;
     },
-
     closeAddModal() {
-      this.addModal = false
-      this.tempTable = {}
+      this.addModal = false;
+      this.tempTable = {};
     },
-
     addProduct() {
-      if (this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
-        this.product.push(this.tempTable)
-        this.tempTable = {}
-        this.closeAddModal()
-      } else {
-        alert("Veuillez remplir tous les champs")
-        console.log('hello?')
+      if (this.sellerConnected || this.adminConnected) {
+        if (this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
+          this.product.push(this.tempTable);
+          this.tempTable = {};
+          this.closeAddModal();
+        } else {
+          alert("Veuillez remplir tous les champs");
+          console.log('hello?');
+        }
       }
     },
-
     closeEditModal() {
-      this.editModal = false
-      this.editIndex = -1
-      this.tempTable = {}
+      this.editModal = false;
+      this.editIndex = -1;
+      this.tempTable = {};
     },
-
     editProduct() {
-      this.addModal = false
-      if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
-        this.product[this.editIndex] = this.tempTable
-        this.tempTable = {}
-        this.closeEditModal()
-      } else {
-        alert("Veuillez remplir tous les champs")
+      if (this.sellerConnected || this.adminConnected) {
+        this.addModal = false;
+        if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
+          this.product[this.editIndex] = this.tempTable;
+          this.tempTable = {};
+          this.closeEditModal();
+        } else {
+          alert("Veuillez remplir tous les champs");
+        }
+      }
+    },
+    deleteProduct(index) {
+      if (this.sellerConnected || this.adminConnected) {
+        if (confirm("Etes-vous sur de vouloir supprimer ce produit ?")) {
+          this.product.splice(index, 1);
+        }
       }
     },
 
-    deleteProduct(index) {
-      if (confirm("Etes-vous sur de vouloir supprimer ce produit ?")) {
-        this.product.splice(index, 1)
+    //Crud users
+
+    changeUserRole(index) {
+      if (this.adminConnected) {
+        let user = this.users[index];
+        if (user.category === "client") {
+          user.category = "admin";
+        } else {
+          user.category = "client";
+        }
+      }
+    
+    },
+
+    banUser(index){
+      if(this.adminConnected && confirm("Etes-vous sur de vouloir bannir cet utilisateur ?")){
+        let user = this.users[index];
+        this.bannedUsers.push(user);
+        this.users.splice(index, 1);
+      } else {
+        alert("Franchement Mathieu a ton age...")
+      }
+    },
+
+    unbanUser(index){
+      if(confirm("Etes-vous sur de vouloir débannir cet utilisateur ?")){
+        let user = this.bannedUsers[index]
+        this.users.push(user)
+        this.bannedUsers.splice(index, 1)
       }
     },
 

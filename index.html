@@ -18,6 +18,15 @@
 
           <div class="navItem" v-cloak>
 
+            <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+              Gestionaire des produits
+            </a>
+
+            <a href="../HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
+              Gestionaire des utilisateurs
+            </a>
+
+
             <a href="./index.html">
               <P>Acceuil</P>
             </a>
@@ -37,6 +46,7 @@
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
+            
             <div @click="toggleMenu">
               <i class="fas fa-user" v-if="isConnected"></i>
             </div>

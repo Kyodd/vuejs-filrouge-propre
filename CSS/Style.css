@@ -8,6 +8,7 @@
 
 body {
   background-color: #262626;
+  font-family: sans-serif;
 }
 body [v-cloak] {
   display: none !important;
@@ -58,7 +59,7 @@ body header .navBar .nav .navItem {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  width: 40%;
+  width: 60%;
   height: 100%;
   text-decoration: none;
   color: #ffffff;
@@ -878,6 +879,9 @@ body h5 a {
 }
 .userCRUD #app table th {
   border-bottom: 2px solid #ffffff;
+}
+.userCRUD #app .userTable {
+  margin-bottom: 70px;
 }
 .userCRUD #app .btn {
   display: inline-block;

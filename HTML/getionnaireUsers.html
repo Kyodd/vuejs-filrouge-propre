@@ -17,7 +17,16 @@
 
           <div class="navItem" v-cloak>
 
-            <a href="../index.html">
+            <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+              Gestionaire des produits
+            </a>
+
+            <a href="../HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
+              Gestionaire des utilisateurs
+            </a>
+
+
+            <a href="./index.html">
               <P>Acceuil</P>
             </a>
             <a @click="openLoginModal" v-if="!isConnected">
@@ -27,22 +36,23 @@
               <p>Boutique</p>
             </a>
             <span>
-              <a href="../HTML/orderHistory.html">
+              <a href="./HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
               </a>
             </span>
 
-            <a href="../HTML/cartPage.html" v-if="isConnected">
+            <a href="./HTML/cartPage.html" v-if="isConnected">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
+            
             <div @click="toggleMenu">
               <i class="fas fa-user" v-if="isConnected"></i>
             </div>
 
             <div class="dropDown" v-if="menuVisible && isConnected">
               <ul>
-                <a href="../HTML/Profile.html">
+                <a href="./HTML/Profile.html">
                   <li @click="viewProfile">Detail du Profil</li>
                 </a>
                 <li class="disconnect" v-if="isConnected" @click="logOut()">
@@ -67,7 +77,7 @@
           <p>Panier</p>
           <p>Utilisateur</p>
           <p>Services</p>
-          <a href="../HTML/Contact.html">
+          <a href="./HTML/Contact.html">
             <p>Contact</p>
           </a>
         </div>
@@ -120,13 +130,14 @@
 
     <h1>Liste des Utilisateurs</h1>
 
-    <table>
+    <table class="userTable">
       <thead>
         <tr>
           <th>Id</th>
           <th>Nom</th>
           <th>Type d'utilisateur</th>
           <th>Email</th>
+          <th>Date de création</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -137,8 +148,38 @@
           <td>{{ res.userName }}</td>
           <td>{{ res.category }}</td>
           <td>{{ res.email }}</td>
+          <td>{{ res.dateCreated }}</td>
           <td>
-            <button class="btn-danger">Bannir</button>
+            <button type="button" @click="changeUserRole(index)">Changer le role</button>
+            <button class="btn-danger" @click="banUser(index)">Bannir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h1>Liste des utilisateurs Bannis</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Type d'utilisateur</th>
+          <th>Email</th>
+          <th>Date de création</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="(res, index) in bannedUsers" :key="index" v-cloak>
+          <td>{{ res.id }}</td>
+          <td>{{ res.userName }}</td>
+          <td>{{ res.category }}</td>
+          <td>{{ res.email }}</td>
+          <td>{{ res.dateCreated }}</td>
+          <td>
+            <button class="btn-success" @click="unbanUser(index)">Débannir</button>
           </td>
         </tr>
       </tbody>
@@ -171,11 +212,12 @@
       <h5><a href="../HTML/TermOfUse.html">Politique de Confidantialité</a></h5>
       <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
     </footer>
+
   </div>
 
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="../JS/script.js"></script>
-  <script src="../JS/main.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../JS/script.js"></script>
+    <script src="../JS/main.js"></script>
 </body>
 
 </html>
