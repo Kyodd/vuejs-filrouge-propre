@@ -78,6 +78,18 @@ body header .navBar .nav .navItem a:hover {
   color: #02c4ff;
   scale: 1.2;
 }
+body header .navBar .nav .navItem div .fa-user:hover {
+  cursor: pointer;
+  color: #02c4ff;
+  scale: 1.2;
+  transition: all 0.35s;
+}
+body header .navBar .nav .navItem p:hover {
+  transition: all 0.35s;
+  cursor: pointer;
+  color: #02c4ff;
+  scale: 1.2;
+}
 body header .navBar .nav .navItem .dropDown {
   display: flex;
   flex-direction: column;
