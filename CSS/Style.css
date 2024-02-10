@@ -59,7 +59,7 @@ body header .navBar .nav .navItem {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  width: 80%;
+  gap: 40px;
   height: 100%;
   text-decoration: none;
   color: #ffffff;
@@ -78,6 +78,10 @@ body header .navBar .nav .navItem a:hover {
   color: #02c4ff;
   scale: 1.2;
 }
+body header .navBar .nav .navItem .dropDown {
+  display: flex;
+  flex-direction: column;
+}
 body header .navBar .nav .navItem .dropDown ul {
   list-style: none;
 }
@@ -88,6 +92,15 @@ body header .navBar .nav .navItem .dropDown ul li {
   text-align: center;
 }
 body header .navBar .nav .navItem .dropDown ul li:hover {
+  background-color: #02c4ff;
+  color: #262626;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+body header .navBar .nav .navItem .dropDown ul a {
+  border-radius: 15px;
+}
+body header .navBar .nav .navItem .dropDown ul a:hover {
   background-color: #02c4ff;
   color: #262626;
   cursor: pointer;
@@ -1302,4 +1315,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}
+}/*# sourceMappingURL=Style.css.map */

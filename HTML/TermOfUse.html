@@ -16,60 +16,57 @@
 
 <body>
 
-    <div id="app">
+  <div id="app">
+    <header>
+      <div class="navBar">
+        <div class="nav">
 
-        <header>
-            <div class="navBar">
-              <div class="nav">
-      
-                <div class="navItem" v-cloak>
-      
-                  <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
-                    Gestionaire des produits
-                  </a>
-      
-                  <a href="../HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
-                    Gestionaire des utilisateurs
-                  </a>
-      
-      
-                  <a href="../index.html">
-                    <P>Acceuil</P>
-                  </a>
-                  <a @click="openLoginModal" v-if="!isConnected">
-                    <p>Connexion</p>
-                  </a>
-                  <a href="../products.html">
-                    <p>Boutique</p>
-                  </a>
-                  <span>
-                    <a href="../HTML/orderHistory.html">
-                      <p v-if="isConnected">Mes commandes</p>
-                    </a>
-                  </span>
-      
-                  <a href="../HTML/cartPage.html" v-if="isConnected">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                  </a>
-      
-                  
-                  <div @click="toggleMenu">
-                    <i class="fas fa-user" v-if="isConnected"></i>
-                  </div>
-      
-                  <div class="dropDown" v-if="menuVisible && isConnected">
-                    <ul>
-                      <a href="../HTML/Profile.html">
-                        <li @click="viewProfile">Detail du Profil</li>
-                      </a>
-                      <li class="disconnect" v-if="isConnected" @click="logOut()">
-                        Déconnexion
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+          <div class="navItem" v-cloak>
+
+            <a href="./index.html">
+              <P>Acceuil</P>
+            </a>
+            <a @click="openLoginModal" v-if="!isConnected">
+              <p>Connexion</p>
+            </a>
+            <a href="./products.html">
+              <p>Boutique</p>
+            </a>
+            <span>
+              <a href="./HTML/orderHistory.html">
+                <p v-if="isConnected">Mes commandes</p>
+              </a>
+            </span>
+
+            <a href="./HTML/cartPage.html" v-if="isConnected">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+
+            <div @click="toggleMenu">
+              <i class="fas fa-user" v-if="isConnected"></i>
             </div>
+
+            <div class="dropDown" v-if="menuVisible && isConnected">
+              <ul>
+                <a href="./HTML/Profile.html">
+                  <li @click="viewProfile">Detail du Profil</li>
+                </a>
+                <a href="./HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+                  Gestionaire des produits
+                </a>
+
+                <a href="./HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
+                  Gestionaire des utilisateurs
+                </a>
+                <li class="disconnect" v-if="isConnected" @click="logOut()">
+                  Déconnexion
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       
             <div class="responsive_menu hiden" id="header">
               <div class="img_resp">
