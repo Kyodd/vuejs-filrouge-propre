@@ -20,32 +20,45 @@
             <a href="../index.html">
               <P>Acceuil</P>
             </a>
+
             <a @click="openLoginModal" v-if="!isConnected">
               <p>Connexion</p>
             </a>
+
             <a href="../products.html">
               <p>Boutique</p>
             </a>
+
             <span>
+
               <a href="../HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
               </a>
+
             </span>
+            
+            <a href="../HTML/Contact.html">
+              <p>Contact</p>
+            </a>
 
             <a href="../HTML/cartPage.html" v-if="isConnected">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
-
             <div @click="toggleMenu">
+
               <i class="fas fa-user" v-if="isConnected"></i>
+
             </div>
 
             <div class="dropDown" v-if="menuVisible && isConnected">
+
               <ul>
+                
                 <a href="../HTML/Profile.html">
                   <li @click="viewProfile">Detail du Profil</li>
                 </a>
+
                 <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
                   Gestionaire des produits
                 </a>
@@ -57,11 +70,19 @@
                 <a href="../HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
                   Gestionaire des utilisateurs
                 </a>
+
                 <li class="disconnect" v-if="isConnected" @click="logOut()">
                   Déconnexion
                 </li>
+
               </ul>
+
             </div>
+
+            <a href="../HTML/Contact.html">
+              <p>Contact</p>
+            </a>
+
           </div>
         </div>
       </div>
@@ -73,12 +94,21 @@
           <img src="../ressources/imgSlider/3.png" alt="Repas" id="img3" />
         </div>
         <div class="inf_resp">
+          <a href="../index.html">
+            <p>Acceuil</p>
+          </a>
           <a href="../products.html">
             <p>Produits</p>
           </a>
-          <p>Panier</p>
-          <p>Utilisateur</p>
-          <p>Services</p>
+          <a href="../HTML/cartPage.html">
+            <p>Panier</p>
+          </a>
+          <a href="../HTML/Profile.html">
+            <p>Profile</p>
+          </a>
+          <a href="../HTML/orderHistory.html">
+            <p>Mes Commandes</p>
+          </a>
           <a href="../HTML/Contact.html">
             <p>Contact</p>
           </a>
