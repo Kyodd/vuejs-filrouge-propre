@@ -4,7 +4,7 @@ let products = [
     id: 1,
     name: "Table en bois",
     description: "Table en bois massif avec finition élégante.",
-    imageUrl: "./Assets/img/mobilier-1.jpg",
+    imageUrl: "../Assets/img/mobilier-1.jpg",
     price: 199.99,
     category: 'Mobilier',
     quantity: 1,
@@ -14,7 +14,7 @@ let products = [
     id: 2,
     name: "etagere",
     description: "petite etagere style industriel.",
-    imageUrl: "./Assets/img/mobilier-2.jpg",
+    imageUrl: "../Assets/img/mobilier-2.jpg",
     price: 89.99,
     category: 'Mobilier',
     quantity: 1,
@@ -24,7 +24,7 @@ let products = [
     id: 3,
     name: "canapé en tissu vert",
     description: "Canapeen tissu vert 3 places.",
-    imageUrl: "./Assets/img/mobilier-4.jpg",
+    imageUrl: "../Assets/img/mobilier-4.jpg",
     price: 999.99,
     category: 'Mobilier',
     quantity: 1,
@@ -34,7 +34,7 @@ let products = [
     id: 4,
     name: "ensemble table et chaise ",
     description: "ensemble table et chaise styles scandinave.",
-    imageUrl: "./Assets/img/mobilier-5.jpg",
+    imageUrl: "../Assets/img/mobilier-5.jpg",
     price: 499.49,
     category: 'Mobilier',
     quantity: 1,
@@ -44,7 +44,7 @@ let products = [
     id: 5,
     name: "canapé cuir marron",
     description: "Canape en cuir marron trois places.",
-    imageUrl: "./Assets/img/mobilier-3.jpg",
+    imageUrl: "../Assets/img/mobilier-3.jpg",
     price: 1299.99,
     category: 'Mobilier',
     quantity: 1,
@@ -54,7 +54,7 @@ let products = [
     id: 6,
     name: "suspension noire industriel",
     description: "Lampe avec un design moderne et éclairage ajustable.",
-    imageUrl: "./Assets/img/luminaire-1.jpg",
+    imageUrl: "../Assets/img/luminaire-1.jpg",
     price: 79.79,
     category: 'Luminaire',
     quantity: 1,
@@ -64,7 +64,7 @@ let products = [
     id: 7,
     name: "suspension noire ",
     description: "Lampe avec un design moderne et éclairage ajustable.",
-    imageUrl: "./Assets/img/luminaire-4.jpg",
+    imageUrl: "../Assets/img/luminaire-4.jpg",
     price: 89.99,
     category: 'Luminaire',
     quantity: 1,
@@ -74,7 +74,7 @@ let products = [
     id: 8,
     name: "suspension blanche",
     description: "Lampe avec un design moderne.",
-    imageUrl: "./Assets/img/luminaire-2.jpg",
+    imageUrl: "../Assets/img/luminaire-2.jpg",
     price: 51.99,
     category: 'Luminaire',
     quantity: 1,
@@ -84,7 +84,7 @@ let products = [
     id: 9,
     name: "suspension style bois",
     description: "Lampe avec un design moderne.",
-    imageUrl: "./Assets/img/luminaire-3.jpg",
+    imageUrl: "../Assets/img/luminaire-3.jpg",
     price: 121.49,
     category: 'Luminaire',
     quantity: 1,
@@ -94,7 +94,7 @@ let products = [
     id: 10,
     name: "Applique murale",
     description: "Lampe avec un design moderne.",
-    imageUrl: "./Assets/img/luminaire-5.jpg",
+    imageUrl: "../Assets/img/luminaire-5.jpg",
     price: 39.99,
     category: 'Luminaire',
     quantity: 1,
@@ -104,7 +104,7 @@ let products = [
     id: 11,
     name: "vase style bois",
     description: "deux magnifique vase style bois",
-    imageUrl: "./Assets/img/deco-1.jpg",
+    imageUrl: "../Assets/img/deco-1.jpg",
     price: 19.99,
     category: 'Décoration',
     quantity: 1,
@@ -114,7 +114,7 @@ let products = [
     id: 12,
     name: "vase design",
     description: "Magnifique vase vert pomme .",
-    imageUrl: "./Assets/img/deco-2.jpg",
+    imageUrl: "../Assets/img/deco-2.jpg",
     price: 49.99,
     category: 'Décoration',
     quantity: 1,
@@ -124,7 +124,7 @@ let products = [
     id: 13,
     name: "3 poterie decorative",
     description: "poterie decorative en terre cuite.",
-    imageUrl: "./Assets/img/deco-3.jpg",
+    imageUrl: "../Assets/img/deco-3.jpg",
     price: 119.49,
     category: 'Décoration',
     quantity: 1,
@@ -134,7 +134,7 @@ let products = [
     id: 14,
     name: "vase en terre",
     description: "vase en terre cuir style grec.",
-    imageUrl: "./Assets/img/deco-4.jpg",
+    imageUrl: "../Assets/img/deco-4.jpg",
     price: 149.49,
     category: 'Décoration',
     quantity: 1,
@@ -144,7 +144,7 @@ let products = [
     id: 15,
     name: "vase bleu",
     description: "vase en verre souffle bleu.",
-    imageUrl: "./Assets/img/deco-5.jpg",
+    imageUrl: "../Assets/img/deco-5.jpg",
     price: 189.99,
     category: 'Décoration',
     quantity: 1,
@@ -154,7 +154,7 @@ let products = [
     id: 16,
     name: "peau de bete",
     description: "tapis en fausse peau de bete.",
-    imageUrl: "./Assets/img/tapis-1.jpg",
+    imageUrl: "../Assets/img/tapis-1.jpg",
     price: 130.0,
     category: 'Tapis',
     quantity: 1,
@@ -164,7 +164,7 @@ let products = [
     id: 17,
     name: "Tapis style marocain",
     description: "tapis style marocain motif lineaire.",
-    imageUrl: "./Assets/img/tapis-2.jpg",
+    imageUrl: "../Assets/img/tapis-2.jpg",
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
@@ -174,7 +174,7 @@ let products = [
     id: 18,
     name: "tapis orientale",
     description: "tapis style orientale .",
-    imageUrl: "./Assets/img/tapis-3.jpg",
+    imageUrl: "../Assets/img/tapis-3.jpg",
     price: 121.49,
     category: 'Tapis',
     quantity: 1,
@@ -184,7 +184,7 @@ let products = [
     id: 19,
     name: "tapis elephant",
     description: "Joli petit tapis style crochet en forme de tete d'elephant.",
-    imageUrl: "./Assets/img/tapis-4.jpg",
+    imageUrl: "../Assets/img/tapis-4.jpg",
     price: 99.99,
     category: 'Tapis',
     quantity: 1,
@@ -194,7 +194,7 @@ let products = [
     id: 20,
     name: "tapis Noir",
     description: "tapis moltonne noir .",
-    imageUrl: "./Assets/img/tapis-5.jpg",
+    imageUrl: "../Assets/img/tapis-5.jpg",
     price: 59.99,
     category: 'Tapis',
     quantity: 1,
@@ -264,6 +264,9 @@ const app = Vue.createApp({
       detailsModalOpen: false,
       //filtre
       selectedCategory: 'all',
+      //pannel admin
+      prodCrud: false,
+      categoryCrud: false,
 
     };
   },
@@ -428,6 +431,7 @@ const app = Vue.createApp({
     viewProfile() {
       console.log('Afficher les détails du profil');
     },
+
     //pour page produits
 
     searchProduct(){
@@ -525,52 +529,68 @@ const app = Vue.createApp({
           this.detailsModalOpen = false
         },
 
-    
-    //Pour le CRUD produits
+        
+        
+        //Pour le CRUD produits
+        
+        openEditModal(index) {
+          if (this.sellerConnected || this.adminConnected) {
+            this.editModal = true;
+            this.editIndex = index;
+            this.tempTable = { ...this.product[index] };
+          }
+        },
+        openAddModal() {
+          if (this.sellerConnected || this.adminConnected) {
+            this.addModal = true;
+          }
+        },
+        closeModal() {
+          this.editModal = false;
+          this.addModal = false;
+        },
+        closeAddModal() {
+          this.addModal = false;
+          this.tempTable = {};
+        },
+        addProduct() {
+          if (this.sellerConnected || this.adminConnected) {
+            if (this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category && this.tempTable.imageUrl) {
+              this.product.push(this.tempTable);
+              this.tempTable = {
+                id: this.product.length + 1,
+                name: "",
+                price: "",
+                quantity: "",
+                category: "",
+                imageUrl: "",
+              };
+              this.closeAddModal();
+            } else {
+              alert("Veuillez remplir tous les champs");
+            }
+          }
+        },
 
-    openEditModal(index) {
-      if (this.sellerConnected || this.adminConnected) {
-        this.editModal = true;
-        this.editIndex = index;
-        this.tempTable = { ...this.product[index] };
-      }
-    },
-    openAddModal() {
-      if (this.sellerConnected || this.adminConnected) {
-        this.addModal = true;
-      }
-    },
-    closeModal() {
-      this.editModal = false;
-      this.addModal = false;
-    },
-    closeAddModal() {
-      this.addModal = false;
-      this.tempTable = {};
-    },
-    addProduct() {
-      if (this.sellerConnected || this.adminConnected) {
-        if (this.tempTable && this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
-          this.product.push(this.tempTable);
+        addProdImage(){
+          if(imageUrl){
+            this.tempTable.imageURL = imageUrl
+          } else {
+            alert("Veuillez saisir une URL valide")
+          }
+        },
+
+        closeEditModal() {
+          this.editModal = false;
+          this.editIndex = -1;
           this.tempTable = {};
-          this.closeAddModal();
-        } else {
-          alert("Veuillez remplir tous les champs");
-          console.log('hello?');
-        }
-      }
-    },
-    closeEditModal() {
-      this.editModal = false;
-      this.editIndex = -1;
-      this.tempTable = {};
-    },
-    editProduct() {
-      if (this.sellerConnected || this.adminConnected) {
-        this.addModal = false;
-        if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
-          this.product[this.editIndex] = this.tempTable;
-          this.tempTable = {};
+        },
+        editProduct() {
+          if (this.sellerConnected || this.adminConnected) {
+            this.addModal = false;
+            if (this.tempTable.name && this.tempTable.price && this.tempTable.quantity && this.tempTable.category) {
+              this.product[this.editIndex] = this.tempTable;
+              this.tempTable = {};
           this.closeEditModal();
         } else {
           alert("Veuillez remplir tous les champs");
@@ -664,7 +684,15 @@ const app = Vue.createApp({
       localStorage.setItem("orderHistory", JSON.stringify(this.orderHistory));
     },
 
+    //adminPannel
+    
+    toggleProdCrud(){
+      this.prodCrud = !this.prodCrud
+    },
 
+    toggleCategoryCrud(){
+      this.categoryCrud = !this.categoryCrud
+    },
   },
 
 

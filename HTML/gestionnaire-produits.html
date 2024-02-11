@@ -19,22 +19,22 @@
 
           <div class="navItem" v-cloak>
 
-            <a href="./index.html">
+            <a href="../index.html">
               <P>Acceuil</P>
             </a>
             <a @click="openLoginModal" v-if="!isConnected">
               <p>Connexion</p>
             </a>
-            <a href="./products.html">
+            <a href="../products.html">
               <p>Boutique</p>
             </a>
             <span>
-              <a href="./HTML/orderHistory.html">
+              <a href="../HTML/orderHistory.html">
                 <p v-if="isConnected">Mes commandes</p>
               </a>
             </span>
 
-            <a href="./HTML/cartPage.html" v-if="isConnected">
+            <a href="../HTML/cartPage.html" v-if="isConnected">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
 
@@ -45,14 +45,18 @@
 
             <div class="dropDown" v-if="menuVisible && isConnected">
               <ul>
-                <a href="./HTML/Profile.html">
+                <a href="../HTML/Profile.html">
                   <li @click="viewProfile">Detail du Profil</li>
                 </a>
-                <a href="./HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+                <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
                   Gestionaire des produits
                 </a>
 
-                <a href="./HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
+                <a href="../HTML/gestionnaire-categories.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+                  Gestionaire de catégories
+                </a>
+
+                <a href="../HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
                   Gestionaire des utilisateurs
                 </a>
                 <li class="disconnect" v-if="isConnected" @click="logOut()">
@@ -127,16 +131,18 @@
         <button class="signUp"><a href="../HTML/signUp.html">Pas de compte? je m'inscris</a></button>
       </div>
     </form>
+    
 
     <h1>Gestionaire de produits</h1>
 
-    <button class="btn btn-success addProd" @click="openAddModal()">Ajouter un produit</button>
+    <button class="btn btn-success addProd" @click="openAddModal()"> + Ajouter un produit</button>
 
 
 
     <table>
       <thead>
         <tr>
+          <th>Image produit</th>
           <th>Nom Produit</th>
           <th>Prix Produit</th>
           <th>Quantité Produit</th>
@@ -147,6 +153,7 @@
 
       <tbody>
         <tr v-for="(prod, index) in product" :key="index" v-cloak>
+          <td><img :src="prod.imageUrl" alt="product image" class="prodImg"></td>
           <td class="prodName">{{ prod.name }}</td>
           <td>{{ prod.price }} €</td>
           <td>{{ prod.quantity }}</td>
@@ -160,80 +167,65 @@
       </tbody>
     </table>
 
-    <div class="newCat">
-      <button @click="addCategory(newCategoryName)">Ajouter Catégorie</button>
-      <input type="text" v-model="newCategoryName" placeholder="Nouvelle catégorie">
-    </div>
-    <table>
-      <thead>
-        <th>Catégorie</th>
-        <th>Actions</th>
-      </thead>
-
-      <tbody>
-        <tr v-for="(category, index) in categories" :key="index">
-          <td>{{ category }}</td>
-          <td>
-            <button class="btn btn-danger actions" @click="deleteCategory(index)">Suprimer</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+    
     <div id="editModal" class="modal" v-if="editModal" @click.stop="closeModal()" v-cloak>
       <div class="modal-content" @click.stop>
         <span class="close" @click.stop="closeEditModal()">X</span>
         <h2>Modifier le produit</h2>
-
+        
         <form>
           <label for="editName">Nom Produit: </label><br>
           <input type="text" id="editName" v-model="tempTable.name"><br>
-
+          
           <label for="editPrice">Prix Produit: </label><br>
           <input type="number" id="editPrice" min="0" v-model="tempTable.price"><br>
-
+          
           <label for="editQuantity">Quantité Produit: </label><br>
           <input type="number" id="editQuantity" min="0" v-model="tempTable.quantity"><br>
-
+          
           <label for="editCategory">Catégorie Produit: </label><br>
-          <select id="editCategory" v-model="tempTable.category">
-            <option value="Mobilier">Mobilier</option>
-            <option value="Luminaire">Luminaire</option>
-            <option value="Déco">Décoration</option>
-            <option value="Tapis">Tapis</option>
-          </select><br>
-
-          <input type="submit" value="Enregistrer" class="btn btn-success confBtn" @click="editProduct()">
-
-        </form>
-      </div>
-    </div>
-
-    <div id="addModal" class="modal" v-if="addModal" @click.stop="closeModal()" v-cloak>
-      <div class="modal-content" @click.stop>
-        <h2>Ajouter un produit</h2> <span @click.stop="closeAddModal()">X</span>
-
-        <form>
-          <label for="name">Nom Produit: </label><br>
-          <input type="text" name="name" id="name" v-model="tempTable.name"><br>
-
-          <label for="price">Prix Produit: </label><br>
-          <input type="number" name="price" id="price" min="0" v-model="tempTable.price"><br>
-
-          <label for="quantity">Quantité Produit: </label><br>
-          <input type="number" name="quantity" id="quantity" min="0" v-model="tempTable.quantity"><br>
-
-          <label for="category">Catégorie Produit: </label><br>
           <select name="category" id="category" v-model="tempTable.category">
             <option v-for="category in categories" :value="category">{{ category }}</option>
           </select>
           <br>
-
+          
+          <input type="submit" value="Enregistrer" class="btn btn-success confBtn" @click="editProduct()">
+          
+        </form>
+      </div>
+    </div>
+    
+    <div id="addModal" class="modal" v-if="addModal" @click.stop="closeModal()" v-cloak>
+      <div class="modal-content" @click.stop>
+        <h2>Ajouter un produit</h2> <span @click.stop="closeAddModal()">X</span>
+        
+        <form>
+          <label for="name">Nom Produit: </label><br>
+          <input type="text" name="name" id="name" v-model="tempTable.name"><br>
+          
+          <label for="price">Prix Produit: </label><br>
+          <input type="number" name="price" id="price" min="0" v-model="tempTable.price"><br>
+          
+          <label for="quantity">Quantité Produit: </label><br>
+          <input type="number" name="quantity" id="quantity" min="0" v-model="tempTable.quantity"><br>
+          
+          <label for="category">Catégorie Produit: </label><br>
+          <select name="category" id="category" v-model="tempTable.category">
+            <option v-for="category in categories" :value="category">{{ category }}</option>
+          </select>
+          
+          <label for="image">Image Produit: (Url image) </label><br>
+          <input type="text" name="image" id="image" v-model="tempTable.imageUrl" @click="addProdImage()"><br>
+          
+          <br>
+          
           <input type="submit" value="Ajouter" class="btn btn-success confBtn" @click="addProduct()">
         </form>
       </div>
     </div>
 
+
+    
     <footer>
       <div class="info">
         <div>
