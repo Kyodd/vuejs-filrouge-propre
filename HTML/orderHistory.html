@@ -166,7 +166,8 @@
         <div v-for="orders in orderHistory">
             <div class="order">
                 <div class="orderInfo">
-                    <p class="orderN">Commande N°: {{ orders.id }}</p>
+                  <p class="orderN">Commande N°: {{ orders.id }}</p>
+                  <h2>Statut de la commande: Livré</h2>
                     <p>Date: {{ orders.date }}</p>
                     <p>Total hors taxes: {{ orders.totalPriceNoVAT }} €</p>
                     <p>Total: {{ orders.totalPrice }} €</p>
