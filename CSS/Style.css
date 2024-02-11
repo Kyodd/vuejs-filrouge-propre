@@ -78,11 +78,13 @@ body header .navBar .nav .navItem a:hover {
   color: #02c4ff;
   scale: 1.2;
 }
+body header .navBar .nav .navItem div .fa-user {
+  transition: all 0.35s;
+}
 body header .navBar .nav .navItem div .fa-user:hover {
   cursor: pointer;
   color: #02c4ff;
   scale: 1.2;
-  transition: all 0.35s;
 }
 body header .navBar .nav .navItem p:hover {
   transition: all 0.35s;
@@ -93,6 +95,16 @@ body header .navBar .nav .navItem p:hover {
 body header .navBar .nav .navItem .dropDown {
   display: flex;
   flex-direction: column;
+  background-color: #262626;
+  position: absolute;
+  top: 102px;
+  left: 54vw;
+  width: 400px;
+  height: 200px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  opacity: 95%;
 }
 body header .navBar .nav .navItem .dropDown ul {
   list-style: none;
@@ -120,8 +132,12 @@ body header .navBar .nav .navItem .dropDown ul a:hover {
   cursor: pointer;
   transition: all 0.35s;
 }
+body header .navBar .nav .navItem .dropDown ul .disconnect {
+  transition: all 0.35s;
+}
 body header .navBar .nav .navItem .dropDown ul .disconnect:hover {
   background-color: red;
+  scale: 1.2;
 }
 body header .Title {
   font-size: 2rem;
@@ -1427,4 +1443,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}
+}/*# sourceMappingURL=Style.css.map */

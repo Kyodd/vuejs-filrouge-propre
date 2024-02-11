@@ -44,11 +44,17 @@
 
             <div class="dropDown" v-if="menuVisible && isConnected">
               <ul>
+                
                 <a href="./HTML/Profile.html">
                   <li @click="viewProfile">Detail du Profil</li>
                 </a>
+
                 <a href="./HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
                   Gestionaire des produits
+                </a>
+
+                <a href="../HTML/gestionnaire-categories.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+                  Gestionaire de catégories
                 </a>
 
                 <a href="./HTML/getionnaireUsers.html" v-if="adminConnected" class="crudLinks">
