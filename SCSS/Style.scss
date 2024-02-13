@@ -1723,6 +1723,74 @@ body {
     }
 }
 
+.ordersCrud{
+    color: $white;
+
+    h2{
+        text-align: center;
+    }
+
+    button{
+        transition: all 0.2s ease-in-out;
+        color: $white;
+        cursor: pointer;
+
+        &:hover{
+            scale: 1.2;
+            color: $white;
+        }
+    }
+
+    .btn-success{
+        background-color: #28a745;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            scale: 1.2;
+            color: $white;
+        }
+    }
+
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    
+
+    .orderBox{
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        border: 3px solid white;
+        padding: 5px;
+        border-radius: 15px;
+        gap: 10px;
+
+        .awaiting{
+            color: crimson;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .delivered{
+            color: #28a745;
+            font-weight: bold;
+            font-size: 22px;
+        }
+    }
+
+}
+}
 
 
 // Partie Contact :

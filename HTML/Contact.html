@@ -56,6 +56,10 @@
                   Gestionaire des produits
                 </a>
 
+                <a href="../HTML/gestionaieCommandes.html" v-if="adminConnected || sellerConnected" class="crudLinks">
+                  Gestionaire de commandes
+                </a>
+
                 <a href="../HTML/gestionnaire-categories.html" v-if="adminConnected || sellerConnected" class="crudLinks">
                   Gestionaire de catégories
                 </a>

@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/18a8b83caf.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../CSS/Style.css" />
-    <title>gestionnaire de catégories</title>
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <title>Gestionaire-de-commandes</title>
 </head>
-<body class="categoryCrud">
-
+<body class="ordersCrud">
     <div id="app">
         <header>
             <div class="navBar">
@@ -48,7 +47,7 @@
                       <a href="../HTML/gestionnaire-produits.html" v-if="adminConnected || sellerConnected" class="crudLinks">
                         Gestionaire des produits
                       </a>
-
+                      
                       <a href="../HTML/gestionaieCommandes.html" v-if="adminConnected || sellerConnected" class="crudLinks">
                         Gestionaire de commandes
                       </a>
@@ -118,7 +117,7 @@
               </button>
             </div>
           </header>
-      
+
           <form v-if="loginModal" v-cloak class="modal">
             <div class="modal-content">
               <h3>Connexion</h3>
@@ -133,29 +132,35 @@
             </div>
           </form>
 
-          <h1>Gestionaire de catégories</h1>
+          <h2>Gestionaire des commandes</h2>
 
-          <div class="newCat">
-            <button @click="addCategory(newCategoryName)">Ajouter Catégorie</button>
-            <input type="text" v-model="newCategoryName" placeholder="Nouvelle catégorie">
-          </div>
-          <section class="catCrud">
-          <table>
-            <thead>
-              <th>Catégorie</th>
-              <th>Actions</th>
-            </thead>
-      
-            <tbody>
-              <tr v-for="(category, index) in categories" :key="index">
-                <td>{{ category }}</td>
-                <td>
-                  <button class="btn btn-danger" @click="deleteCategory(index)">Suprimer</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
+          <section class="orders">
+            <div v-for="(entry, index) in orderHistory" :key="index" class="orderBox">
+                <h3>Commande n° {{ entry.id }}</h3>
+                <span v-if="!entry.delivered" class="awaiting">Commande en attente de livraison</span>
+                <br>
+                <span v-if="entry.delivered" class="delivered">Commande Livrée</span>
+                    <button v-if="!entry.delivered" @click="markAsDelivered(index)" class="orderBtn">Livrer</button>
+                    <br>
+                </p>
+                <p>Date de la commande: {{ entry.date }}</p>
+                <br>
+                <p><strong>Montant hors taxes: </strong>
+                    <br>{{ entry.totalPriceNoVAT }} €</p>
+                <p><strong>Montant total (TTC): </strong>
+                    <br>{{ entry.totalPrice }} €</p>
+        
+                <div class="orderDetails">
+                    <div v-for="product in entry.products" :key="product.id">
+                        <div class="product">
+                            <p>{{ product.name }}</p>
+                            <p><strong>Prix: </strong> {{ product.price }} €</p>
+                            <p><strong>Quantité:</strong> {{ product.quantity }}</p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
           <footer>
@@ -185,6 +190,7 @@
             <h5><a href="../HTML/TermOfUse.html">Conditions d'Utilisation</a></h5>
           </footer>
     </div>
+    
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../JS/script.js"></script>

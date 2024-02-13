@@ -1357,6 +1357,64 @@ body h5 a {
   font-size: 1.2rem;
 }
 
+.ordersCrud {
+  color: #ffffff;
+}
+.ordersCrud h2 {
+  text-align: center;
+}
+.ordersCrud button {
+  transition: all 0.2s ease-in-out;
+  color: #ffffff;
+  cursor: pointer;
+}
+.ordersCrud button:hover {
+  scale: 1.2;
+  color: #ffffff;
+}
+.ordersCrud .btn-success {
+  background-color: #28a745;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.ordersCrud .btn-success:hover {
+  scale: 1.2;
+  color: #ffffff;
+}
+.ordersCrud section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ordersCrud section .orderBox {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  border: 3px solid white;
+  padding: 5px;
+  border-radius: 15px;
+  gap: 10px;
+}
+.ordersCrud section .orderBox .awaiting {
+  color: crimson;
+  font-weight: bold;
+  font-size: 22px;
+}
+.ordersCrud section .orderBox .delivered {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 22px;
+}
+
 .contact-form {
   background-color: #262626;
   padding: 20px;
@@ -1443,4 +1501,4 @@ button:hover {
     display: block;
     padding: 22% 40%;
   }
-}/*# sourceMappingURL=Style.css.map */
+}

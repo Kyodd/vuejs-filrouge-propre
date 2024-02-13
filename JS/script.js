@@ -267,6 +267,8 @@ const app = Vue.createApp({
       //pannel admin
       prodCrud: false,
       categoryCrud: false,
+      //gestion commande
+      delivered: false,
 
     };
   },
@@ -514,6 +516,17 @@ const app = Vue.createApp({
 
     },
 
+    //gestionaire des commandes
+
+    markAsDelivered(index) {
+      let order = this.orderHistory[index]
+      if(confirm("Etes-vous sur de vouloir marquer cette commande comme livrée ?")){
+        order.delivered = true
+      }
+      localStorage.setItem("orderHistory", JSON.stringify(this.orderHistory));
+      console.log('yo')
+  },
+
     //Détails produit
         openDetailsModal(index) {
           if(index >= 0 && index < this.product.length){
@@ -677,6 +690,7 @@ const app = Vue.createApp({
         totalPriceNoVAT: this.cart.reduce((acc, product) => {
           return acc + (product.price * product.quantity) * 0.8;
         }, 0).toFixed(2),
+        delivered: false,
       }
       this.orderHistory.push(order)
       this.cart = []
