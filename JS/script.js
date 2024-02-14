@@ -210,7 +210,8 @@ let userList = [
     password: "admin",
     email: "admin@gmail.com",
     category: "admin",
-    dateCreated: '29/01/2024'
+    dateCreated: '29/01/2024',
+    profilePicUrl: "",
   },
 
   {
@@ -218,8 +219,12 @@ let userList = [
     userName: "user",
     password: "user",
     email: "user@gmail.com",
+    adress:"2 rue de la paix",
+    city:"Paris",
+    zipCode: "75000",
     category: "client",
-    dateCreated: '29/01/2024'
+    dateCreated: '29/01/2024',
+    profilePicUrl: "",
   },
   {
     id: 3,
@@ -227,8 +232,14 @@ let userList = [
     password: "seller",
     email: "seller@gmail.com",
     category: "commerçant",
+    adress:"1 rue de la paix",
+    city:"Paris",
+    zipCode: "75000",
     siret: "12345678912345",
-    dateCreated: '29/01/2024'
+    raisonSociale: "LDM",
+    companyName: "les devs de minuit",
+    dateCreated: '29/01/2024',
+    profilePicUrl: "",
   },
 ];
 
@@ -269,6 +280,9 @@ const app = Vue.createApp({
       categoryCrud: false,
       //gestion commande
       delivered: false,
+      //profilePic
+      editProfilePic: false,
+      profilePicUrl: "",
 
     };
   },
@@ -278,57 +292,67 @@ const app = Vue.createApp({
 
     //pour user inscription
     addUser() {
-      let { userName, password, email, category, confPassword, siret } =
-        this.tempTable;
-      const emailReg =
-        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i;
-      const passwordReg =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+      let {userName, password, email, category, confPassword, siret, adress, city, zipCode, companyName, raisonSociale} = this.tempTable;
+      const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i;
+      const passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
       const siretReg = /^\d{14}$/;
+      const zipCodeReg = /^\d{5}$/;
+      const raisonSocialeReg = /^[a-zA-Z]{3}$/;
 
-      if (userName && email && password && confPassword && category) {
-        if (emailReg.test(email)) {
-          if (passwordReg.test(password)) {
-            if (password === confPassword) {
-              if (category === "client") {
-                this.users.push({
-                  id: this.users.length + 1,
-                  userName: userName,
-                  password: password,
-                  email: email,
-                  category: category,
-                  dateCreated: new Date().toLocaleString(),
-                });
-                alert("Inscription réussie, vous pouvez maintenant vous connecter")
-                this.tempTable = {};
-              } else if (category === "commerçant" && siret && siretReg.test(siret)) {
-                this.users.push({
-                  id: this.users.length + 1,
-                  userName: userName,
-                  password: password,
-                  email: email,
-                  category: category,
-                  siret: siret,
-                  dateCreated: new Date().toLocaleString(),
-                });
-                alert("Inscription réussie, vous pouvez maintenant vous connecter")
-                this.tempTable = {};
-              } else if (category === "commerçant" && (!siret || !siretReg.test(siret))) {
-                alert("Veuillez saisir un numéro de SIRET valide")
+
+        if(userName && password && email && category && confPassword && adress && city && zipCode){
+          if(emailReg.test(email)){
+            if(passwordReg.test(password)){
+              if(zipCodeReg.test(zipCode)){
+                if(password === confPassword){
+                  if(category === "client"){
+                    this.users.push({
+                      id: this.users.length + 1,
+                      userName,
+                      password,
+                      email,
+                      category,
+                      adress,
+                      city,
+                      zipCode,
+                      dateCreated: new Date().toLocaleDateString(),
+                    });
+                    alert("Inscription réussie, vous pouvez maintenant vous connecter")
+                    this.tempTable = {};
+                  } else if(category === "commerçant" && siret && siretReg.test(siret) && raisonSociale && raisonSocialeReg.test(raisonSociale) && companyName){
+                    this.users.push({
+                      id: this.users.length + 1,
+                      userName,
+                      password,
+                      email,
+                      category,
+                      siret,
+                      raisonSociale,
+                      companyName,
+                      adress,
+                      city,
+                      zipCode,
+                      dateCreated: new Date().toLocaleDateString(),    
+                    });
+                    alert("Inscription réussie, vous pouvez maintenant vous connecter")
+                    this.tempTable = {};
+                  }
+                } else{
+                  alert("Les mots de passe ne correspondent pas")
+                }
+              } else{
+                alert("Code postal invalide")
+              }                
+              } else{
+                alert("Votre mot de pass ne remplis pas les conditions requises")
               }
             } else {
-              alert("Votre confirmation de mot de passe ne correspond pas à votre mot de passe")
+              alert("Veuillez entrer une adresse email valide")
             }
           } else {
-            alert("Votre mot de passe ne remplit pas less critères requis")
+            alert("Veuillez remplir tous les champs")
           }
-        } else {
-          alert("Veuillez saisir une adresse email valide")
-        }
-      } else {
-        alert("Veuillez remplir tous les champs")
-      }
-    },
+        },
 
     //pour user connexion
     login() {
@@ -369,6 +393,12 @@ const app = Vue.createApp({
         category: category,
         email: email,
         creationDate: creationDate,
+        adress: this.users.find((user) => user.userName === this.userName).adress,
+        city: this.users.find((user) => user.userName === this.userName).city,
+        zipCode: this.users.find((user) => user.userName === this.userName).zipCode,
+        siret: this.users.find((user) => user.userName === this.userName).siret,
+        companyName: this.users.find((user) => user.userName === this.userName).companyName,
+        raisonSociale: this.users.find((user) => user.userName === this.userName).raisonSociale
       }
 
       if (category === "admin") {
@@ -433,6 +463,35 @@ const app = Vue.createApp({
     viewProfile() {
       console.log('Afficher les détails du profil');
     },
+
+    //pour photo de profil
+    
+    addProfilePic(imageUrl) {
+      if(imageUrl) {
+        this.connectedUser.profilePic = imageUrl;
+        this.editProfilePic = false;
+      } else {
+        alert("Veuillez saisir une URL valide");
+      }
+      localStorage.setItem("connectedUser", JSON.stringify(this.connectedUser));
+    },
+    
+    openProfilePicEdit() {
+      this.editProfilePic = true;
+    },
+
+    closeProfilePicEdit() {
+      this.editProfilePic = false;
+    },
+
+    removeProfilePic() {
+      if(confirm("Etes-vous sur de vouloir supprimer votre photo de profil ?")){
+        this.connectedUser.profilePic = "";
+        this.editProfilePic = false;
+        localStorage.setItem("connectedUser", JSON.stringify(this.connectedUser));
+      }
+    },
+
 
     //pour page produits
 

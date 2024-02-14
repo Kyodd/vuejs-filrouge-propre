@@ -195,8 +195,25 @@
         <input type="password" name="confPassword" placeholder="Confirmer le mot de passe"
           v-model="tempTable.confPassword" class="moddedInputs" />
 
+        <label for="adress"><u>Votre Adresse</u></label>
+        <input type="text" name="adress" placeholder="Adresse" v-model="tempTable.adress" class="moddedInputs" />
+
+        <label for="city"><u>Votre Ville</u></label>
+        <input type="text" name="city" placeholder="Ville" v-model="tempTable.city" class="moddedInputs" />
+
+        <label for="zipCode">Votre code postal</label>
+        <input type="text" name="zipCode" placeholder="Code postal" v-model="tempTable.zipCode" class="moddedInputs" />
+
+        <label v-if="tempTable.category === 'commerçant'" v-cloak><u>Nom de l'entreprise</u></label>
+        <input v-if="tempTable.category === 'commerçant'" type="text" name="companyName" placeholder="Nom de l'entreprise"
+          v-model="tempTable.companyName" v-cloak class="moddedInputs" />
+
+        <label for="raisonSociale" v-if="tempTable.category === 'commerçant'" v-cloak><u>Raison sociale de l'entreprise</u></label>
+        <input type="text" name="raisonSociale" v-if="tempTable.category === 'commerçant'" placeholder="Raison sociale de l'entreprise (3 lettres)" v-model="tempTable.raisonSociale"
+          v-cloak class="moddedInputs" />
+
         <label v-if="tempTable.category === 'commerçant'" v-cloak><u>Numéro de Siret</u></label>
-        <input v-if="tempTable.category === 'commerçant'" type="text" name="siret" placeholder="Numéro de Siret" v-model="tempTable.siret" v-cloak class="moddedInputs" />
+        <input v-if="tempTable.category === 'commerçant'" type="text" name="siret" placeholder="Numéro de Siret (14 chiffres)" v-model="tempTable.siret" v-cloak class="moddedInputs" />
 
         <input type="submit" value="Valider" @click.prevent="addUser()" class="sub" />
       </form>

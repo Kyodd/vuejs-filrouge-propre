@@ -1144,6 +1144,40 @@ body h5 a {
 .profilePage {
   color: #ffffff;
 }
+.profilePage .profilePicBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.profilePage .profilePicBox .btn-success {
+  background-color: #28a745;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 auto;
+  transition: all 0.2s ease-in-out;
+}
+.profilePage .profilePicBox .btn-success:hover {
+  scale: 1.2;
+}
+.profilePage .profilePicBox .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.profilePage .profilePicBox .btn-danger:hover {
+  scale: 1.2;
+}
+.profilePage .profilePicBox img {
+  width: 200px;
+  height: 200px;
+}
 .profilePage .profile {
   margin-top: 10px;
   display: flex;
@@ -1171,6 +1205,31 @@ body h5 a {
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-wrap: wrap;
+}
+.profilePage .profile .userOrders .orderHistory {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.profilePage .profile .userOrders .orderHistory .orderCard {
+  border: 3px solid white;
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.profilePage .profile .userOrders .orderHistory .orderCard .awaiting {
+  color: crimson;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.profilePage .profile .userOrders .orderHistory .orderCard .delivered {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 .hiden {
