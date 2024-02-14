@@ -1687,6 +1687,20 @@ body {
             margin: 0 auto;
             margin-bottom: 20px;
 
+            .awaiting{
+                color: crimson;
+                font-weight: bold;
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+
+            .delivered{
+                color: #28a745;
+                font-weight: bold;
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+
             .orderInfo {
                 display: flex;
                 flex-direction: column;

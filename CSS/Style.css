@@ -1328,6 +1328,18 @@ body h5 a {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+.orderHistory div .order .awaiting {
+  color: crimson;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.orderHistory div .order .delivered {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
 .orderHistory div .order .orderInfo {
   display: flex;
   flex-direction: column;

@@ -163,20 +163,24 @@
 
         <h1>Historique des commandes</h1>
 
-        <div v-for="orders in orderHistory">
+        <div v-for="(orders, index) in orderHistory" :key="index">
             <div class="order">
                 <div class="orderInfo">
                   <p class="orderN">Commande N°: {{ orders.id }}</p>
+                  <span v-if="!orders.delivered" class="awaiting">Commande en attente de livraison</span>
+                  <br>
+                  <span v-if="orders.delivered" class="delivered">Commande Livrée</span>
                     <p>Date: {{ orders.date }}</p>
                     <p>Total hors taxes: {{ orders.totalPriceNoVAT }} €</p>
                     <p>Total: {{ orders.totalPrice }} €</p>
                 </div>
                 <div class="orderDetails">
-                    <div v-for="product in orders.products">
+                    <div v-for="(product, index) in orders.products" :key="index">
                         <div class="product">
                             <p class="prodName">{{ product.name }}</p>
                             <p>{{ product.price }} €</p>
                             <p>Quantité: {{ product.quantity }}</p>
+                            <p v-if="isDelivered">ICI</p>
                         </div>
                     </div>
                 </div>
