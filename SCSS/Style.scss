@@ -1040,21 +1040,6 @@ body {
       }
     }
 
-    .newCat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      button {
-        transition: all 0.2s ease-in-out;
-        margin-bottom: 10px;
-
-        &:hover {
-          color: $white;
-          scale: 1.2;
-        }
-      }
-
       input {
         width: 40%;
         border-radius: 5px;
@@ -1136,6 +1121,11 @@ body {
         max-height: 600px;
         position: relative;
 
+        .picInput{
+          width: 120%;
+          text-align: center;
+        }
+
         label {
           font-weight: bold;
         }
@@ -1171,30 +1161,7 @@ body {
       }
     }
   }
-}
 
-.categoryCrud {
-  color: $white;
-
-  h1 {
-    text-align: center;
-  }
-
-  .catCrud {
-    display: flex;
-    justify-content: center;
-
-    table {
-      tbody {
-        tr {
-          td {
-            padding: 10px;
-            border-radius: 5px;
-          }
-        }
-      }
-    }
-  }
 
   .btn-danger {
     background-color: #dc3545;
@@ -1230,7 +1197,7 @@ body {
       color: $white;
     }
   }
-}
+
 
 //page CRUD Utilisateurs
 .userCRUD {

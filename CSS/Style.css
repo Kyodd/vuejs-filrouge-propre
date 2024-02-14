@@ -863,26 +863,13 @@ body h5 a {
 .crudBody main table th {
   border-bottom: 2px solid #ffffff;
 }
-.crudBody main .newCat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.crudBody main .newCat button {
-  transition: all 0.2s ease-in-out;
-  margin-bottom: 10px;
-}
-.crudBody main .newCat button:hover {
-  color: #ffffff;
-  scale: 1.2;
-}
-.crudBody main .newCat input {
+.crudBody main input {
   width: 40%;
   border-radius: 5px;
   text-align: center;
   color: #ffffff;
 }
-.crudBody main .btn {
+.crudBody .btn {
   display: inline-block;
   padding: 10px 20px;
   font-size: 14px;
@@ -893,22 +880,22 @@ body h5 a {
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
-.crudBody main .btn-primary {
+.crudBody .btn-primary {
   background-color: #007bff;
   color: #fff;
 }
-.crudBody main .btn-primary:hover {
+.crudBody .btn-primary:hover {
   background-color: #0056b3;
 }
-.crudBody main .btn-danger {
+.crudBody .btn-danger {
   background-color: #dc3545;
   color: #fff;
   margin-left: 10px;
 }
-.crudBody main .btn-danger:hover {
+.crudBody .btn-danger:hover {
   background-color: #c82333;
 }
-.crudBody main .btn-success {
+.crudBody .btn-success {
   background-color: #28a745;
   color: #fff;
   display: flex;
@@ -917,10 +904,10 @@ body h5 a {
   height: 100%;
   margin: 0 auto;
 }
-.crudBody main .btn-success:hover {
+.crudBody .btn-success:hover {
   background-color: #1e7e34;
 }
-.crudBody main .modal {
+.crudBody .modal {
   display: flex;
   position: fixed;
   top: 50%;
@@ -933,7 +920,7 @@ body h5 a {
   justify-content: center;
   align-items: center;
 }
-.crudBody main .modal .modal-content {
+.crudBody .modal .modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -948,25 +935,29 @@ body h5 a {
   max-height: 600px;
   position: relative;
 }
-.crudBody main .modal .modal-content label {
+.crudBody .modal .modal-content .picInput {
+  width: 120%;
+  text-align: center;
+}
+.crudBody .modal .modal-content label {
   font-weight: bold;
 }
-.crudBody main .modal .modal-content input {
+.crudBody .modal .modal-content input {
   border: none;
   border-radius: 5px;
   padding: 5px;
   margin: 0 auto;
 }
-.crudBody main .modal .modal-content h2 {
+.crudBody .modal .modal-content h2 {
   margin: 10px;
 }
-.crudBody main .modal .modal-content .confBtn {
+.crudBody .modal .modal-content .confBtn {
   padding: 10px;
   margin-top: 10px;
   height: 50px;
   font-weight: bold;
 }
-.crudBody main .modal .modal-content span {
+.crudBody .modal .modal-content span {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -977,44 +968,31 @@ body h5 a {
   z-index: 2;
 }
 
-.categoryCrud {
-  color: #ffffff;
-}
-.categoryCrud h1 {
-  text-align: center;
-}
-.categoryCrud .catCrud {
-  display: flex;
-  justify-content: center;
-}
-.categoryCrud .catCrud table tbody tr td {
-  padding: 10px;
-  border-radius: 5px;
-}
-.categoryCrud .btn-danger {
+.btn-danger {
   background-color: #dc3545;
   color: #fff;
   margin-left: 10px;
   transition: all 0.2s ease-in-out;
 }
-.categoryCrud .btn-danger:hover {
+.btn-danger:hover {
   scale: 1.2;
 }
-.categoryCrud .newCat {
+
+.newCat {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px 0 30px 0;
 }
-.categoryCrud .newCat button {
+.newCat button {
   transition: all 0.2s ease-in-out;
   margin-bottom: 10px;
 }
-.categoryCrud .newCat button:hover {
+.newCat button:hover {
   color: #ffffff;
   scale: 1.2;
 }
-.categoryCrud .newCat input {
+.newCat input {
   width: 40%;
   border-radius: 5px;
   text-align: center;

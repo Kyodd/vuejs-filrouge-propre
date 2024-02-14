@@ -217,6 +217,9 @@
           <select name="category" id="category" v-model="tempTable.category">
             <option v-for="category in categories" :value="category">{{ category }}</option>
           </select>
+
+          <label for="editPicture">Modifier l'image:</label>
+          <input class="picInput" type="text" id="editPicture" v-model="tempTable.imageUrl" @click="editProdImage()"><br>
           <br>
           
           <input type="submit" value="Enregistrer" class="btn btn-success confBtn" @click="editProduct()">
@@ -245,7 +248,7 @@
           </select>
           
           <label for="image">Image Produit: (Url image) </label><br>
-          <input type="text" name="image" id="image" v-model="tempTable.imageUrl" @click="addProdImage()"><br>
+          <input class="picInput" type="text" name="image" id="image" v-model="tempTable.imageUrl" @click="addProdImage()"><br>
           
           <br>
           

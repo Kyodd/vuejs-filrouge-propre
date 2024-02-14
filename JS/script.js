@@ -612,6 +612,15 @@ const app = Vue.createApp({
             this.tempTable = { ...this.product[index] };
           }
         },
+
+        editProdImage(){
+          if(imageUrl){
+            this.tempTable.imageURL = imageUrl
+          } else {
+            alert("Veuillez saisir une URL valide")
+          }
+        },
+
         openAddModal() {
           if (this.sellerConnected || this.adminConnected) {
             this.addModal = true;
