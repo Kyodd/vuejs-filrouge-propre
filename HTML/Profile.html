@@ -171,7 +171,7 @@
         <Button class="btn btn-success" @click="addProfilePic(profilePicUrl)" v-if="editProfilePic" v-cloak>Valider</Button>
         <button class="btn btn-danger" @click="removeProfilePic()" v-if="editProfilePic" v-cloak>Retirer la photo du profil</button>
         <button class="btn btn-danger" @click="closeProfilePicEdit()" v-if="editProfilePic" v-cloak>Annuler</button>
-        <img :src="connectedUser.profilePic" alt="userPic" v-if="connectedUser.profilePic.length > 1" v-cloak>
+        <img :src="connectedUser.profilePic" alt="userPic" v-if="connectedUser.profilePic && connectedUser.profilePic.trim() !== ''" v-cloak>
       </div>
 
 
