@@ -209,9 +209,9 @@
           <div class="orderHistory">
             <div class="orderCard" v-for="(order, index) in orderHistory" :key="index" v-cloak>
               <h3>Commande N°{{ order.id }}</h3>
-              <p>Date: {{ order.date }}</p>
-              <p>Montant hors taxes: {{ order.totalPriceNoVAT }} €</p>
-              <p>Montant total (TTC): {{ order.totalPrice }} €</p>
+              <p><strong>Date: </strong>{{ order.date }}</p>
+              <p><strong>Montant hors taxes: </strong>{{ order.totalPriceNoVAT }} €</p>
+              <p><strong>Montant total (TTC): </strong>{{ order.totalPrice }} €</p>
               <span v-if="!order.delivered" class="awaiting">En attente de livraison</span>
               <br>
               <span v-if="order.delivered" class="delivered">Livrée</span>
@@ -222,7 +222,8 @@
                   <div class="product">
                     <p class="prodName">{{ product.name }}</p>
                     <p>{{ product.price }} €</p>
-                    <p>Quantité: {{ product.quantity }}</p>
+                    <p><strong>Quantité: </strong> {{ product.quantity }}</p> 
+                    <p><strong>Total produit: </strong> {{ product.price * product.quantity }} €</p> <br>
                   </div>
                 </div>
               </div>

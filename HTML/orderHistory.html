@@ -180,6 +180,7 @@
                             <p class="prodName">{{ product.name }}</p>
                             <p>{{ product.price }} €</p>
                             <p>Quantité: {{ product.quantity }}</p>
+                            <p><strong>Total produit:</strong>{{ product.quantity * product.price }}</p>
                             <p v-if="isDelivered">ICI</p>
                         </div>
                     </div>
