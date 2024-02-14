@@ -1214,9 +1214,15 @@ body h5 a {
   gap: 10px;
 }
 .profilePage .profile .userOrders .orderHistory .orderCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 3px solid white;
   border-radius: 15px;
   padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
   margin-bottom: 10px;
 }
 .profilePage .profile .userOrders .orderHistory .orderCard .awaiting {
