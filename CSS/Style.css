@@ -1130,6 +1130,9 @@ body h5 a {
   margin-bottom: 20px;
   gap: 10px;
 }
+.profilePage .profilePicBox input {
+  width: 50%;
+}
 .profilePage .profilePicBox .btn-success {
   background-color: #28a745;
   color: #fff;
@@ -1153,7 +1156,6 @@ body h5 a {
   scale: 1.2;
 }
 .profilePage .profilePicBox img {
-  width: 200px;
   height: 200px;
 }
 .profilePage .profile {
@@ -1169,10 +1171,6 @@ body h5 a {
 }
 .profilePage .profile h3 {
   margin: 20px auto 20px;
-}
-.profilePage .profile img {
-  width: 300px;
-  height: 300px;
 }
 .profilePage .profile .profileCard {
   width: 100%;
@@ -1422,6 +1420,8 @@ body h5 a {
   transition: all 0.2s ease-in-out;
   color: #ffffff;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 .ordersCrud button:hover {
   scale: 1.2;
